@@ -164,3 +164,90 @@ vars) before this bot can trade or alert normally.
 **HOLD.** Day 0, no verified edge with sufficient R:R; geopolitical
 headline risk argues for patience. Will revisit energy/semis watchlist
 ideas once a clean setup with defined entry/stop/target confirms.
+
+## 2026-07-20 21:15 UTC — Pre-market Research (2nd re-run today)
+
+### Infra note
+- Alpaca reachable; account/positions/orders pulled successfully.
+- `PERPLEXITY_API_KEY` still unset -> `scripts/perplexity.sh` exited 3 as
+  designed; fell back to native WebSearch for all queries below.
+- `CLICKUP_API_KEY`/`CLICKUP_WORKSPACE_ID`/`CLICKUP_CHANNEL_ID` still unset
+  -> `scripts/clickup.sh` will use its local `DAILY-SUMMARY.md` fallback.
+- This run landed only ~51 min after the prior 20:24 UTC entry (both
+  labeled "pre-market" despite firing well after the US cash open at
+  13:30 UTC) — market context below is materially unchanged from that
+  entry; treat this as a confirmation pass, not new information.
+
+### Account
+- Equity: $100,000 | Cash: $100,000 | Buying power: $400,000 |
+  Options buying power: $100,000
+- Positions: none | Open orders: none | Daytrade count: 0
+- Still Day 0 — no trade has been entered yet.
+
+### Market Context (WebSearch fallback)
+- Oil: WTI ~$82.21/bbl (-0.34%), Brent ~$87.72/bbl (-0.44%) — unchanged
+  from the last run; still elevated on Iran-conflict supply risk.
+- S&P 500 futures/session: premarket showed +0.13% (SPY +0.44% premarket,
+  68% odds of an "up" open per one prediction-market source), but same-day
+  summaries also show the cash session closing lower — S&P 500 -0.19% to
+  7,443.40, Dow -0.59%, Nasdaq -0.05%. Search results are blending
+  premarket and full-day data for the same date; treat as noisy/
+  headline-driven rather than a clean directional read.
+- VIX: opened ~17.2, trading in the 17-18 range — elevated vs. calm-market
+  sub-15 but off Friday's ~18-19 spike.
+- Catalysts: US-Iran conflict still escalating — 9th straight day of US
+  strikes, Iran retaliated by bombing Kuwait, Houthi forces declared a
+  "maritime embargo" on Saudi oil exports; a mediator-proposed 10-day
+  ceasefire has not been accepted by both sides. Trump said Iran "will
+  pay" for US casualties. Chip stocks bouncing on peace-talk hope headlines
+  even as the broader conflict continues.
+- Earnings: ~40 companies report today (incl. STLD, RYAAY) but no major
+  premarket-specific names confirmed; real earnings-season catalyst is
+  Tesla/Alphabet/ServiceNow/IBM/Intel/Texas Instruments/AT&T/Verizon/
+  T-Mobile/Comcast later this week, not today.
+- Economic calendar: no CPI/PPI/jobs print confirmed for today; FOMC not
+  until July 28-29 — low scheduled-macro risk, high geopolitical-headline
+  risk, same as last run.
+- Sector momentum: mixed/conflicting signals — Energy still +22% YTD in
+  one source but another flags large-cap energy names down 13% recently;
+  Healthcare holding up as a flight-to-safety trade. Broader takeaway
+  unchanged: leadership is extremely narrow (~10 mega-cap AI names ≈78%
+  of S&P YTD return through mid-May), so momentum entries carry elevated
+  whipsaw/reversal risk either direction.
+
+### Trade Ideas
+1. Energy (e.g. XLE) — catalyst: Strait of Hormuz/Iran supply-risk premium
+   keeping oil bid. Framework only (no live quote pulled): entry near
+   market, stop 7-10% below entry per Core Rule #3, target sized for
+   >=2:1 R:R. Watchlist only — conflicting momentum signals (some sources
+   show energy large-caps down double digits recently) argue against
+   sizing today.
+2. Semis/chip bounce (SOXX or single names) — catalyst: pre-earnings
+   positioning ahead of this week's Big Tech prints (Tesla, Alphabet,
+   Intel). High headline-reversal risk given ongoing Iran conflict; not
+   actionable without a confirmed technical setup.
+3. No options idea today — Day 0, zero existing exposure, and the two
+   equity ideas above are unconfirmed watchlist items, not qualified
+   entries; adding options exposure before a stock-side setup is validated
+   would be premature per Core Rule #10 (patience > activity).
+
+### Risk Factors
+- Active, escalating US-Iran conflict (9 days of strikes, Kuwait bombed,
+  Saudi oil "embargo" threat) — two-way gap risk on any
+  escalation/de-escalation headline.
+- Search data for "today" is internally inconsistent (premarket-gain
+  reports vs. same-day-close-lower reports) — a sign the underlying
+  sources are noisy/stale for same-day queries; do not treat any single
+  figure above as precise.
+- Narrow market breadth (mega-cap AI concentration) raises whipsaw risk
+  for any momentum-chasing entry.
+- Big Tech earnings week (Tesla, Alphabet, IBM, Intel, TXN) — pre-earnings
+  positioning is speculative; better to wait for confirmed prints.
+- ClickUp/Perplexity creds still missing — degrades alerting and primary
+  research path; not a blocker for today's HOLD but a standing infra gap.
+
+### Decision
+**HOLD.** No material change from the 20:24 UTC entry — still Day 0, still
+no verified R:R>=2:1 setup, still elevated geopolitical/headline risk.
+Watchlist ideas (energy, semis) carry forward; will act only once a clean
+technical setup with defined entry/stop/target confirms.
