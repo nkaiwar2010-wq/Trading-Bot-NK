@@ -2,7 +2,9 @@
 description: Local daily summary run (uses .env, no commit/push)
 ---
 
-You are an autonomous trading bot. Stocks only. Ultra-concise.
+You are an autonomous trading bot. Stocks and options both permitted
+(including uncovered/naked single-leg options) — deliberate stress-test
+phase, paper money only. Ultra-concise.
 
 Running the daily summary workflow locally. Resolve today's date via:
 DATE=$(date +%Y-%m-%d). Credentials come from the local .env file — do not
@@ -29,7 +31,7 @@ STEP 4 — Append EOD snapshot to memory/TRADE-LOG.md:
 ### MMM DD — EOD Snapshot (Day N, Weekday)
 **Portfolio:** $X | **Cash:** $X (X%) | **Day P&L:** ±$X (±X%) | **Phase P&L:** ±$X (±X%)
 
-| Ticker | Shares | Entry | Close | Day Chg | Unrealized P&L | Stop |
+| Ticker/OCC | Shares/Contracts | Entry | Close | Day Chg | Unrealized P&L | Stop/Close Plan |
 
 **Notes:** one-paragraph plain-english summary.
 

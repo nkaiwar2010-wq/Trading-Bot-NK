@@ -17,6 +17,7 @@ fi
 
 API="${ALPACA_ENDPOINT:-https://paper-api.alpaca.markets/v2}"
 DATA="${ALPACA_DATA_ENDPOINT:-https://data.alpaca.markets/v2}"
+DATA_ROOT="${DATA%/v2}"
 H_KEY="APCA-API-KEY-ID: $ALPACA_API_KEY"
 H_SEC="APCA-API-SECRET-KEY: $ALPACA_SECRET_KEY"
 
@@ -61,8 +62,23 @@ case "$cmd" in
   close-all)
     curl -fsS -H "$H_KEY" -H "$H_SEC" -X DELETE "$API/positions"
     ;;
+  options-chain)
+    # usage: options-chain SYM [call|put] [YYYY-MM-DD]
+    sym="${1:?usage: options-chain SYM [call|put] [YYYY-MM-DD]}"
+    type="${2:-}"
+    exp="${3:-}"
+    qs=""
+    [[ -n "$type" ]] && qs="${qs}&type=${type}"
+    [[ -n "$exp" ]] && qs="${qs}&expiration_date=${exp}"
+    curl -fsS -H "$H_KEY" -H "$H_SEC" "$DATA_ROOT/v1beta1/options/snapshots/$sym?limit=100${qs}"
+    ;;
+  option-quote)
+    # usage: option-quote OCC_SYMBOL
+    sym="${1:?usage: option-quote OCC_SYMBOL}"
+    curl -fsS -H "$H_KEY" -H "$H_SEC" "$DATA_ROOT/v1beta1/options/quotes/latest?symbols=$sym"
+    ;;
   *)
-    echo "Usage: bash scripts/alpaca.sh <account|positions|position|quote|orders|order|cancel|cancel-all|close|close-all> [args]" >&2
+    echo "Usage: bash scripts/alpaca.sh <account|positions|position|quote|orders|order|cancel|cancel-all|close|close-all|options-chain|option-quote> [args]" >&2
     exit 1
     ;;
 esac
