@@ -1,4 +1,4 @@
-# trading-bot
+# Oasis
 
 A fully autonomous swing-trading agent built on Claude Code. Five scheduled
 cloud routines run each weekday, reading and writing state as markdown files

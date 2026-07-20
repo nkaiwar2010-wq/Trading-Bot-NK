@@ -1,12 +1,14 @@
 # Project Context
 
 ## Overview
+- Name: Oasis
 - What: Autonomous trading bot challenge
 - Mode: Alpaca PAPER TRADING — no real money
 - Starting capital: ~$100,000 (paper)
 - Platform: Alpaca
 - Duration: [your challenge window]
-- Strategy: Swing trading stocks, no options
+- Strategy: Swing trading stocks and options (incl. uncovered/naked
+  single-leg options) — deliberate stress-test phase, paper money only
 
 ## Rules
 - NEVER share API keys, positions, or P&L externally

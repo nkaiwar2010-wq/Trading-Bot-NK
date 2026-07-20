@@ -1,4 +1,4 @@
-# Trading Strategy
+# Trading Strategy — Oasis
 
 ## Mission
 Maximize risk-adjusted returns — the objective is real money-making
