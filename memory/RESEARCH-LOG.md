@@ -100,3 +100,67 @@ egress blocker for follow-up; it needs to be resolved (session network
 policy allowlist for `paper-api.alpaca.markets`, `data.alpaca.markets`,
 `api.perplexity.ai`, `api.clickup.com`, and setting the four missing env
 vars) before this bot can trade or alert normally.
+
+## 2026-07-20 20:24 UTC — Pre-market Research (re-run)
+
+### Infra note
+- Alpaca now reachable (unlike the earlier run above) — account/positions/
+  orders pulled successfully this run.
+- `PERPLEXITY_API_KEY` still unset -> `scripts/perplexity.sh` exited 3 as
+  designed; fell back to native WebSearch for all queries below.
+- `CLICKUP_API_KEY`/`CLICKUP_WORKSPACE_ID`/`CLICKUP_CHANNEL_ID` still unset
+  -> `scripts/clickup.sh` will use its local `DAILY-SUMMARY.md` fallback
+  instead of posting to ClickUp Chat.
+
+### Account
+- Equity: $100,000 | Cash: $100,000 | Buying power: $400,000
+- Positions: none | Open orders: none | Daytrade count: 0
+- Day 0 — bot has not entered a position yet.
+
+### Market Context (WebSearch fallback)
+- Oil: WTI ~$82.21/bbl (-0.34%), Brent ~$87.72/bbl (-0.44%); briefly topped
+  $90 Brent over the weekend on US-Iran strikes before easing on renewed
+  diplomatic-talk headlines.
+- S&P 500 futures: mixed/modestly higher (~+0.13% ES), Nasdaq futures
+  supported by a chip-sector bounce; conflicting reports of session direction
+  — sentiment fragile, headline-driven.
+- VIX: ~17.2 (range 16.15–17.56 today), down from Friday's ~18-19 spike but
+  still elevated vs. typical calm-market sub-15 levels.
+- Catalysts: fresh US airstrikes on Iran + another US service-member death;
+  Yemeni forces declared a "maritime embargo" on Saudi Arabia; chip stocks
+  recovering ahead of Big Tech earnings (Tesla, Alphabet, Intel, IBM) later
+  this week.
+- Earnings before open: none major confirmed for today specifically;
+  AGNC and others report after close today; earnings season accelerates
+  Tue-Thu (73/134/169 companies).
+- Economic calendar: no CPI/PPI/jobs print confirmed for today; FOMC meets
+  July 28-29 (not this week). No major scheduled data release found for
+  today — low macro-print risk, high geopolitical-headline risk.
+- Sector momentum: Energy (+22% YTD) and Healthcare (flight-to-safety) are
+  YTD leaders; broader rally still highly concentrated in ~10 mega-cap
+  AI/tech names (~78% of S&P YTD return through mid-May) — narrow breadth,
+  fragile leadership.
+
+### Trade Ideas
+1. Energy sector (e.g. XLE or large-cap E&P) — catalyst: Strait of
+  Hormuz/Iran supply-risk premium — flagged as a watchlist idea only;
+  no entry sized today given only Day 0 and 0 verified R:R setups pulled.
+2. Semis/chip bounce (post-selloff) — catalyst: pre-earnings positioning
+  ahead of Tesla/Alphabet/Intel — high headline-reversal risk, not
+  actionable without clearer confirmation.
+
+### Risk Factors
+- Headline-driven, two-way volatility from the active US-Iran conflict —
+  both oil and equities can gap sharply on de-escalation or escalation news
+  intraday.
+- Market breadth is narrow (concentrated AI/mega-cap leadership) — chasing
+  the tape here has elevated whipsaw risk.
+- Big Tech earnings (Tesla, Alphabet, Intel, IBM) this week — pre-earnings
+  positioning is speculative; better to wait for prints.
+- ClickUp/Perplexity creds still missing — alerting and primary research
+  path degraded; flagging for follow-up (not blocking today's HOLD).
+
+### Decision
+**HOLD.** Day 0, no verified edge with sufficient R:R; geopolitical
+headline risk argues for patience. Will revisit energy/semis watchlist
+ideas once a clean setup with defined entry/stop/target confirms.
