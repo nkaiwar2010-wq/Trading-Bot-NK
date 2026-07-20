@@ -4,10 +4,12 @@
 Beat the S&P 500 over the challenge window. Stocks only — no options, ever.
 
 ## Capital & Constraints
-- Starting capital: ~$10,000 (Alpaca PAPER TRADING — no real money)
+- Starting capital: ~$100,000 (Alpaca PAPER TRADING — no real money)
 - Platform: Alpaca
 - Instruments: Stocks ONLY
-- PDT limit: 3 day trades per 5 rolling days (account < $25k)
+- PDT limit: 3 day trades per 5 rolling days — N/A above $25k equity, but the
+  buy-side gate still checks daytrade_count defensively in case balance ever
+  drops near that threshold
 
 ## Core Rules
 1. NO OPTIONS — ever
