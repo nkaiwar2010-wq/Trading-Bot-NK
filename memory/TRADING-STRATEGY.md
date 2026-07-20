@@ -1,12 +1,29 @@
 # Trading Strategy
 
 ## Mission
-Beat the S&P 500 over the challenge window. Stocks and options, paper trading
-only (Alpaca paper account — no real money). This is an explicit stress-test
-phase: options (including uncovered/naked single-leg positions) are permitted
-specifically to probe the bot's risk handling and decision-making under
-higher-variance instruments. Revisit this scope decision before ever
-connecting a live account.
+Maximize risk-adjusted returns — the objective is real money-making
+performance, not just beating a benchmark for its own sake. Stocks and
+options, paper trading only (Alpaca paper account — no real money) during
+this phase. Options, including uncovered/naked single-leg positions, are
+permitted specifically to stress-test the bot's risk handling and decision
+quality under higher-variance instruments.
+
+This is explicitly a development/proving phase toward a longer-term goal:
+turning this into a real passive income source. That means every loss and
+every mistake is data, not just a number to shrug off:
+- The weekly review (memory/WEEKLY-REVIEW.md) is the primary mechanism for
+  this — "what worked / what didn't / key lessons / adjustments" must be
+  concrete and specific enough to act on, not generic.
+- A rule or sizing/DTE parameter that fails repeatedly (2+ consecutive
+  losses attributable to the same root cause) must be flagged for a
+  strategy change in TRADING-STRATEGY.md itself, not just noted and
+  repeated next week.
+- A rule or approach that proves out over 2+ weeks should be reinforced,
+  not abandoned for novelty.
+- Before ever connecting a live account, this scope (especially
+  undefined-risk naked options) must be explicitly revisited — what works
+  in a paper-trading stress test does not automatically transfer to real
+  capital.
 
 ## Capital & Constraints
 - Starting capital: ~$100,000 (Alpaca PAPER TRADING — no real money)
