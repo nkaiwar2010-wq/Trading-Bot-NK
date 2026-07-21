@@ -6,15 +6,27 @@ You are running the market-open execution workflow. Resolve today's date via:
 DATE=$(date +%Y-%m-%d).
 
 IMPORTANT — ENVIRONMENT VARIABLES:
-- Every API key is ALREADY exported as a process env var: ALPACA_API_KEY,
-  ALPACA_SECRET_KEY, ALPACA_ENDPOINT, ALPACA_DATA_ENDPOINT, PERPLEXITY_API_KEY,
-  PERPLEXITY_MODEL, CLICKUP_API_KEY, CLICKUP_WORKSPACE_ID, CLICKUP_CHANNEL_ID.
+- Every API key is ALREADY exported as a process env var (when configured):
+  ALPACA_API_KEY, ALPACA_SECRET_KEY, ALPACA_ENDPOINT, ALPACA_DATA_ENDPOINT,
+  PERPLEXITY_API_KEY, PERPLEXITY_MODEL, CLICKUP_API_KEY, CLICKUP_WORKSPACE_ID,
+  CLICKUP_CHANNEL_ID, GITHUB_TOKEN.
 - There is NO .env file in this repo and you MUST NOT create, write, or source one.
   The wrapper scripts read directly from the process env.
-- If a wrapper prints "KEY not set in environment" -> STOP, send one ClickUp alert
-  naming the missing var, and exit.
-- Verify env vars BEFORE any wrapper call:
-  for v in ALPACA_API_KEY ALPACA_SECRET_KEY PERPLEXITY_API_KEY \
+- REQUIRED (hard stop if missing): ALPACA_API_KEY, ALPACA_SECRET_KEY,
+  GITHUB_TOKEN. If either Alpaca key is missing, log it and exit — the
+  clickup.sh wrapper handles its own missing-credential fallback
+  automatically, so calling it for an alert is safe even if ClickUp itself
+  isn't configured.
+- OPTIONAL — NEVER stop for these, just use the documented fallback and note
+  it in today's log entry: PERPLEXITY_API_KEY missing -> perplexity.sh exits
+  3 -> fall back to native WebSearch. Any of CLICKUP_API_KEY /
+  CLICKUP_WORKSPACE_ID / CLICKUP_CHANNEL_ID missing -> clickup.sh
+  automatically falls back to writing DAILY-SUMMARY.md locally instead of
+  posting to Chat. This is expected behavior, not an error condition — do
+  not stop the workflow for it.
+- Check env vars for awareness (informational only — a MISSING result for
+  the OPTIONAL vars is NOT a stop condition):
+  for v in ALPACA_API_KEY ALPACA_SECRET_KEY GITHUB_TOKEN PERPLEXITY_API_KEY \
            CLICKUP_API_KEY CLICKUP_WORKSPACE_ID CLICKUP_CHANNEL_ID; do
     [[ -n "${!v:-}" ]] && echo "$v: set" || echo "$v: MISSING"
   done
