@@ -251,3 +251,95 @@ ideas once a clean setup with defined entry/stop/target confirms.
 no verified R:R>=2:1 setup, still elevated geopolitical/headline risk.
 Watchlist ideas (energy, semis) carry forward; will act only once a clean
 technical setup with defined entry/stop/target confirms.
+
+## 2026-07-21 22:49 UTC — Pre-market Research (3rd re-run, effectively post-close)
+
+### Infra note
+- Alpaca reachable; account/positions/orders pulled successfully.
+- `PERPLEXITY_API_KEY` still unset -> `scripts/perplexity.sh` exited 3 as
+  designed; fell back to native WebSearch for all queries below.
+- `CLICKUP_API_KEY`/`CLICKUP_WORKSPACE_ID`/`CLICKUP_CHANNEL_ID` still unset
+  -> `scripts/clickup.sh` will use its local `DAILY-SUMMARY.md` fallback.
+- This run fired at 22:49 UTC — well after the US cash close (20:00 UTC).
+  WebSearch results for "today" are full-day recaps of the completed July 21
+  session, not premarket data. Treating this as an EOD/overnight-prep
+  entry rather than a true premarket read; tomorrow's premarket levels will
+  differ from what's captured here.
+
+### Account
+- Equity: $100,000 | Cash: $100,000 | Buying power: $400,000 | Options
+  buying power: $100,000
+- Positions: none | Open orders: none | Daytrade count: 0
+- Still Day 0/flat — no trade has been entered yet across three research
+  cycles today.
+
+### Market Context (WebSearch fallback, EOD recap for Jul 21)
+- Oil: WTI ~$83-84/bbl, Brent slipped below $89/bbl after surging ~6% over
+  the prior two sessions on US-Iran escalation (10th straight day of US
+  strikes; Iran hit Kuwait with missiles/drones); still up ~2% intraday
+  before easing on ceasefire-talk headlines.
+- Indices (close): S&P 500 +0.89% to 7,509; Nasdaq +1.29% to 25,837; Dow
+  +0.74% to 52,225 — snapped a three-session losing streak. Rally led by
+  memory-chip names (Micron +12%, SanDisk +14%) plus Nvidia commentary on
+  new chip designs shipping to customers.
+- VIX: ~17.05, roughly unchanged on the session — mid-band (12-20), calmer
+  than Friday's spike but still above typical sub-15 calm-market levels.
+- Catalysts: semiconductor/memory-chip strength offsetting geopolitical and
+  tariff risk; USTR Greer hinted new tariffs against several countries may
+  be coming; earnings beats from 3M and GM helped sentiment.
+- Earnings before open (Jul 21): 3M, Alaska Air, Annaly Capital, Capital
+  One, Danaher, GM, Halliburton, Northrop Grumman, Novartis, Charles
+  Schwab — GM beat Q2 estimates. Bigger tech prints (Tesla, IBM, Alphabet)
+  still upcoming later this week.
+- Economic calendar: today was FOMC-speaker-only (Bullard); CPI prints
+  tomorrow (Wed) 8:30am, PPI + jobless claims Thursday 8:30am, FOMC meeting
+  not until Jul 28-29. Next 48h carries real macro-print risk (CPI/PPI).
+- Sector momentum: Materials leading YTD (+22%), with Industrials, Staples,
+  Energy also showing relative strength; Healthcare holding up as
+  flight-to-safety. Tech, Communications, Discretionary, Financials lagging
+  on a sector-momentum basis even though today's session was led by
+  semis/memory names specifically — a divergence between today's single-day
+  leadership and multi-week sector momentum, worth flagging as noise vs.
+  trend.
+- No held positions, so no held-ticker news check applicable (account flat).
+
+### Trade Ideas
+1. Memory/semis bounce (e.g. MU, SNDK, or SOXX) — catalyst: today's
+   12-14% single-day surges on AI-demand/chip-design news. NOT actionable
+   as a chase-the-pop entry; day-after-12%+ moves have poor risk-adjusted
+   entry R:R and this run is already past close. Watchlist only: would
+   need a pullback/consolidation entry with defined stop (7-10% below
+   entry per Core Rule #3) and >=2:1 target before sizing.
+2. Materials sector momentum (e.g. XLB) — catalyst: +22% YTD leadership,
+   multi-week trend rather than single-day noise. Framework only (no live
+   intraday quote pulled this run): entry near market on next session open,
+   stop 7-10% below entry, target sized for >=2:1 R:R. Needs a fresh
+   technical check next session before sizing.
+3. No options idea today — flat account, two equity ideas above are still
+   unconfirmed watchlist items; CPI print tomorrow argues for waiting
+   through that catalyst before adding gamma-sensitive short-DTE exposure
+   per Core Rule #10 (patience > activity).
+
+### Risk Factors
+- CPI (tomorrow) and PPI/jobless claims (Thursday) are live macro catalysts
+  this week — elevated event risk for any position opened today.
+- Active US-Iran conflict (10 days of strikes, Kuwait hit) — continued
+  two-way gap risk in oil and broader risk sentiment on escalation/
+  de-escalation headlines.
+- Today's rally was narrow (memory/semis-led) — chasing it after the move
+  has weak R:R; divergence vs. broader sector-momentum leaders (Materials,
+  Industrials) worth watching for confirmation or reversal.
+- Big Tech earnings (Tesla, IBM, Alphabet) still ahead this week — another
+  source of post-close gap risk for anything correlated to mega-cap tech.
+- Run timing: this "premarket" cycle fired post-close (22:49 UTC); data
+  reflects completed session, not tomorrow's open — flagging for possible
+  schedule review, not a blocker for today's HOLD.
+- ClickUp/Perplexity creds still missing — degrades alerting and primary
+  research path; standing infra gap, not a blocker for today's HOLD.
+
+### Decision
+**HOLD.** Three research cycles today, still zero verified R:R>=2:1 setup
+with a live executable quote. Today's chip-driven rally is a chase risk,
+not a confirmed entry; CPI print tomorrow argues for patience before
+opening gamma-sensitive or leveraged exposure. Will revisit Materials
+sector-momentum and semis-pullback ideas next session with fresh quotes.
