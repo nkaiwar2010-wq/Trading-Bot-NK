@@ -16,6 +16,17 @@ No positions yet. Bot launches tomorrow. (Paper trading — no real money.)
 
 **Notes:** Flat day — account sits fully in cash with zero open positions and zero trades executed today or this week. Portfolio value is unchanged from yesterday's $100,000 baseline, so both Day P&L and Phase P&L are flat. No stops to manage since nothing is open. Capital remains available to deploy on the next qualifying setup per the strategy rulebook (max 3 new trades/week, 75-85% target deployment).
 
+### Jul 22 — EOD Snapshot (Day 3, Wednesday)
+
+**Portfolio:** $99,864.48 | **Cash:** $67,709.54 (67.8%) | **Day P&L:** -$135.52 (-0.14%) | **Phase P&L:** -$135.52 (-0.14%) | **Challenge:** -$135.52 of $50,000 target, 28 days left
+
+| Ticker/OCC | Shares/Contracts | Entry | Close | Day Chg | Unrealized P&L | Stop/Close Plan |
+|---|---|---|---|---|---|---|
+| XLE | 506 sh | $59.21 | $59.14 | +1.09% | -$35.32 (-0.12%) | 10% trailing stop GTC, stop $53.38 |
+| XLE260821C00058500 | 10 contracts | $2.33 | $2.23 | +16.75% | -$100.00 (-4.29%) | Close at -50% (~$1.165) or +50-100% gain |
+
+**Notes:** First trading day of the challenge — opened two XLE positions (506 shares stock + 10 long calls, $58.50 strike, 8/21 exp) on the confirmed energy-sector/oil-supply catalyst. Both positions are marginally underwater intraday ($35 and $100 respectively, combined -$135.52 / -0.14% of equity) despite XLE's underlying price rising ~1.1% today — the call's IV pulled back slightly from entry. Losses are trivial relative to the 8%-of-equity risk cap on either leg, well within Rule 3 tolerance. Cash sits at 67.8% (32.2% deployed), leaving room to add more positions toward the 85-100% deployment target. 2 trades today, 2 of 8 max positions open. Day 3 of 28 remaining to the Aug 19 deadline — on track this early, no pace concern yet given the trivial daily variance. PERPLEXITY_API_KEY and ClickUp creds still missing this cycle; no blocker.
+
 ## Jul 22 — Market-Open Execution (Day 3, Wednesday)
 
 **Challenge status:** Day 3 of 30. 28 days remaining to 2026-08-19 deadline. Equity $100,000 -> target $150,000. On track (early days, first trades of the challenge).
