@@ -541,3 +541,151 @@ top of an escalating Iran conflict pushing oil and VIX higher. No
 verified R:R>=2:1 setup with a live executable quote and a stable
 technical picture. Will revisit semis-continuation and energy/oil-linked
 ideas once CPI has cleared and reaction settles.
+
+## 2026-07-22 18:19 UTC — Pre-market Research (3rd cycle today)
+
+### Timing anomaly
+- This cycle fired at 18:19 UTC (2:19pm ET) — well after the 9:30am ET
+  open, ~100 min before the 4pm ET close. Despite the "pre-market" label,
+  this is live mid-session data, not an opening snapshot. Noting per infra
+  guidance rather than stopping the workflow.
+- Correction vs. the 11:09 UTC cycle's stated risk: there is NO CPI print
+  today. BLS's July CPI (June 2026 data) already released July 14; the
+  next release is Aug 12, 2026 (July data). The earlier "CPI at 8:30am ET
+  today" risk factor in this log appears to have been a misread — flagging
+  so it isn't repeated in future cycles.
+
+### Infra note
+- Alpaca reachable; account/positions/orders pulled successfully.
+- `PERPLEXITY_API_KEY` still unset -> `perplexity.sh` exits 3 as designed;
+  used native WebSearch for all queries below.
+- ClickUp creds still unset -> `clickup.sh` will use its local
+  `DAILY-SUMMARY.md` fallback. Standing infra gap, not a blocker.
+
+### Challenge Pace
+- Days remaining to 2026-08-19 deadline: 28.
+- Equity $100,000 vs. $150,000 target: $0 / $50,000 profit (0%).
+- Time elapsed: 3 days of 30 (~10-13%). Technically behind linear pace,
+  but this early a $0 delta is expected — the real signal is 3 straight
+  research cycles today (and multiple prior days) with zero trades opened.
+  Per Core Rule 11, bias toward action; this cycle found a cleaner setup
+  than prior cycles (see below) and recommends acting.
+
+### Account
+- Equity: $100,000 | Cash: $100,000 | Buying power: $400,000 (margin) |
+  Options buying power: $100,000
+- Positions: none | Open orders: none | daytrade_count: not returned by
+  this account endpoint; PDT gate is N/A regardless at $100k equity
+  (>> $25k threshold).
+
+### Market Context (WebSearch fallback)
+- Oil: Brent $94.13-95.47/bbl (+3.4-4.8%), WTI $86.85 (+3.0%), highest in
+  over a month. Driver: continued US-Iran strikes: Strait of Hormuz
+  (~20% of seaborne oil) reported still blocked/disrupted. Two-way
+  headline risk remains (any ceasefire reverses this fast).
+- Indices: S&P 500 ~7,509-7,541, choppy/mixed intraday (+0.2-0.9%
+  depending on source/timestamp), Dow +0.3%, Nasdaq -0.1% — market
+  digesting fresh tariffs + rising oil vs. a strong earnings season
+  (~88% beat rate). Chipmaker rebound (Nvidia +3%, SMCI +19.6%) lifted
+  S&P off session lows.
+- VIX: last confirmed close 18.65 (Jul 21); no fresh intraday print
+  confirmed via WebSearch this cycle. Elevated.
+- No CPI today (see Timing anomaly above). Econ calendar otherwise quiet
+  into the close.
+- Catalysts tonight: Alphabet (GOOG/GOOGL) + Tesla (TSLA) report after
+  the 4pm ET close (Alphabet call 4:30pm ET, Tesla webcast 5:30pm ET);
+  IBM also reports today. Single biggest overnight gap-risk driver for
+  anything tech/AI-sentiment-correlated.
+- Sector momentum: CLEAN signal this cycle (resolves prior cycles'
+  contradictory data) — Energy (XLE) is 2026's best-performing sector,
+  +29.4% YTD, +9% in July alone, overtaking Tech (+23% YTD, XLK -6.8% in
+  July on an AI-valuation-driven chip rout that today's rebound is
+  partially reversing). Energy leadership is catalyst-confirmed (oil
+  spike) and momentum-confirmed (YTD + monthly), not just one-day noise.
+- No held positions, so no held-ticker news check applicable.
+
+### Trade Ideas
+
+**1. XLE (Energy Select Sector SPDR) — long stock. ACTIONABLE.**
+- Catalyst: confirmed #1 YTD sector (+29.4%) and #1 July sector (+9%),
+  directly driven by the ongoing Iran conflict / Strait of Hormuz
+  disruption pushing Brent +3-4.8% and WTI +3% today. Unlike prior
+  cycles, sector data is consistent across sources this time.
+- Entry: ~$57.90 (current level, prior close $57.68, day range
+  $57.41-58.39, 52wk range $42.05-63.46 — near highs).
+- Stop: 7% below entry = $53.85 (initial); 10% GTC trailing stop placed
+  immediately on fill per Core Rule 4.
+- Target: $67 (+15.7%) as the initial reference; trailing stop (tighten
+  to 7% at +15%, 5% at +20% per Core Rule 6) manages the exit beyond
+  that rather than a hard cap.
+- Rule 3 (8%-of-equity max loss) calc: 8% x $100,000 = $8,000 max-loss
+  budget. At a 7% stop, that alone would allow ~1,975 sh — but Rule 2's
+  30%-of-equity notional cap binds first: 30% x $100,000 / $57.90 ≈ 518
+  sh, notional ≈ $29,992. Actual risk at 518 sh x $4.05/sh stop distance
+  = $2,098 (2.1% of equity) — well inside the 8% ceiling; notional cap
+  is the binding constraint here, not the loss cap.
+- R:R: $9.10 reward / $4.05 risk ≈ 2.25:1 — clears the 2:1 minimum.
+
+**2. XLE call option — defined-risk, same catalyst, smaller leveraged
+sleeve. ACTIONABLE (pending live chain confirmation).**
+- Strike: ~$58 (near-the-money). Expiration: ~2026-08-21 (30 DTE,
+  clears the >=7 DTE floor with room before the 2-DTE close/roll trigger).
+- Defined-risk: max loss = premium paid. Strike/premium here are
+  WebSearch-era estimates, NOT a live quote — market-open.md STEP 2 must
+  pull the actual chain (`options-chain XLE call 2026-08-21`) before
+  sizing/execution.
+- Rule 3 calc (illustrative, to be confirmed against live premium):
+  if premium ≈ $2.00-2.50/contract, 8%-of-equity budget ($8,000) would
+  allow ~32-40 contracts; recommend sizing well below that ceiling (e.g.
+  ~10 contracts, ≈$2,000-2,500 premium, ~2-2.5% of equity) to keep this
+  as a supplementary sleeve alongside idea #1, not a replacement for it.
+- Exit plan: close at -50% premium (stop) or +50-100% gain (target) per
+  Options Rules.
+
+**3. Semis (SOXX/NVDA) — WATCH ONLY, not actionable this cycle.**
+- Today's rebound (NVDA +3%, SMCI +19.6%) is real, but sits on top of a
+  rough July for the group (XLK -6.8% MTD on AI-valuation fears) and
+  directly ahead of GOOG/TSLA earnings tonight — a binary catalyst that
+  could swing broad tech/AI sentiment sharply either direction overnight.
+  Revisit after tonight's earnings reaction confirms a direction; entering
+  now means holding a tech-sentiment-correlated name through the single
+  largest overnight gap-risk event of the week.
+
+### Risk Factors
+- GOOG/TSLA (+IBM) report after tonight's close — largest gap-risk event
+  of the week for tech/AI-correlated names; XLE/oil is less directly
+  correlated, but a broadly risk-off reaction could still weigh on all
+  sectors at tomorrow's open.
+- Iran conflict / Strait of Hormuz disruption is two-way risk for the XLE
+  thesis itself — a ceasefire or de-escalation headline could reverse the
+  oil spike quickly; the 7%/10%-trailing stop is the explicit guardrail
+  for this.
+- Only ~100 min left in today's session at this cycle's fire time — any
+  entry today is a same-day-close-to-overnight hold, not a full session.
+- VIX last confirmed at 18.65 (Jul 21 close); no fresh intraday print
+  available without Perplexity — treat as elevated but not confirmed
+  higher today.
+- Execution scope: this pre-market research routine does not place
+  orders itself (see routines/market-open.md, a separate scheduled
+  workflow) — idea #1/#2 above are a recommendation for the next
+  execution-capable cycle to re-validate live and act on, not a completed
+  trade. If market-open.md does not fire again today given the late hour,
+  this recommendation should carry forward to tomorrow's pre-market/
+  market-open cycle, re-validated against tomorrow's open price.
+- Perplexity API key still missing — fell back to WebSearch; ClickUp
+  creds still missing — using local DAILY-SUMMARY.md fallback.
+
+### Decision
+**TRADE (recommend).** XLE long stock (idea #1), optionally paired with a
+smaller XLE call sleeve (idea #2), clears both the catalyst bar (clean,
+multi-source-confirmed #1 YTD/#1 monthly sector leadership tied directly
+to an active, ongoing oil-price catalyst) and the Rule 3 8%-loss-cap math
+(actual risk ≈2.1% of equity for idea #1) with a 2.25:1 R:R. This is the
+first cycle since the challenge started with an unambiguous, non-
+contradictory sector signal — prior HOLDs were justified by genuinely
+stacked event risk (CPI-that-turned-out-not-to-exist-today, earnings) or
+contradictory sector data; neither blocker applies to the XLE thesis
+specifically. Semis (idea #3) stay watch-only pending tonight's earnings
+reaction. Execution is out of scope for this routine — handing off to
+market-open.md (or tomorrow's cycle if today's session has effectively
+closed) to re-validate live quotes and execute per its own STEP 2-3 gates.
