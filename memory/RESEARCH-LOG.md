@@ -343,3 +343,107 @@ with a live executable quote. Today's chip-driven rally is a chase risk,
 not a confirmed entry; CPI print tomorrow argues for patience before
 opening gamma-sensitive or leveraged exposure. Will revisit Materials
 sector-momentum and semis-pullback ideas next session with fresh quotes.
+
+## 2026-07-22 07:36 UTC — Pre-market Research
+
+### Infra note
+- Alpaca reachable; account/positions/orders pulled successfully.
+- `PERPLEXITY_API_KEY` still unset -> `scripts/perplexity.sh` exited 3 as
+  designed; fell back to native WebSearch for all queries below.
+- `CLICKUP_API_KEY`/`CLICKUP_WORKSPACE_ID`/`CLICKUP_CHANNEL_ID` still unset
+  -> `scripts/clickup.sh` will use its local `DAILY-SUMMARY.md` fallback.
+  Standing infra gap across every run so far; not a blocker.
+
+### Account
+- Equity: $100,000 | Cash: $100,000 | Buying power: $100,000 | Options
+  buying power: $100,000
+- Positions: none | Open orders: none | Daytrade count: 0
+- Still Day 0/flat — no trade has been entered yet across four research
+  cycles now.
+
+### Market Context (WebSearch fallback)
+- Oil: WTI ~$84.29/bbl (+2.2% Jul 21), Brent ~$91.10-91.33/bbl (+2.1%),
+  climbing further on pessimism over US-Iran peace talks — another tanker
+  reportedly struck near the Strait of Hormuz and Houthi militants
+  threatening to block Saudi maritime traffic in the Red Sea. Two-way
+  headline-gap risk remains live and is intensifying, not fading.
+- Indices: S&P 500 futures trading ~7,514-7,554 (vs. Tue close 7,509),
+  modestly firmer premarket. Tuesday's cash session: S&P +0.89% to 7,509,
+  Nasdaq +1.29%, Dow +0.74%, led by chip/AI names; Asian markets extended
+  the rally overnight (MSCI APAC +1.3%, Kospi +4.6% on unwind of leveraged
+  shorts).
+- VIX: closed 18.65 Jul 21, up from ~17.05 the prior read — elevated and
+  rising into a CPI print, not the calm backdrop the last research cycle
+  described.
+- Catalysts: chip/AI rally still running; oil bid on Iran-conflict
+  pessimism; markets await Alphabet and Tesla earnings today (Jul 22),
+  with Meta/Microsoft/Amazon/Apple following next week.
+- Earnings before open today: IBM, Texas Instruments, ServiceNow, AT&T,
+  GE Vernova, Otis, Northern Trust, CME Group, Moody's, PulteGroup, and
+  others. Alphabet and Tesla report after today's close — major event risk
+  for anything correlated to mega-cap tech/AI into the print.
+- Economic calendar: **CPI today at 8:30am ET** — the key macro print of
+  the week, released before/at the open. PPI + jobless claims tomorrow
+  (Thu) 8:30am. FOMC meeting not until Jul 28-29; Fed speakers this week
+  include Kashkari (Wed) and Waller (Thu).
+- Sector momentum: conflicting reads across sources this cycle — prior
+  entries had Materials/Industrials/Energy/Staples leading YTD with
+  Healthcare as flight-to-safety; today's search also surfaced an Energy
+  +22%-YTD claim alongside a note that Energy has since lagged (large caps
+  -13%) by June, i.e. stale/contradictory YTD figures depending on the
+  source's as-of date. Treating sector-momentum leadership as unconfirmed
+  this cycle rather than acting on it — needs a single clean as-of-today
+  source before using it to pick a trade.
+- No held positions, so no held-ticker news check applicable (account
+  still flat).
+
+### Trade Ideas
+1. Semis/AI continuation (e.g. SOXX, or a name that already digested
+   Tuesday's chip pop rather than chasing it) — catalyst: multi-day AI/chip
+   rally plus favorable overnight Asia read. NOT actionable pre-CPI: entry
+   before the 8:30am print risks a stop-out on a print-driven gap in
+   either direction. Watchlist only — would need a post-CPI, post-reaction
+   technical setup with 7-10% stop and >=2:1 target before sizing.
+2. Energy/oil-linked names (e.g. XLE, or majors) — catalyst: WTI/Brent up
+   another leg on Iran-conflict escalation (second tanker strike, Houthi
+   shipping threat). Two-way risk is high (any ceasefire headline reverses
+   the move fast), so this is a watch-only idea pending a defined technical
+   level, not a same-day entry.
+3. No options idea today — today stacks a major macro print (CPI at the
+   open) directly against megacap earnings after the close (Alphabet,
+   Tesla). Per Core Rule #10 (patience > activity) and the options DTE/
+   entry-checklist rules, opening gamma-sensitive short-DTE exposure into
+   this specific combination of catalysts is exactly the setup those rules
+   exist to avoid. Skip for today; revisit once CPI and the earnings prints
+   have cleared.
+
+### Risk Factors
+- CPI print today at the open is the single largest near-term catalyst —
+  elevated event risk for any position opened before or shortly after
+  8:30am ET.
+- Alphabet and Tesla report after today's close — gap risk into tomorrow
+  for anything correlated to mega-cap tech/AI, on top of CPI.
+- Active, apparently escalating US-Iran conflict (second tanker strike,
+  Houthi threat against Saudi shipping) — VIX rising to 18.65 alongside it;
+  continued two-way gap risk in oil and broader risk sentiment.
+- Sector-momentum data was contradictory across sources this cycle (see
+  Market Context) — do not size a trade off sector leadership until a
+  single reliable as-of-today source confirms it.
+- Four consecutive research cycles now with zero trades — worth a
+  deliberate check next cycle on whether the entry bar is calibrated
+  correctly (per TRADING-STRATEGY.md's guidance to flag a repeatedly-
+  failing rule/parameter), or whether market conditions (headline-driven,
+  event-stacked) have simply not offered a qualifying setup yet. Current
+  read: conditions, not calibration — today alone stacks CPI + megacap
+  earnings, a legitimate reason to wait.
+- ClickUp/Perplexity creds still missing — degrades alerting and primary
+  research path; standing infra gap, not a blocker for today's HOLD.
+
+### Decision
+**HOLD.** CPI print at the open plus Alphabet/Tesla earnings after close
+stack two major catalysts into one session — textbook patience-over-
+activity conditions per Core Rule #10. No verified R:R>=2:1 setup with a
+live executable quote and a stable technical picture. Will revisit
+semis-continuation and energy/oil-linked ideas once CPI and today's
+earnings have cleared and sector-momentum data can be confirmed from a
+single consistent source.
