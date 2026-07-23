@@ -53,3 +53,30 @@ No positions yet. Bot launches tomorrow. (Paper trading — no real money.)
 - **R:R:** ~1:1 to 2:1 depending on exit (-50% stop vs. +50-100% target)
 
 **Positions after trade:** 2 of 8 max (1 stock + 1 option). PERPLEXITY_API_KEY and ClickUp creds (CLICKUP_API_KEY/WORKSPACE_ID/CHANNEL_ID) still missing this cycle — no blocker, only affects research-cycle fallback (WebSearch) and notification fallback (local DAILY-SUMMARY.md).
+
+## Jul 23 — Market-Open Execution (Day 5, Thursday)
+
+**Challenge status:** Day 5 of 30. 27 days remaining to 2026-08-19 deadline. Equity $100,884.89 (pre-trade) -> target $150,000. On track (early days; +0.88% of the $50,000 target so far).
+
+**Catalyst (from RESEARCH-LOG 2026-07-23 11:10 UTC cycle):** Overnight escalation — Saudi-coast tanker attacks + fresh Trump Iran-strike threats — pushed Brent to $98.44/bbl (+4.6%), a 2-month+ high, strengthening the existing XLE/oil thesis rather than merely sustaining it. Multi-source-confirmed, non-contradictory catalyst.
+
+### Trade 3 — XOP long stock (new position, diversified energy exposure)
+- **Entry:** 169 sh @ $178.98 avg fill (market order), cost basis $30,247.62
+- **Sizing:** 30%-of-equity notional cap binds (30% x $100,884.89 / $179.07 live ask ≈ 169 sh)
+- **Stop:** 10% trailing stop GTC placed and confirmed, initial stop $161.127 (order id b05c2c6d-f057-4cb5-a47b-5feb226d35d4)
+- **Max-loss check (Rule 3):** 169 sh x $17.898 (10% trail distance) = $3,025.76 = 3.0% of $100,884.89 equity — well inside 8% cap
+- **Thesis:** Same oil-supply-shock catalyst as XLE, but XOP is E&P-weighted (pure upstream/production) vs. XLE's integrated-major weighting — adds a different beta to the same thesis rather than doubling down on the same basket
+- **Target:** $211 (+17.9% from entry); trailing stop tightens per Core Rule 6 (7% at +15%, 5% at +20%)
+- **R:R:** ~2.4:1 based on target vs. 10% trail stop distance
+
+### Trade 4 — XLE 61 call, 2026-08-21 exp (defined-risk sleeve, new position)
+- **OCC symbol:** XLE260821C00061000
+- **Entry:** 20 contracts @ $1.61 avg fill (market order), cost basis $3,220
+- **Strike/Expiration/DTE:** $61 strike, 2026-08-21 expiration, 29 DTE (clears >=7 DTE floor)
+- **Risk type:** Defined-risk (long call, buy-to-open) — max loss = premium paid = $3,220 = 3.19% of $100,884.89 equity, well inside 8% cap. Combined with existing $58.50-strike 10-lot (cost basis $2,330), total XLE call-sleeve exposure = $5,550 (5.50% of equity), still well under 8%.
+- **Thesis:** Same XLE/oil catalyst, incremental sleeve size — overnight escalation strengthens rather than merely sustains the existing thesis. XLE stock leg is already at the 30% Rule 2 notional cap, so the call sleeve is the only lever left for this thesis without breaching Rule 2.
+- **Stop/close plan:** Close at -50% premium (~$0.805/contract, ~$1,610 total) or +50-100% gain; option stops are not natively supported by Alpaca so this is enforced manually via midday/EOD workflows
+- **Target:** +50-100% gain per Options Rules; underlying reference target unchanged at $67
+- **R:R:** ~1:1 to 2:1 depending on exit
+
+**Positions after trade:** 4 of 8 max (2 stock + 2 options: XLE stock, XLE 58.5C, XLE 61C, XOP stock). Combined energy-sector concentration across all 4 positions on the same oil-supply-shock catalyst — flagged per Core Rule 9/10 as a bucket-level risk to monitor; no single-sector rule violated. PERPLEXITY_API_KEY and ClickUp creds still missing this cycle — no blocker, only affects research-cycle fallback (WebSearch) and notification fallback (local DAILY-SUMMARY.md).
