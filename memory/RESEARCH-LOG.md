@@ -689,3 +689,171 @@ specifically. Semis (idea #3) stay watch-only pending tonight's earnings
 reaction. Execution is out of scope for this routine — handing off to
 market-open.md (or tomorrow's cycle if today's session has effectively
 closed) to re-validate live quotes and execute per its own STEP 2-3 gates.
+
+## 2026-07-23 11:10 UTC — Pre-market Research (Day 5, Thursday)
+
+### Infra note
+- Alpaca reachable; account/positions/orders pulled successfully.
+- `PERPLEXITY_API_KEY` unset -> `perplexity.sh` confirmed exit 3 as
+  designed; used native WebSearch for all queries below. Standing gap,
+  not a blocker.
+- ClickUp creds (CLICKUP_API_KEY/WORKSPACE_ID/CHANNEL_ID) unset ->
+  `clickup.sh` uses local `DAILY-SUMMARY.md` fallback. Standing gap, not
+  a blocker.
+
+### Challenge Pace
+- Days remaining to 2026-08-19 deadline: 27.
+- Equity $100,314.72 vs. $150,000 target: +$314.72 / $50,000 profit
+  (0.63%).
+- Time elapsed: 4 of 30 days (~13.3%). Technically behind linear pace on
+  a $ basis, but consistent with prior cycles' assessment that early-days
+  variance is trivial — the two open XLE positions are net positive
+  ($414.92 stock + -$100 call = +$314.92 combined unrealized). Only
+  32.5% of equity is deployed (target 85-100%), so the actionable gap
+  this cycle is capital deployment, not thesis validity.
+
+### Account Snapshot
+- Equity: $100,314.72 | Cash: $67,709.54 (67.5%) | Buying power:
+  $67,709.54 | Options buying power: $67,709.54
+- Positions (2 of 8 max): XLE 506 sh @ $59.21 avg (current $60.03,
+  +$414.92 / +1.39%); XLE260821C00058500 x10 @ $2.33 avg (current $2.23,
+  -$100 / -4.29%)
+- Open orders: 1 — XLE 10% GTC trailing stop (sell-to-close, hwm $59.31,
+  stop $53.379)
+- daytrade_count: not returned by this account endpoint; PDT gate N/A at
+  this equity level regardless (>> $25k threshold)
+
+### Market Context (WebSearch fallback)
+- Oil: WTI ~$88-90/bbl, Brent surged to $98.44/bbl (+4.6%), highest since
+  late May — driven by reports of attacks on tankers off the Saudi coast
+  plus fresh Trump threats to escalate strikes on Iran. This is a
+  materially stronger catalyst than yesterday's already-bullish XLE
+  setup, not a fade of it.
+- Indices: S&P 500 futures ~7,541 (range 7,504.75-7,554), slightly lower
+  premarket. Drivers: 10yr yield near 2-month high (~4.63%), a surprise
+  2.6M bbl crude inventory build alongside 43-year-low emergency
+  reserves, and softening ADP private-hiring data.
+- VIX: last confirmed close 18.65 (Jul 21); no fresh intraday print
+  available via WebSearch — treat as elevated, not confirmed higher.
+- Econ calendar: no CPI/PPI print confirmed for today specifically; next
+  FOMC meeting is July 28-29 (next week, not today). Quiet calendar
+  otherwise.
+- Earnings: ~166 companies report today; Nasdaq (NDAQ) before the open
+  (consensus $0.98 EPS). No held positions report today.
+- Sector momentum: XLE +29.4% YTD / +9% July, still #1, now with a fresh
+  escalation catalyst overnight. XLK +23% YTD but -6.8% July on an
+  AI-valuation chip rout. Overnight: GOOGL -4%+ (capex guidance of
+  $195-205B spooked investors despite an EPS/revenue beat) and TSLA
+  -3.8% (EPS miss: $0.33 vs. $0.50 est.) in after-hours trading — both
+  confirm the semis/tech thesis stays two-way and unresolved, not a
+  green light.
+- Held-ticker news: XLE/oil catalyst is intensifying, not fading (see
+  above) — directly supports both open positions.
+
+### Trade Ideas
+
+**1. Add to XLE call sleeve — same catalyst, incremental size. ACTIONABLE.**
+- Catalyst: overnight escalation (Saudi-coast tanker attacks + fresh
+  Trump Iran-strike threats) pushed Brent to a 2-month+ high ($98.44,
+  +4.6%), strengthening the thesis behind the existing XLE stock + call
+  positions rather than just sustaining it.
+- Live chain pulled (`options-chain XLE call 2026-08-21`): XLE
+  260821C00061000 (strike $61, 29 DTE, delta 0.43) quoted bid $1.12 /
+  ask $1.21.
+- Entry: 20 contracts @ ~$1.21 ask, cost ≈ $2,420.
+- Strike/Expiration/DTE: $61 strike, 2026-08-21 expiration, 29 DTE
+  (clears the >=7 DTE floor, well clear of the 2-DTE close/roll trigger).
+- Risk type: Defined-risk (long call, buy-to-open).
+- Rule 3 calc: max loss = premium paid = $2,420 = 2.41% of $100,314.72
+  equity — well inside the 8% cap. Combined with the existing 10-lot
+  $58.50 strike position ($2,330 cost), total XLE call-sleeve exposure
+  would be $4,750 (4.73% of equity), still well under 8%.
+- Note: XLE stock position is already at $30,375 market value = 30.3% of
+  equity — at/over the Rule 2 30% notional cap, so no room to add to the
+  stock leg; the call sleeve is the only lever left for this specific
+  thesis without breaching Rule 2.
+- Stop/close plan: close at -50% premium (~$0.605/contract, ~$1,210
+  total) or +50-100% gain per Options Rules.
+- Target: +50-100% gain; underlying reference target unchanged at $67
+  (+9.9% from current $60.98 ask) from the original thesis.
+- R:R: ~1:1 to 2:1 depending on exit, consistent with the existing call
+  sleeve.
+
+**2. XOP (SPDR S&P Oil & Gas Exploration & Production ETF) — long stock,
+diversified energy exposure. ACTIONABLE.**
+- Catalyst: same oil-supply shock as XLE, but XOP is E&P-weighted (pure
+  upstream/production names) vs. XLE's integrated-major weighting
+  (XOM/CVX dominate XLE and are structurally less levered to spot crude
+  moves than E&P pure-plays) — this adds a different beta to the same
+  thesis rather than doubling down on the same basket.
+- Entry: ~$176 (last quote mid of bid $170.74 / ask $181.33, wide/stale
+  after-hours spread — must confirm live NBBO at market open before
+  sizing/execution).
+- Stop: 8% below entry ≈ $161.92; 10% GTC trailing stop per Core Rule 4.
+- Rule 2 sizing: 30% of equity / $176 ≈ 171 sh, notional ≈ $30,096 (30.0%
+  of equity) — but Rule 3 binds first at this stop distance.
+- Rule 3 calc: 8% x $100,314.72 = $8,025.18 max-loss budget. At an 8%
+  stop distance ($14.08/sh), that alone allows ~570 sh — Rule 2's
+  30%-notional cap (171 sh) binds instead. Actual risk at 171 sh x
+  $14.08/sh = $2,407.68 (2.4% of equity) — well inside the 8% ceiling.
+- Target: $211 (+20% from entry), trailing stop tightens per Core Rule 6
+  beyond that.
+- R:R: $35/sh reward vs. $14.08/sh risk ≈ 2.5:1 — clears the 2:1 minimum.
+- Caveat: correlated with idea #1/existing XLE positions (same oil
+  catalyst) — if entered alongside idea #1, combined energy-sector
+  exposure across 3 positions would be sector-concentrated; acceptable
+  under Core Rule 9 (follow sector momentum) but worth flagging so a
+  reversal in the Iran/Hormuz catalyst would hit all three at once.
+
+**3. Semis/AI (SMH/NVDA) — WATCH ONLY, not actionable this cycle.**
+- Yesterday's flagged binary catalyst (GOOG/TSLA earnings) has now
+  resolved, but bearishly for the mega-cap AI-capex names: GOOGL fell
+  >4% (capex guidance raised to $195-205B overshadowed an EPS/revenue
+  beat) and TSLA fell 3.8% (EPS miss) in after-hours trading. This
+  contradicts the same day's "AI buildout" bullish narrative (Samsung/SK
+  Hynix +3%+ in Asia on AI capex optimism) — a genuinely two-way,
+  unresolved signal, not a clean setup.
+- Per Core Rule 9/11, this doesn't clear the bar for a fresh entry this
+  cycle: no unambiguous catalyst direction. Revisit once the market's
+  open-session reaction to GOOGL/TSLA clarifies whether AI-capex names
+  are being sold as a group or just those two names idiosyncratically.
+
+### Risk Factors
+- Iran/Hormuz conflict is genuinely two-way for the XLE/XOP thesis: a
+  ceasefire or de-escalation headline could reverse the oil spike as
+  fast as it built (this already happened once this month per WebSearch
+  — an initial deal briefly reopened the Strait before the current
+  re-escalation). The 10% GTC trailing stops are the explicit guardrail.
+- Rising 10yr yield (~4.63%, 2-month high) is a broad equity headwind
+  independent of the energy thesis — could cap index-wide upside even if
+  XLE/XOP work on an absolute basis.
+- Surprise 2.6M bbl crude inventory build is a mild bearish data point
+  sitting underneath the bullish geopolitical catalyst — a reminder the
+  supply-disruption narrative isn't universally confirmed by all data
+  this cycle.
+- Adding idea #1 and/or #2 alongside the existing 2 XLE positions
+  concentrates further into a single sector/catalyst (oil-supply shock) —
+  a sector reversal hits everything at once. Core Rule 10 (exit-sector-
+  after-2-failed-trades) doesn't apply since XLE is working, but this is
+  a bucket-level concentration risk to keep in mind.
+- ~166 earnings reports today create broad single-name gap risk
+  independent of the energy/macro picture, though none affect currently
+  held tickers.
+- Perplexity API key still missing — fell back to WebSearch; ClickUp
+  creds still missing — using local DAILY-SUMMARY.md fallback.
+
+### Decision
+**TRADE (recommend).** Both idea #1 (add to XLE call sleeve, 2.41% of
+equity risk) and idea #2 (XOP long stock, diversified energy exposure,
+2.4% of equity risk) clear the catalyst bar (overnight escalation
+strengthens rather than merely sustains the existing thesis) and the
+Rule 3 8%-loss-cap math with comfortable margin. Capital deployment
+(32.5% currently vs. 85-100% target) is the binding constraint this
+cycle, not thesis quality — both ideas add controlled, defined-risk
+exposure without breaching Rule 2's 30%-notional cap (XLE stock leg is
+already at that cap, hence why idea #1 uses the call sleeve rather than
+more shares). Idea #3 (semis) stays WATCH ONLY — GOOGL/TSLA's post-
+earnings reaction was resolved but bearish/contradictory, not a clean
+signal. Execution is out of scope for this routine — handing off to
+market-open.md (or tomorrow's cycle) to re-validate live quotes/premiums
+and execute per its own gates.
