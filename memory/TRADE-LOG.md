@@ -93,3 +93,22 @@ No positions yet. Bot launches tomorrow. (Paper trading — no real money.)
 | XLE260821C00061000 | 20 contracts | $1.61 | $1.24 | -22.98% | -$740.00 (-22.98%) | Close at -50% (~$0.805) or +50-100% gain |
 
 **Notes:** Choppy day — two new positions opened this morning (XOP stock, XLE 61C) added to the existing XLE stock + 58.5C sleeve, bringing total exposure to 4 of 8 max positions, all on the same energy/oil-supply-shock thesis. Portfolio equity closed at $98,807.70, down -$1,056.78 (-1.06%) on the day and -$1,192.30 (-1.19%) since challenge start — the day's ClickUp-side move was overwhelmingly wiped out by the newer XLE 61C call, which is down -22.98% ($740 unrealized loss) since this morning's entry and is now roughly halfway to its -50% stop threshold (~$0.805/contract); it did not trigger today and no action was taken, but it's the position to watch first tomorrow. XOP stock is also underwater -1.88% but well inside its 10% trailing stop. The older XLE stock and 58.5C call are both green on the day. Cash sits at 34.7% (65.3% deployed), still under the 85-100% target range. Trades today: 2 (XOP stock, XLE 61C). Day 5 of 30, 27 days left to the Aug 19 deadline — still very early in the 28-day challenge window; a single down day is not a pace concern, but the concentrated single-thesis exposure across all 4 positions remains a flagged risk per Core Rule 9/10. PERPLEXITY_API_KEY and ClickUp creds still missing this cycle — no blocker, only affects research-cycle fallback (WebSearch) and notification fallback (local DAILY-SUMMARY.md).
+
+## Jul 24 — Market-Open Execution (Day 6, Friday)
+
+**Challenge status:** Day 6 of 30. 26 days remaining to 2026-08-19 deadline. Equity $99,732.88 (pre-trade, live) -> target $150,000. Slightly behind flat pace but not a pace concern this early.
+
+**Catalyst (confirmed live, re-validating the WATCH item from RESEARCH-LOG 2026-07-24 11:12 UTC pre-market cycle):** SLB (Schlumberger) reported Q2 2026 EPS of $0.55 vs. $0.52 est (beat), a genuine relief-rally reaction confirmed via live quote — stock trading ~$50.6-50.7 vs. ~$46.99-47.24 pre-earnings level (+~7-8%), holding the gap ~9 minutes into market open, not fading. This is a distinct, idiosyncratic earnings catalyst (not pure oil-price beta like the existing XLE/XOP book) and clears the "confirmed direction" bar the pre-market cycle explicitly deferred to this workflow. Semis/AI (SMH/NVDA/GOOGL) remained two-way/negative per WebSearch (Nasdaq -1.9% Thursday, futures pointed to further losses Friday) — skipped, still doesn't clear Core Rule 9/11.
+
+### Trade 5 — SLB 52 call, 2026-08-21 exp (defined-risk sleeve, new position, new underlying)
+- **OCC symbol:** SLB260821C00052000
+- **Entry:** 20 contracts @ $1.65 avg fill (market order), cost basis $3,300
+- **Strike/Expiration/DTE:** $52 strike (delta ~0.42 at entry, modestly OTM), 2026-08-21 expiration, 28 DTE (clears >=7 DTE floor)
+- **Risk type:** Defined-risk (long call, buy-to-open) — max loss = premium paid = $3,300 = 3.31% of $99,732.88 equity (well inside the 8% cap of $7,978.63)
+- **Thesis:** Confirmed post-earnings beat + positive, held price reaction — oilfield-services name correlated to but distinct from the existing pure oil-price-beta book (XLE/XOP), so this adds a genuinely different catalyst rather than concentrating further on the same one
+- **Stop/close plan:** Close at -50% premium (~$0.825/contract, ~$1,650 total) or +50-100% gain; option stops are not natively supported by Alpaca so this is enforced manually via midday/EOD workflows
+- **Target:** +50-100% gain per Options Rules
+- **R:R:** ~1:1 to 2:1 depending on exit
+- **Data note:** Alpaca's position-mark endpoint showed a stale/lagged `current_price` (~$1.14, implying a false -31% unrealized loss) immediately after fill; live bid/ask re-check (`option-quote`) showed $1.40/$1.67 (mid ~$1.535), consistent with a normal small spread-cross from the $1.65 fill, not a real loss. Same stale-quote artifact flagged in today's pre-market RESEARCH-LOG for the underlying stock quotes — treat position-endpoint marks on this account with caution intraday; live bid/ask is the source of truth.
+
+**Positions after trade:** 5 of 8 max (2 stock + 3 options: XLE stock, XLE 58.5C, XLE 61C, XOP stock, SLB 52C). XLE 61C re-checked live at $1.40/$1.49 (mid ~$1.45) — well above its -50% stop trigger (~$0.805), no action needed today. PERPLEXITY_API_KEY and ClickUp creds still missing this cycle — no blocker, using WebSearch fallback and local DAILY-SUMMARY.md fallback respectively.
