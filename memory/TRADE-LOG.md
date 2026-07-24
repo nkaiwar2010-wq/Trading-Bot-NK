@@ -112,3 +112,17 @@ No positions yet. Bot launches tomorrow. (Paper trading — no real money.)
 - **Data note:** Alpaca's position-mark endpoint showed a stale/lagged `current_price` (~$1.14, implying a false -31% unrealized loss) immediately after fill; live bid/ask re-check (`option-quote`) showed $1.40/$1.67 (mid ~$1.535), consistent with a normal small spread-cross from the $1.65 fill, not a real loss. Same stale-quote artifact flagged in today's pre-market RESEARCH-LOG for the underlying stock quotes — treat position-endpoint marks on this account with caution intraday; live bid/ask is the source of truth.
 
 **Positions after trade:** 5 of 8 max (2 stock + 3 options: XLE stock, XLE 58.5C, XLE 61C, XOP stock, SLB 52C). XLE 61C re-checked live at $1.40/$1.49 (mid ~$1.45) — well above its -50% stop trigger (~$0.805), no action needed today. PERPLEXITY_API_KEY and ClickUp creds still missing this cycle — no blocker, using WebSearch fallback and local DAILY-SUMMARY.md fallback respectively.
+
+### Jul 24 — EOD Snapshot (Day 6, Friday)
+
+**Portfolio:** $100,003.59 | **Cash:** $30,940.65 (30.9%) | **Day P&L:** +$1,195.89 (+1.21%) | **Phase P&L:** +$3.59 (+0.00%) | **Challenge:** $3.59 of $50,000 target, 26 days left
+
+| Ticker/OCC | Shares/Contracts | Entry | Close | Day Chg | Unrealized P&L | Stop/Close Plan |
+|---|---|---|---|---|---|---|
+| XLE | 506 sh | $59.21 | $59.69 | +0.52% | +$242.88 (+0.81%) | 10% trailing stop GTC, stop $54.41 |
+| XLE260821C00058500 | 10 contracts | $2.33 | $2.52 | -3.82% | +$190.00 (+8.16%) | Close at -50% (~$1.165) or +50-100% gain |
+| XLE260821C00061000 | 20 contracts | $1.61 | $1.26 | +0.80% | -$700.00 (-21.74%) | Close at -50% (~$0.805) or +50-100% gain |
+| XOP | 169 sh | $178.98 | $174.20 | -0.83% | -$807.82 (-2.67%) | 10% trailing stop GTC, stop $162.10 |
+| SLB260821C00052000 | 20 contracts | $1.65 | $2.19 | new position | +$1,080.00 (+32.73%) | Close at -50% (~$0.825) or +50-100% gain |
+
+**Notes:** Strong recovery day — equity closed at $100,003.59, up +$1,195.89 (+1.21%) on the day and essentially flat (+$3.59, +0.00%) since challenge start, fully erasing yesterday's drawdown. The day's standout was this morning's new SLB 52C entry (post-earnings-beat catalyst), up +32.73% ($1,080 unrealized) hours after fill — the best-performing position in the book. The existing XLE stock + 58.5C sleeve also finished green, while XOP stock stayed a modest laggard (-2.67%, well inside its 10% trailing stop) and the XLE 61C remains the position to watch, still down -21.74% and roughly halfway to its -50% stop trigger though unchanged from yesterday. Cash sits at 30.9% (69.1% deployed), still under the 85-100% target range. Trades today: 1 (SLB 52C). Day 6 of 30, 26 days left to the Aug 19 deadline — 20% of the time elapsed against ~0.01% of the $50,000 target achieved so far; not a pace concern this early, but a reminder to keep sourcing distinct catalysts rather than concentrating further on the existing energy-sector book. PERPLEXITY_API_KEY and ClickUp creds still missing this cycle — no blocker, only affects research-cycle fallback (WebSearch) and notification fallback (local DAILY-SUMMARY.md).
