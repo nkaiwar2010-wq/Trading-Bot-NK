@@ -857,3 +857,155 @@ earnings reaction was resolved but bearish/contradictory, not a clean
 signal. Execution is out of scope for this routine — handing off to
 market-open.md (or tomorrow's cycle) to re-validate live quotes/premiums
 and execute per its own gates.
+
+## 2026-07-24 11:12 UTC — Pre-market Research (Day 6, Friday)
+
+### Challenge Pace
+- Deadline 2026-08-19: **26 days remaining**.
+- Equity $98,591.09 vs. $150,000 target — **Phase P&L -$1,408.91 of the
+  $50,000 target** (-2.8% of goal). Slightly behind flat/breakeven, but
+  only Day 6 of 30 (still >85% of the runway left) — not a pace concern
+  yet, no need to escalate aggression per the Challenge section's
+  "behind pace + deadline approaching" trigger (deadline is not yet
+  approaching).
+
+### Account Snapshot
+- Equity: $98,591.09 | Cash: $34,241.05 (34.7%) | Buying power:
+  $303,620.31 (4x margin) | Options buying power: $64,001.07
+- Position market value: $64,350.04 (65.3% of equity deployed; target
+  85-100%)
+- Positions (4 of 8 max): XLE 506 sh @ $59.21 avg (current $59.22,
+  +$5.06); XLE260821C00058500 x10 @ $2.33 avg (current $2.35, +$20);
+  XLE260821C00061000 x20 @ $1.61 avg (current $1.24, **-$740 / -22.98%**
+  — roughly halfway to the -50% stop-close trigger, watch closely
+  today); XOP 169 sh @ $178.98 avg (current $174.88, -$692.90/-2.29%)
+- Open orders: 2 GTC trailing stops (10%) — XLE stop $54.339 (hwm
+  $60.377), XOP stop $162.104 (hwm $180.115)
+- daytrade_count: not returned by this account endpoint; PDT gate N/A at
+  this equity level (>> $25k threshold)
+
+### Market Context (WebSearch fallback — PERPLEXITY_API_KEY missing)
+- Oil: Brent broke above **$100/bbl for the first time in ~2 months**
+  (~$97-100.65 range depending on source/time, +7% day-over-day per
+  TradingEconomics-style reporting); WTI ~$92.36 (+6.37%). Driven by a
+  fresh, sharper Iran/Hormuz escalation: Trump declared the ceasefire
+  "over" after Iran attacked commercial shipping in the Strait of
+  Hormuz, US forces struck ~90 Iranian military targets, Iran retaliated
+  by hitting US bases in Bahrain and Kuwait, and the US naval blockade
+  was reimposed. This is a materially stronger, fresher catalyst than
+  the last two cycles' adds, not a repeat/fade of the same news.
+- Indices: S&P 500 futures ~+0.2%, Dow futures ~+0.5%, Nasdaq-100
+  futures ~+0.1% — a tentative recovery attempt after Thursday's sharp
+  selloff (Mag7 shed ~$800B on Alphabet/Tesla AI-capex spending fears:
+  GOOGL -4%+ on $195-205B capex guidance despite an EPS/revenue beat;
+  TSLA -3.8% on an EPS miss). New Trump tariffs also took effect
+  overnight — an added, still-being-priced headwind.
+- VIX: closed 18.70 on Jul 23 (+12.4% vs. Jul 22's 16.64) — elevated but
+  not extreme; no confirmed intraday print yet for today.
+- Econ calendar: PPI + initial jobless claims at 8:30am ET today (recent
+  claims trend strong: 187K last week vs. 212K forecast); Fed Waller
+  speaks 3:45pm ET. FOMC meeting is next week (Jul 28-29), not today.
+- Earnings before open: SLB (Schlumberger, 7am ET release, 9:30am ET
+  call — oilfield-services name correlated to our energy thesis but
+  with its own idiosyncratic catalyst; consensus EPS ~$0.51-0.52, a
+  -31% YoY decline, with management having already guided a $0.06-0.08
+  Mideast-disruption EPS headwind — result not yet confirmed via search
+  as of this cycle). Also AXP, NEE, VZ, CHTR, HCA and others — none are
+  held positions.
+- Sector momentum: Energy (XLE) still ~+29-31% YTD, but momentum
+  described as "moderating" in Q2 vs. H1; XOP showing constructive
+  technical signals (MACD turned positive in early July). Tech (XLK)
+  led H1 with the highest YTD gain but took the sharpest hit Thursday on
+  AI-capex jitters — narrative is now genuinely two-way, unresolved.
+- Held-ticker news: overnight escalation is a fresh, stronger intensification
+  of the same oil-supply-shock catalyst underlying all 4 open positions
+  (XLE stock/calls, XOP stock) — thesis is not fading. However, note a
+  live-quote caveat: the plain stock-quote endpoint returned unusually
+  wide/stale after-hours prints (XLE bp $58.77/ap $63.38; XOP bp
+  $170.69/ap $180.59) — these are after-hours artifacts, not tradeable
+  NBBO, and must be reconfirmed at live market open before any sizing.
+
+### Trade Ideas (none clear the actionable bar this cycle — see Decision)
+
+**1. SLB (Schlumberger) post-earnings reaction — WATCH, not yet actionable.**
+- Catalyst: Q2 earnings released 7am ET today (oilfield-services,
+  correlated to the energy thesis but with an idiosyncratic
+  earnings-driven catalyst distinct from pure oil-price beta). Analysts
+  expect a guided-down, -31% YoY EPS decline (~$0.51-0.52) with a known
+  $0.06-0.08/sh Mideast-disruption headwind already priced into
+  guidance — genuinely two-way (beat-despite-headwind relief rally vs.
+  sell-the-news on the decline) and the actual print/reaction was not
+  confirmed via search as of this cycle.
+- Why not actionable: entering ahead of an unconfirmed result (or
+  immediately after, before the market's reaction is visible) is a
+  coinflip on decision direction, not a documented catalyst call — same
+  bar failure as the semis idea below.
+- If confirmed direction (positive or negative) is visible when the
+  market opens: last close ~$47.24 (stale after-hours ask), 2026-08-21
+  chain available (29 DTE, clears >=7 DTE floor). Hypothetical sizing at
+  8% cap ($98,591.09 x 8% = $7,887.29 max premium/loss budget) — exact
+  strike/contracts to be set from live quotes once direction is
+  confirmed. Hand off to market-open workflow for re-evaluation.
+
+**2. Semis/AI (SMH/NVDA/GOOGL) — WATCH ONLY, still two-way.**
+- Thursday's ~$800B Mag7 selloff (GOOGL capex guidance, TSLA EPS miss)
+  vs. Friday's tentative +0.1% Nasdaq-100 futures stabilization is still
+  a contradictory, unresolved signal (3rd cycle running with this same
+  verdict). Per Core Rule 9/11, doesn't clear the bar for a fresh entry
+  (long or short) this cycle.
+
+**3. Existing XLE 61C call — MONITOR, not a new trade.**
+- Currently -22.98% ($1.24 vs. $1.61 entry), roughly halfway to the
+  -50% (~$0.805/contract, ~$1,610 total) stop-close trigger. Has not
+  breached the trigger — no action required — but flagged as the
+  position to watch first today, especially given the divergence
+  between overnight oil-catalyst strength (Brent >$100) and this
+  option's continued weakness. Reconfirm at live open; close if -50%
+  hit.
+
+### Risk Factors
+- Iran/Hormuz conflict remains genuinely two-way for the whole
+  XLE/XOP book: this is at least the 2nd-3rd escalation/de-escalation
+  cycle this month (an earlier ceasefire briefly reopened the Strait
+  before this re-escalation) — a fresh de-escalation headline could
+  reverse the spike as fast as it built. GTC trailing stops remain the
+  explicit guardrail on both stock legs.
+- All 4 open positions (100% of current book) are concentrated in one
+  oil-supply-shock catalyst — flagged for the 3rd cycle running per
+  Core Rule 9/10. Both stock legs (XLE, XOP) are already at/near the 30%
+  Rule 2 notional cap, so there is no clean way to add more of this
+  thesis without concentrating further; this is itself part of why
+  today's ideas don't clear the bar for a fresh add.
+- Elevated VIX (18.70, +12.4%) + 10yr yield near a 2-month high (~4.65%)
+  + newly-effective tariffs overnight are a broad, index-wide headwind
+  independent of the energy thesis.
+- Stock-quote endpoint returned wide/stale after-hours prints for both
+  XLE and XOP (see Held-ticker news above) — must reconfirm live NBBO at
+  open before trusting any quote pulled pre-market.
+- SLB's actual Q2 print/reaction was unresolved via search this cycle —
+  treat as a live open-only decision, not a pre-market one.
+- Perplexity API key and ClickUp creds still missing this cycle — no
+  blocker; using WebSearch fallback and local DAILY-SUMMARY.md fallback
+  respectively.
+
+### Decision
+**HOLD (this pre-market cycle only).** None of today's candidate ideas
+clear the catalyst + Rule 3 bar cleanly: (1) SLB and the semis/AI
+question both hinge on results/reactions not yet confirmed pre-market —
+entering blind on either would be a coinflip, not a documented catalyst
+call; (2) the existing 4-position energy book is already fully expressing
+the oil-supply-shock thesis with both stock legs at/near the Rule 2 30%
+notional cap — adding further options exposure to the same single
+catalyst (already flagged 3 cycles running) would concentrate risk
+further rather than diversify it, with one existing call (XLE 61C)
+already -22.98% and worth stabilizing before adding more, not extending
+alongside it. Bias-toward-action does not mean forcing a trade that fails
+the documented-catalyst test — 26 days remain and the account is only
+marginally behind pace (-$1,408.91 of the $50,000 target), not under
+deadline pressure that would justify relaxing the bar. Action items for
+today: (a) monitor the XLE 61C call for the -50% stop trigger, (b) watch
+SLB's confirmed earnings reaction and semis follow-through at/after
+market open for a possible same-day intraday opportunity (out of scope
+for this pre-market routine — hand off to market-open workflow), (c)
+reconfirm live NBBO on XLE/XOP given the stale after-hours quotes pulled
+this cycle.
