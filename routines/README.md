@@ -34,7 +34,7 @@ Breakout, managed by VWAP) instead of news search. See
 
 | File | Cron (UTC) | Cron (America/Chicago) | Purpose |
 |---|---|---|---|
-| mirage-intraday-scan.md | `*/5 13-19 * * 1-5` | every 5 min, 8:30am-2:45pm (self-guards to the real 8:30-2:44 window) | Manage open positions (VWAP-loss/target exit), screen movers/most-actives, confirm ORB, trade if it clears the checklist. Commits only when something changes. |
+| mirage-intraday-scan.md | `30 13-19 * * 1-5` | hourly, 8:30am-2:30pm (7 check-ins/day) | Manage open positions (VWAP-loss/target exit), screen movers/most-actives, confirm ORB, trade if it clears the checklist. Commits only when something changes. Hourly is the platform's minimum cron interval (RemoteTrigger rejects anything more frequent than 1 hour) — not a strategy choice. |
 | mirage-eod-close.md | `45 19 * * 1-5` | `45 14 * * 1-5` | MANDATORY: force-close everything, log the day's realized results. Unchanged from v1. |
 | mirage-evening-research.md | `0 21 * * 1-5` | `0 16 * * 1-5` | Research-only (no trading): builds tomorrow's watchlist from earnings/econ-calendar/overnight news via WebSearch. Always commits. |
 

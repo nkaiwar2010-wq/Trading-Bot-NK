@@ -25,12 +25,16 @@ anything still open at ~2:45pm Chicago (15 min before the 3:00pm close)
 regardless of P&L, regardless of whether a thesis "looks like it just needs
 one more day." A position held overnight is a bug, not a strategic choice.
 
-## Operating model: near-continuous intraday scan (v2, 2026-07-27)
-Mirage runs an **Intraday Scan** every 5 minutes from 8:30am to 2:45pm
-Chicago (market open to just before the mandatory EOD close) — roughly 75
-check-ins per trading day, plus the EOD-close routine and an after-hours
-Evening Research routine. Each scan is a fresh, stateless session (no memory
-of the prior scan except what's committed to git) that:
+## Operating model: hourly intraday scan (v2, 2026-07-27)
+Mirage runs an **Intraday Scan** once per hour, on the half-hour, from
+8:30am to 2:30pm Chicago (market open through 15 min before the mandatory
+EOD close) — 7 check-ins per trading day, plus the EOD-close routine and
+an after-hours Evening Research routine. Hourly is the platform's minimum
+cron interval for Claude Code cloud routines (RemoteTrigger rejects
+anything scheduled more frequently than once per hour) — not a strategy
+choice; true continuous/tick-by-tick monitoring isn't available in this
+architecture. Each scan is a fresh, stateless session (no memory of the
+prior scan except what's committed to git) that:
 1. Reads today's date and this file for rules.
 2. Pulls live account/positions/orders.
 3. Manages anything already open (see "Position management" below).
@@ -38,10 +42,12 @@ of the prior scan except what's committed to git) that:
    below) and trades it if it clears every rule.
 5. Commits and pushes **only if something changed** (a trade opened,
    a trade closed, a stop adjusted). A pure "scanned, nothing qualified"
-   cycle is a silent no-op — no commit. This is deliberate: at ~75
-   scans/day, logging every single no-op would flood the trade/research
-   logs with noise. Silence between logged entries means "nothing
-   happened," not "the bot is broken."
+   cycle is a silent no-op — no commit. Silence between logged entries
+   means "nothing happened," not "the bot is broken." Because check-ins
+   are hourly rather than continuous, the live stop-loss order placed on
+   Alpaca at entry remains the real protection between scans — same
+   honest limitation as v1, just a shorter gap now (up to ~1 hour instead
+   of up to ~3.5 hours).
 
 ### Why this replaced the old 3-checkpoint model
 The original version (morning-entry / midday-check / EOD-close, 3x/day)
