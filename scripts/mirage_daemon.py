@@ -42,6 +42,9 @@ STOP_PCT = 0.03              # fallback stop distance if OR extreme is looser
 MIN_RR = 2.0
 GAP_MIN_PCT = 3.0
 POLL_SECONDS = 60
+START_UTC = (13, 25)                    # a few min before 8:30am Chicago open;
+                                        # a manual/misfired run before this exits
+                                        # immediately instead of spinning for hours
 STOP_NEW_ENTRIES_AFTER_UTC = (19, 15)   # 2:15pm Chicago — buffer before the
                                         # separate mandatory 2:45pm EOD-close
                                         # routine; this daemon never force-closes
@@ -322,6 +325,11 @@ def screen_new_entry(equity, attempted, open_count):
 
 def main():
     log("Mirage intraday daemon starting")
+    if not past(START_UTC):
+        log(f"before market hours (before {START_UTC[0]:02d}:{START_UTC[1]:02d} UTC) — "
+            f"exiting immediately, not spinning until open. This run was likely a "
+            f"manual/misfired trigger; the scheduled cron fires at market open.")
+        return
     attempted = already_attempted_today()
     log(f"already-attempted symbols recovered from TRADE-LOG: {attempted or 'none'}")
     while True:
