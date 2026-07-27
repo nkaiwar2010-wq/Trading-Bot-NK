@@ -1009,3 +1009,195 @@ market open for a possible same-day intraday opportunity (out of scope
 for this pre-market routine — hand off to market-open workflow), (c)
 reconfirm live NBBO on XLE/XOP given the stale after-hours quotes pulled
 this cycle.
+
+## 2026-07-27 11:12 UTC — Pre-market Research (Day 9, Monday)
+
+### Challenge Pace
+- Deadline 2026-08-19: **23 days remaining**.
+- Equity $98,191.59 vs. $150,000 target — **Phase P&L -$1,808.41 of the
+  $50,000 target** (-3.62% of goal). Friday (Jul 24) closed down
+  -$1,690.92 (-1.69%) day-over-day (last_equity $99,882.51 ->
+  $98,191.59). Slightly behind flat/breakeven pace, 23 of 30 days left
+  (~77% of runway remaining) — not yet a "behind pace + deadline
+  approaching" trigger per the Challenge section, but the weekend's
+  catalyst reversal (below) is a genuine warning sign for the existing
+  book, not just a pace-lag issue.
+
+### Account Snapshot
+- Equity: $98,191.59 | Cash: $30,940.34 (31.5%) | Buying power:
+  $285,688.86 (4x margin) | Options buying power: $59,855.96
+- Position market value: $67,251.25 (68.5% of equity deployed; target
+  85-100%)
+- Positions (5 of 8 max), all data as of Friday 2026-07-24 close
+  (balance_asof):
+  - XLE 506 sh @ $59.21 avg (current $58.01, -$607.20/-2.03%)
+  - XLE260821C00058500 x10 @ $2.33 avg (current $2.52, +$190/+8.16%)
+  - XLE260821C00061000 x20 @ $1.61 avg (current $1.26, **-$700/-21.74%**
+    — already roughly halfway to its -50% stop-close trigger BEFORE
+    today's oil-crash news; see Risk Factors)
+  - XOP 169 sh @ $178.98 avg (current $168.51, -$1,769.43/-5.85%)
+  - SLB260821C00052000 x20 @ $1.65 avg (current $2.19, +$1,080/+32.73%)
+- Open orders: 2 GTC trailing stops (10%) — XLE stop $54.405 (hwm
+  $60.45), XOP stop $162.1035 (hwm $180.115)
+- 8%-of-equity max-loss cap this cycle: $98,191.59 x 8% = **$7,855.33**
+
+### Market Context (WebSearch fallback — PERPLEXITY_API_KEY missing)
+- **MAJOR CATALYST REVERSAL: US and Iran paused fighting over the
+  weekend.** Oil prices tumbled sharply on the de-escalation: Brent
+  crude fell as much as ~9.2% to ~$87.89/bbl (some prints showing
+  ~$83.51, down ~7.7% day-over-day), WTI dropped ~7% to ~$82.46/bbl —
+  this is a direct, confirmed, multi-source (Bloomberg, Yahoo Finance,
+  Benzinga) reversal of the Iran/Hormuz oil-supply-shock catalyst that
+  built 100% of the current 5-position book (all energy: XLE stock +2
+  calls, XOP stock, SLB call). Reports say Pakistan (with Chinese
+  support) is brokering renewed US-Iran negotiations.
+- Indices: S&P 500 and Dow futures +0.8%, Nasdaq-100 futures +1.6% —
+  broad relief rally as oil sank; also supported by stronger US
+  Services PMI (53.6, 8-month high) and June new-home sales (+1.6%,
+  first rise in 3 months). Prediction markets show ~88% odds of an "up"
+  open for the S&P 500 today.
+- VIX: ~18.96 open, range 17.41-19.05 — elevated but not extreme,
+  roughly flat to slightly down vs. Thursday's 18.70 close.
+- Econ calendar: no major US releases confirmed for Monday itself; June
+  durable goods orders due today. **FOMC meeting Jul 28-29** (Fed Chair
+  Kevin Warsh press conference Wed) is the week's centerpiece — tomorrow
+  and Wednesday. CPI Wed, PPI + jobless claims Thu. Big Tech earnings
+  (Microsoft, Meta, Arm Wed after close; Apple, Amazon Thu after close)
+  add event risk later this week, not pre-market-actionable today.
+- Earnings before open today: no major names identified specifically
+  for Monday pre-market; Nucor (NUE) noted among today's reporters
+  (not a held position).
+- Sector momentum: Energy (XLE) still YTD sector leader (+29.4%, vs.
+  tech's +23%) heading into the weekend, but that whole leadership
+  narrative is built on the now-reversing oil-supply-shock catalyst.
+  XOP (E&P-weighted, higher beta to crude) likely to gap down more than
+  XLE (integrated majors) on a ~7-9% oil selloff, consistent with the
+  torque seen in the opposite direction (XLE +3.01%/XOP +4.17% on the
+  last escalation headline).
+- Held-ticker news: SLB (Q2 beat confirmed: $0.55 EPS vs. $0.51 est,
+  revenue beat) — stock had already popped ~10-11% Friday on the print
+  plus a new AI/data-center alliance with Liberty Energy, but coverage
+  explicitly flags "softening crude oil sentiment tied to US-Iran peace
+  negotiations" as a headwind on the name even before today's fresh
+  oil-price drop — the SLB call's +32.73% unrealized gain is at risk of
+  giving back ground today alongside the rest of the energy book.
+- **Data caveat (recurring):** Alpaca stock-quote endpoint returned
+  Friday-close-only prints (t=2026-07-24T20:00 UTC) for XLE/XOP/SLB as
+  of this cycle — no live pre-market NBBO available yet. Must reconfirm
+  live quotes at/near market open before sizing anything; do not trust
+  the "current_price" fields above as tradeable levels this morning.
+
+### Trade Ideas
+
+**1. XOP put — defined-risk bearish hedge/speculative short (new position).**
+- Catalyst: confirmed, live, multi-source US-Iran ceasefire pause ->
+  WTI/Brent down ~7-9% overnight — direct reversal of the exact
+  oil-supply-shock catalyst underlying the existing long XOP stock
+  position. XOP (pure E&P) carries higher beta to crude than XLE, so
+  it's the cleaner instrument to express the reversal.
+- Strike/Expiration/DTE: ~$150 strike (approx. 11% OTM from Friday's
+  $168.51 close; ATM/OTM level must be reconfirmed against the live gap
+  at open), 2026-08-21 expiration (existing chain, consistent with
+  current book), **25 DTE** (clears >=7 floor).
+- Risk type: Defined-risk (long put, buy-to-open) — max loss = premium
+  paid.
+- 8% max-loss calc: cap is $7,855.33. Estimated premium (rough, IV
+  likely elevated on the news) ~$4-6/contract x 100 = $400-600/contract
+  -> approx. 13-19 contracts stays under the cap; **exact contract count
+  must be computed from the live ask at market open**, not this
+  pre-market estimate.
+- Stop/target: close at -50% of premium paid; take profit at +50-100%
+  gain per Options Rules.
+- Thesis: captures the confirmed reversal catalyst directly and
+  functions as a partial hedge against the existing 169-sh long XOP
+  stock position, which remains exposed to gap-down risk despite its
+  10% GTC trailing stop (a gap can fill well through a stop price).
+
+**2. XLE put — defined-risk bearish hedge/speculative short (new position).**
+- Catalyst: same confirmed oil-price-reversal catalyst as Idea 1,
+  applied to the other major long leg of the book (506 sh stock + 2
+  long calls, all XLE).
+- Strike/Expiration/DTE: ~$52-53 strike (approx. 10% OTM from Friday's
+  $58.01 close, reconfirm at open), 2026-08-21 expiration, 25 DTE
+  (clears >=7 floor).
+- Risk type: Defined-risk (long put, buy-to-open) — max loss = premium
+  paid, sized independently to the same $7,855.33 cap (or combined with
+  Idea 1 if both are placed the same cycle — combined premium spend
+  must still respect each trade's own 8% cap individually per Rule 3;
+  adding both is fine under the 8-position cap, 5 existing + 2 new = 7).
+- Stop/target: close at -50% of premium paid; take profit at +50-100%.
+- Thesis: same reversal catalyst, hedges the larger of the two stock
+  legs (XLE notional $29,353 vs. XOP $28,478) and the two existing XLE
+  calls (combined cost basis $5,550) which are now more exposed to a
+  downside gap than at any point since entry.
+
+**3. Big Tech / Nasdaq relief rally (SMH/QQQ) — WATCH ONLY, not yet actionable.**
+- Nasdaq-100 futures +1.6% this morning on the broad relief rally, but
+  this is a macro tailwind (oil down, PMI/housing data up), not an
+  idiosyncratic confirmed catalyst for a specific held or candidate
+  name — and the real event risk (Microsoft/Meta/Arm Wed,
+  Apple/Amazon Thu, FOMC Wed) is later this week, not today. Doesn't
+  clear the "documented catalyst, not a macro vibe" bar for a fresh
+  entry this cycle; revisit after those prints.
+
+**4. Existing XLE 61C call — MONITOR / handoff, not a new trade.**
+- Already -21.74% ($1.26 vs. $1.61 entry) as of Friday's close, roughly
+  halfway to its -50% (~$0.805/contract) stop-close trigger BEFORE
+  today's oil-crash news is reflected in a live quote. Given XLE is
+  likely to gap down hard at open on the ~7-9% oil selloff, this
+  contract has a real chance of breaching -50% within minutes of open.
+  Flagged for the market-open workflow to check first and close per
+  Options Rules if triggered — not a pre-market decision since no live
+  quote is available yet.
+
+### Risk Factors
+- **The entire existing book (5 of 5 positions, 100%) is built on the
+  Iran/Hormuz oil-supply-shock catalyst, which reversed hard over the
+  weekend** — this is the single most important risk today, flagged for
+  the 4th+ cycle running per Core Rule 9/10 concentration concern, now
+  compounded by the catalyst itself turning against the book rather
+  than just being "already fully expressed."
+- This is at least the 3rd-4th escalation/de-escalation swing this
+  month on the same Iran/Hormuz story — a fresh escalation headline
+  could reverse today's relief rally just as fast as prior ceasefires
+  have reversed. Treat both directions as live risk, not a settled
+  trend.
+- GTC trailing stops (XLE $54.405, XOP $162.1035) do not protect against
+  gap-through: if XLE/XOP open well below the stop price on the ~7-9%
+  oil move, the stop triggers as a market order and can fill materially
+  worse than the stop price. Reconfirm actual fill quality at open.
+- FOMC meeting Jul 28-29 (tomorrow) and Big Tech earnings Wed/Thu are
+  major event risk still ahead this week, independent of today's
+  energy-specific move.
+- Stock-quote endpoint returned only Friday-close prints as of this
+  cycle (no live pre-market NBBO) — every price/strike above is a
+  pre-market estimate and must be reconfirmed live before any order.
+- SLB's +32.73% call gain is exposed to the same crude-sentiment
+  headwind as the rest of the book even though its original catalyst
+  (earnings beat) is idiosyncratic and still intact.
+- Perplexity API key and ClickUp creds still missing this cycle — no
+  blocker; using WebSearch fallback and local DAILY-SUMMARY.md fallback
+  respectively.
+
+### Decision
+**TRADE (hand off to market-open workflow for live-quote sizing).** A
+live, multi-source-confirmed catalyst reversal (US-Iran ceasefire pause
+-> oil down ~7-9% overnight) directly and negatively affects 100% of the
+existing 5-position energy-thesis book — this clears the documented-
+catalyst bar cleanly, unlike the macro-vibe-only Nasdaq rally (Idea 3,
+correctly held to WATCH). Recommend defined-risk put hedges on XOP
+(Idea 1, higher-beta pure E&P) and/or XLE (Idea 2), each independently
+sized to the 8%-of-equity max-loss cap ($7,855.33), to capture the
+reversal and partially offset existing long energy exposure — exact
+strikes/contract counts must be finalized against live quotes at market
+open since only Friday-close data is available pre-market. Bias toward
+action does not mean guessing exact numbers off stale data; it means not
+sitting in HOLD when a real catalyst is this clear. Priority handoff
+items for market-open workflow, in order: (a) reconfirm live NBBO on
+XLE/XOP/SLB before anything else, (b) check whether XLE 61C has already
+breached its -50% stop-close trigger on the gap-down open and close it
+per Options Rules if so, (c) verify the two GTC trailing stops filled at
+reasonable prices and did not gap through badly, (d) size and place the
+XOP/XLE put hedge(s) from Idea 1/2 using live quotes, (e) re-check SLB's
+live reaction given the crude-sentiment headwind noted in Friday's
+coverage.
