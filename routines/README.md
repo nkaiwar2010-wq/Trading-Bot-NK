@@ -1,5 +1,11 @@
 # Cloud Routines
 
+This repo runs **two independent bots** on two separate Alpaca paper
+accounts, sharing this repo and infrastructure but never each other's
+memory or capital.
+
+## Oasis (swing/options, $100,000 account)
+
 These five prompts are pasted verbatim into Claude Code cloud routines — this
 is the production path. Do not paraphrase; the environment-variable check
 block and the commit-and-push step are load-bearing.
@@ -11,6 +17,19 @@ block and the commit-and-push step are load-bearing.
 | midday.md | `0 12 * * 1-5` | Cut losers, tighten stops on winners |
 | daily-summary.md | `0 15 * * 1-5` | Snapshot portfolio, send recap |
 | weekly-review.md | `0 16 * * 5` | Compute weekly stats, grade, adjust strategy |
+
+## Mirage (day-trading, $50,000 account)
+
+Separate Alpaca paper account (PA3ER1AHRYXX), separate cloud environment
+with its own credentials, separate memory files under `memory/mirage/`.
+Core rule: every position opened must close the same day — the EOD-close
+routine force-closes everything before market close, no exceptions.
+
+| File | Cron (America/Chicago) | Purpose |
+|---|---|---|
+| mirage-morning-entry.md | `30 8 * * 1-5` | Research today's specific catalysts, open positions with real stops |
+| mirage-midday-check.md | `0 12 * * 1-5` | Take early profit/cut broken theses; optionally add a fresh same-day catalyst |
+| mirage-eod-close.md | `45 14 * * 1-5` | MANDATORY: force-close everything, log the day's realized results |
 
 Setup steps for each routine (Part 7 of the guide):
 1. Install the Claude GitHub App on this repo.
