@@ -41,6 +41,13 @@ MAX_NOTIONAL_PCT = 0.40
 STOP_PCT = 0.03              # fallback stop distance if OR extreme is looser
 MIN_RR = 2.0
 GAP_MIN_PCT = 3.0
+GAP_MAX_PCT = 20.0           # ceiling added after day-1 live data: the two
+                              # losers (2026-07-27) had already gapped 85.8%
+                              # and 64.6% before entry — buying an already-
+                              # extended move is a different (worse) trade
+                              # than a fresh breakout. Research consensus
+                              # favors 3-7% gaps; 20% gives margin without
+                              # chasing exhausted moves. Revisit with more data.
 POLL_SECONDS = 60
 START_UTC = (13, 25)                    # a few min before 8:30am Chicago open;
                                         # a manual/misfired run before this exits
@@ -340,7 +347,7 @@ def screen_new_entry(equity, attempted, open_count):
             pct_change = float(pct_change)
         except (TypeError, ValueError):
             pct_change = 0
-        if abs(pct_change) < GAP_MIN_PCT:
+        if abs(pct_change) < GAP_MIN_PCT or abs(pct_change) > GAP_MAX_PCT:
             continue
         bars = get_bars(symbol)
         if not bars:

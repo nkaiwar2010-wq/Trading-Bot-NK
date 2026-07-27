@@ -88,8 +88,14 @@ identifies the candidate, the ORB confirms the move is real rather than a
 fade, VWAP governs the exit):
 
 1. **Screen** `movers`/`most-actives` for candidates with:
-   - Gap or intraday move of at least 3% (either direction; short the
-     losers side is a future extension — for now, long-only, see below)
+   - Gap or intraday move between 3% and 20% (either direction; short the
+     losers side is a future extension — for now, long-only, see below).
+     The 20% ceiling was added after day-1 live data (2026-07-27): both
+     losing trades that day had already gapped 85.8% and 64.6% before
+     entry — an already-extended move is a materially different, worse
+     trade than a fresh breakout, prone to reversal right after entry.
+     20% is a judgment call pending more data, not a statistically
+     derived line from a 4-trade sample.
    - Relative volume materially elevated (treat "most-actives" appearance
      itself as the RVOL confirmation signal — Alpaca doesn't expose a raw
      RVOL multiple directly, so presence in the top-10 most-actives list by
