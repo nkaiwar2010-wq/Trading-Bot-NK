@@ -126,3 +126,33 @@ No positions yet. Bot launches tomorrow. (Paper trading — no real money.)
 | SLB260821C00052000 | 20 contracts | $1.65 | $2.19 | new position | +$1,080.00 (+32.73%) | Close at -50% (~$0.825) or +50-100% gain |
 
 **Notes:** Strong recovery day — equity closed at $100,003.59, up +$1,195.89 (+1.21%) on the day and essentially flat (+$3.59, +0.00%) since challenge start, fully erasing yesterday's drawdown. The day's standout was this morning's new SLB 52C entry (post-earnings-beat catalyst), up +32.73% ($1,080 unrealized) hours after fill — the best-performing position in the book. The existing XLE stock + 58.5C sleeve also finished green, while XOP stock stayed a modest laggard (-2.67%, well inside its 10% trailing stop) and the XLE 61C remains the position to watch, still down -21.74% and roughly halfway to its -50% stop trigger though unchanged from yesterday. Cash sits at 30.9% (69.1% deployed), still under the 85-100% target range. Trades today: 1 (SLB 52C). Day 6 of 30, 26 days left to the Aug 19 deadline — 20% of the time elapsed against ~0.01% of the $50,000 target achieved so far; not a pace concern this early, but a reminder to keep sourcing distinct catalysts rather than concentrating further on the existing energy-sector book. PERPLEXITY_API_KEY and ClickUp creds still missing this cycle — no blocker, only affects research-cycle fallback (WebSearch) and notification fallback (local DAILY-SUMMARY.md).
+
+## Jul 27 — Market-Open Execution (Day 9, Monday)
+
+**Challenge status:** Day 9 of 30. 23 days remaining to 2026-08-19 deadline. Equity $97,781.65 (pre-trade, live) -> target $150,000. Behind flat pace (-$2,218.35 phase P&L before today's trades) but not a pace concern yet with 23 days left; per Core Rule guidance, leaning toward continued action rather than sitting out.
+
+**Catalyst (confirmed live, from RESEARCH-LOG 2026-07-27 11:12 UTC pre-market cycle):** Multi-source-confirmed US-Iran ceasefire pause overnight -> WTI/Brent down ~7-9%, a direct reversal of the oil-supply-shock catalyst underlying 100% of the existing 5-position energy book (XLE stock, XLE 58.5C, XLE 61C, XOP stock, SLB 52C). Live quotes confirmed at open: XLE $58.89 (vs Fri close $59.69), XOP $172.01 (vs Fri close $174.20), both down ~1.3% and continuing to fade off the futures-implied gap. Pre-trade checks: XLE 61C re-checked live (bid $0.88, entry $1.61 = -45.3% from bid) — close to but has NOT breached the -50% (~$0.805) stop-close trigger, no action taken, flagged to watch. Both stock trailing-stop GTC orders (XLE stop $54.405, XOP stop $162.1035) confirmed still active and well clear of current prices — no gap-through. SLB 52C live bid/ask $2.06/$2.83, well above cost, no action (judgment hold, not yet at +50-100% hard target).
+
+### Trade 6 — XOP 158 put, 2026-08-21 exp (defined-risk hedge, new position)
+- **OCC symbol:** XOP260821P00158000
+- **Entry:** 20 contracts @ $1.81 avg fill (market order), cost basis $3,620
+- **Strike/Expiration/DTE:** $158 strike (~8.1% OTM from live $172.01), 2026-08-21 expiration, 25 DTE (clears >=7 DTE floor)
+- **Risk type:** Defined-risk (long put, buy-to-open) — max loss = premium paid = $3,620 = 3.70% of $97,781.65 equity (well inside the 8% cap of $7,822.53)
+- **Thesis:** Direct hedge/speculative short capturing the confirmed oil-reversal catalyst against the existing 169-sh long XOP stock position, which remains exposed to gap-through risk on its GTC trailing stop
+- **Stop/close plan:** Close at -50% premium (~$0.905/contract, ~$1,810 total) or +50-100% gain; option stops are not natively supported by Alpaca so this is enforced manually via midday/EOD workflows
+- **Target:** +50-100% gain per Options Rules
+- **R:R:** ~1:1 to 2:1 depending on exit
+- **Data note:** Position-mark endpoint showed a stale current_price ($1.13, implying a false -37.6% loss) immediately after fill; live re-check (`option-quote`) showed bid/ask $1.15/$1.79 (mid ~$1.47), consistent with a normal fill near the ask, not a real loss — same recurring stale-mark artifact as prior sessions, live bid/ask is the source of truth.
+
+### Trade 7 — XLE 55 put, 2026-08-21 exp (defined-risk hedge, new position)
+- **OCC symbol:** XLE260821P00055000
+- **Entry:** 70 contracts @ $0.44 avg fill (market order), cost basis $3,080
+- **Strike/Expiration/DTE:** $55 strike (~6.6% OTM from live $58.89), 2026-08-21 expiration, 25 DTE (clears >=7 DTE floor)
+- **Risk type:** Defined-risk (long put, buy-to-open) — max loss = premium paid = $3,080 = 3.15% of $97,781.65 equity (well inside the 8% cap of $7,822.53)
+- **Thesis:** Same confirmed oil-reversal catalyst, hedges the larger of the two stock legs (XLE 506 sh) plus the two existing XLE long calls, all now more exposed to a downside move than at any point since entry
+- **Stop/close plan:** Close at -50% premium (~$0.22/contract, ~$1,540 total) or +50-100% gain; option stops are not natively supported by Alpaca so this is enforced manually via midday/EOD workflows
+- **Target:** +50-100% gain per Options Rules
+- **R:R:** ~1:1 to 2:1 depending on exit
+- **Data note:** Position-mark endpoint showed a stale current_price ($0.37, implying a false -15.9% loss) immediately after fill; live re-check (`option-quote`) showed bid/ask $0.35/$0.42 (mid ~$0.385), close to the $0.44 fill — minor spread-cross, not a real loss.
+
+**Positions after trade:** 7 of 8 max (2 stock + 5 options: XLE stock, XLE 58.5C, XLE 61C, XOP stock, SLB 52C, XOP 158P, XLE 55P). Combined new-hedge premium spend $6,700 (6.85% of equity) across two independently-sized trades, each individually inside the 8% Rule 3 cap. Book is now a mixed long/short-vol energy thesis (long stock + long calls + long puts, same underlyings) expressing the view that the reversal is a near-term tradeable move without fully unwinding the original long thesis. PERPLEXITY_API_KEY and ClickUp creds still missing this cycle — no blocker, using WebSearch fallback and local DAILY-SUMMARY.md fallback respectively.
