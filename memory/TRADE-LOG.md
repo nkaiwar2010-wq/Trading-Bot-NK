@@ -156,3 +156,26 @@ No positions yet. Bot launches tomorrow. (Paper trading — no real money.)
 - **Data note:** Position-mark endpoint showed a stale current_price ($0.37, implying a false -15.9% loss) immediately after fill; live re-check (`option-quote`) showed bid/ask $0.35/$0.42 (mid ~$0.385), close to the $0.44 fill — minor spread-cross, not a real loss.
 
 **Positions after trade:** 7 of 8 max (2 stock + 5 options: XLE stock, XLE 58.5C, XLE 61C, XOP stock, SLB 52C, XOP 158P, XLE 55P). Combined new-hedge premium spend $6,700 (6.85% of equity) across two independently-sized trades, each individually inside the 8% Rule 3 cap. Book is now a mixed long/short-vol energy thesis (long stock + long calls + long puts, same underlyings) expressing the view that the reversal is a near-term tradeable move without fully unwinding the original long thesis. PERPLEXITY_API_KEY and ClickUp creds still missing this cycle — no blocker, using WebSearch fallback and local DAILY-SUMMARY.md fallback respectively.
+
+## Jul 27 18:02 UTC — Manual Intervention: Full Exit of Invalidated Energy Thesis
+
+**Decision:** the entire long-energy book (XLE stock, XOP stock, XLE 58.5C, XLE 61C) was
+built on an oil-supply-shock catalyst. This morning's confirmed US-Iran ceasefire pause
+directly reversed that catalyst. Rather than wait for each position to individually hit
+its own stop/close threshold (none had yet — closest was XLE 61C at -47.2%, just shy of
+its -50% rule), the dead thesis was exited in full: the two hedge puts (XLE 55P, XOP
+158P) were also closed since they were sized and justified specifically as hedges against
+the longs being closed, not as standalone bets.
+
+**Positions closed:** XLE stock, XOP stock, XLE 58.5C, XLE 61C, XLE 55P, XOP 158P (6 of 7
+positions). SLB 52C retained — its post-earnings-beat catalyst is distinct and was not
+invalidated by the oil-reversal news.
+
+**Realized result:** equity $95,190.08 (-$4,809.92 / -4.81% since challenge start).
+
+**Rationale:** none of these positions technically breached Oasis's own stop/close rules
+yet, so this was a judgment override, not a rule-triggered exit — waiting for a hedge
+structure to slowly bleed on both legs while the underlying thesis is already dead is a
+worse expected outcome than taking the loss now and redeploying into a genuinely new,
+distinct catalyst. Flagging for the next research cycle: avoid layering a hedge on top of
+an invalidated thesis going forward — a broken thesis should be exited, not hedged.

@@ -35,9 +35,10 @@ REPO_URL = f"https://x-access-token:{GITHUB_TOKEN}@github.com/nkaiwar2010-wq/Tra
 HEADERS = {"APCA-API-KEY-ID": KEY, "APCA-API-SECRET-KEY": SECRET}
 
 # --- Rules, mirroring memory/mirage/STRATEGY.md ---
-MAX_LOSS_PCT = 0.08          # Rule 1 hard cap, never bends
+MAX_LOSS_PCT = 0.04          # halved 2026-07-27 after day-1 losses (was 0.08)
+                              # while the strategy is still proving itself
 MAX_POSITIONS = 4
-MAX_NOTIONAL_PCT = 0.40
+MAX_NOTIONAL_PCT = 0.20      # halved 2026-07-27 after day-1 losses (was 0.40)
 STOP_PCT = 0.03              # fallback stop distance if OR extreme is looser
 MIN_RR = 2.0
 GAP_MIN_PCT = 3.0
