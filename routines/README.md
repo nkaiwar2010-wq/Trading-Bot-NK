@@ -41,6 +41,7 @@ model and why each prior version was replaced.
 | `.github/workflows/mirage-daemon.yml` → `scripts/mirage_daemon.py` | GitHub Actions (not Claude Code) | cron `30 13 * * 1-5` UTC (8:30am Chicago) start, runs continuously to ~2:30pm Chicago | Manage open positions (VWAP-loss/target exit), screen movers/most-actives, confirm ORB, trade if it clears the checklist. Commits only on an actual entry/exit. Requires repo secrets `MIRAGE_ALPACA_API_KEY` / `MIRAGE_ALPACA_SECRET_KEY`. |
 | mirage-eod-close.md | Claude Code cloud routine | `45 19 * * 1-5` UTC / `45 14 * * 1-5` Chicago | MANDATORY: force-close everything, log the day's realized results. Unchanged since v1 — the hard backstop regardless of what the daemon did. |
 | mirage-evening-research.md | Claude Code cloud routine | `0 21 * * 1-5` UTC / `0 16 * * 1-5` Chicago | Research-only (no trading): builds tomorrow's watchlist from earnings/econ-calendar/overnight news via WebSearch. Always commits. |
+| mirage-weekly-review.md | Claude Code cloud routine | `30 21 * * 5` UTC / `30 16 * * 5` Chicago (Fridays) | Analysis-only: computes an honest weekly scorecard (win rate, avg win/loss, realized P&L) from the week's closed trades into WEEKLY-REVIEW.md. The trust-building record — always commits, even in a losing week. |
 
 Retired (disabled, not deleted): mirage-morning-entry.md,
 mirage-midday-check.md (v1), mirage-intraday-scan.md (v2, hourly Claude
