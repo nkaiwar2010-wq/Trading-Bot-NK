@@ -60,3 +60,7 @@ Both bugs fixed in code (commits fixing wait-for-fill + safety-net stop check, a
 min→max stop-price correction) and pushed. The GitHub Actions run active at the time of
 this fix was still running the old, buggy code in memory — it needs to be manually
 cancelled and re-triggered to pick up both fixes for the remainder of today's session.
+
+<!-- DAEMON_EXIT: LVWR 2026-07-27 17:39 -->
+### Jul 27 17:39 UTC — Intraday Daemon Exit
+**LVWR** closed @ ~$2.68 | entry $2.52 | realized P&L $683.57 (6.3%) | reason: target reached (6.3%, >= 2.0:1 R:R)
