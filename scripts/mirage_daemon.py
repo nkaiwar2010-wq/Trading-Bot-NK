@@ -120,12 +120,33 @@ def place_order(body):
     return api("POST", "/orders", body=body)
 
 
+def get_order(order_id):
+    return api("GET", f"/orders/{order_id}")
+
+
 def close_position(symbol):
     return api("DELETE", f"/positions/{symbol}")
 
 
 def cancel_order(order_id):
     return api("DELETE", f"/orders/{order_id}")
+
+
+def wait_for_fill(order_id, timeout_seconds=15, poll_seconds=1):
+    """Poll an order until it's filled (or timeout). Returns filled_qty as
+    int, or 0 if it never filled in time. Placing a protective stop before
+    the buy actually fills risks Alpaca rejecting it for insufficient
+    position quantity — this closes that race condition."""
+    waited = 0
+    while waited < timeout_seconds:
+        order = get_order(order_id)
+        if order and order.get("status") == "filled":
+            return int(float(order.get("filled_qty", 0)))
+        time.sleep(poll_seconds)
+        waited += poll_seconds
+    log(f"order {order_id} did not report 'filled' within {timeout_seconds}s")
+    order = get_order(order_id)
+    return int(float(order.get("filled_qty", 0))) if order else 0
 
 
 def opening_range(bars):
@@ -227,16 +248,29 @@ def past(cutoff):
 
 
 def manage_positions(equity):
+    open_orders = get_orders("open")
     for pos in get_positions():
         symbol = pos["symbol"]
         if pos.get("asset_class") != "us_equity":
             continue  # v1 is stock-only; leave any option position for the
                        # hourly Claude routine / EOD-close to handle
+        entry = float(pos["avg_entry_price"])
+        current = float(pos["current_price"])
+        qty = pos["qty"]
+        has_stop = any(
+            o["symbol"] == symbol and o["side"] == "sell" and o["type"] == "stop"
+            for o in open_orders
+        )
+        if not has_stop:
+            fallback_stop = round(min(entry, current) * (1 - STOP_PCT), 2)
+            log(f"SAFETY NET: {symbol} has no protective stop — placing one now at {fallback_stop}")
+            place_order({
+                "symbol": symbol, "qty": str(qty), "side": "sell",
+                "type": "stop", "stop_price": f"{fallback_stop:.2f}", "time_in_force": "day",
+            })
         bars = get_bars(symbol)
         if not bars:
             continue
-        entry = float(pos["avg_entry_price"])
-        current = float(pos["current_price"])
         unrealized_pct = float(pos["unrealized_plpc"])
         reason = None
         if vwap_loss_signal(bars):
@@ -303,11 +337,19 @@ def screen_new_entry(equity, attempted, open_count):
         })
         if not order:
             continue
-        place_order({
-            "symbol": symbol, "qty": str(qty), "side": "sell",
-            "type": "stop", "stop_price": f"{stop_price:.2f}", "time_in_force": "day",
-        })
-        attempted.add(symbol)
+        attempted.add(symbol)  # mark attempted even if the stop-placement below has trouble
+        filled_qty = wait_for_fill(order["id"])
+        if filled_qty <= 0:
+            log(f"{symbol} buy did not confirm filled — SKIPPING stop placement, "
+                f"will be caught by manage_positions/EOD-close but flag this run for review")
+        else:
+            stop_order = place_order({
+                "symbol": symbol, "qty": str(filled_qty), "side": "sell",
+                "type": "stop", "stop_price": f"{stop_price:.2f}", "time_in_force": "day",
+            })
+            if not stop_order:
+                log(f"{symbol} STOP PLACEMENT FAILED after fill confirmed — "
+                    f"position is unprotected until next manage_positions cycle")
         risk = qty * abs(entry_price - stop_price)
         now = datetime.now(timezone.utc)
         entry_line = (
