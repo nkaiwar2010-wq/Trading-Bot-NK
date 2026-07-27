@@ -31,3 +31,32 @@ No positions yet. Bot launches next trading session. (Paper trading — no real 
 <!-- DAEMON_ENTRY: GOSS long 2026-07-27 -->
 ### Jul 27 17:25 UTC — Intraday Daemon Entry
 **GOSS** long 84530 sh @ ~$0.20 | stop $0.15 | target $0.29 (2.0:1) | gap 45.5%, ORB confirmed above $0.17 | Rule 1: 84530 x $0.05 = $3913.74 (8.0% of $48,922 equity, cap 8%)
+
+### Jul 27 17:24-17:29 UTC — Manual intervention: two bugs found live in mirage_daemon.py
+
+**Bug 1 (safety-critical):** all four entries above (ENTX, LVWR, KIDZ, GOSS) filled with
+**no protective stop order in place** — confirmed via `/v2/orders?status=open` showing
+zero stop orders against any of the four positions. Root cause: the code submitted the
+stop-loss order immediately after the buy, without waiting to confirm the buy had
+actually filled — a race condition where Alpaca can reject the stop for "insufficient
+position" if the buy hasn't registered yet. The 8%-of-equity Rule 1 cap was NOT
+breached by this bug (position sizing math was correct), but positions were open with
+zero downside protection, violating the "never open a position without a live stop"
+rule.
+**Bug 2:** the stop-price formula used `min(or_low, entry * 0.97)` instead of `max(...)`
+— for a long position this picks the WIDER of the two candidate stops, not the tighter
+one as STRATEGY.md specifies. Actual stops (had they been placed) would have been
+~25-37% below entry instead of ~2-3%. Dollar risk was still capped at 8% of equity
+because position size was computed from that same (wrong, wider) stop distance — so no
+single trade exceeded the hard cap — but the intended tight-stop behavior wasn't
+happening.
+**Manual correction taken (paper account, ~17:28 UTC):**
+- ENTX (already -3.6%, past where its intended stop should have fired): closed at
+  market, realized P&L ~-$530.
+- KIDZ (already -3.74%, same situation): closed at market, realized P&L ~-$427.
+- LVWR (+0%): real protective stop placed manually at $2.44 (3% below $2.52 entry).
+- GOSS (+2.76%): real protective stop placed manually at $0.1931 (3% below $0.1991 entry).
+Both bugs fixed in code (commits fixing wait-for-fill + safety-net stop check, and the
+min→max stop-price correction) and pushed. The GitHub Actions run active at the time of
+this fix was still running the old, buggy code in memory — it needs to be manually
+cancelled and re-triggered to pick up both fixes for the remainder of today's session.

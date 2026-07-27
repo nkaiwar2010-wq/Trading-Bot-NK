@@ -325,7 +325,9 @@ def screen_new_entry(equity, attempted, open_count):
         if not quote:
             continue
         entry_price = quote.get("ap") or breakout_price
-        stop_price = min(or_low, entry_price * (1 - STOP_PCT))
+        # Tighter of the two candidates = closer to entry = smaller loss.
+        # For a long, that's the HIGHER price (max), not the lower one.
+        stop_price = max(or_low, entry_price * (1 - STOP_PCT))
         qty = rule1_stock_qty(equity, entry_price, stop_price)
         if qty <= 0:
             continue
