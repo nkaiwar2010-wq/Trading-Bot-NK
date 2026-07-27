@@ -83,3 +83,7 @@ the actual fill price. Verified against Alpaca's fill ledger, the real numbers a
 - ENTX: sold @ $3.68 avg (entry $3.81) → realized **-$499.98**, not the ~-$530 estimated.
 - KIDZ: sold @ $0.6562 avg (entry $0.6923) → realized **-$595.00**, not the ~-$427 estimated.
 - Combined realized loss from these two: **-$1,094.98**.
+
+<!-- DAEMON_EXIT: LVWR 2026-07-27 18:02 -->
+### Jul 27 18:02 UTC — Intraday Daemon Exit
+**LVWR** closed @ ~$2.69 | entry $2.52 | realized P&L $722.90 (6.7%) | reason: target reached (6.7%, >= 2.0:1 R:R)
