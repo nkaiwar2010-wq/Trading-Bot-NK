@@ -77,8 +77,28 @@ case "$cmd" in
     sym="${1:?usage: option-quote OCC_SYMBOL}"
     curl -fsS -H "$H_KEY" -H "$H_SEC" "$DATA_ROOT/v1beta1/options/quotes/latest?symbols=$sym"
     ;;
+  movers)
+    # usage: movers [top_n]  (gainers+losers, real-time SIP, resets at market open)
+    top="${1:-10}"
+    curl -fsS -H "$H_KEY" -H "$H_SEC" "$DATA_ROOT/v1beta1/screener/stocks/movers?top=$top"
+    ;;
+  most-actives)
+    # usage: most-actives [top_n] [volume|trades]
+    top="${1:-10}"
+    by="${2:-volume}"
+    curl -fsS -H "$H_KEY" -H "$H_SEC" "$DATA_ROOT/v1beta1/screener/stocks/most-actives?top=$top&by=$by"
+    ;;
+  bars)
+    # usage: bars SYM [timeframe] [limit]  (e.g. bars AAPL 5Min 20)
+    sym="${1:?usage: bars SYM [timeframe] [limit]}"
+    tf="${2:-5Min}"
+    limit="${3:-30}"
+    start="$(date -u +%Y-%m-%d)T00:00:00Z"
+    curl -fsS -H "$H_KEY" -H "$H_SEC" \
+      "$DATA/stocks/$sym/bars?timeframe=$tf&start=$start&limit=$limit&adjustment=raw&feed=iex"
+    ;;
   *)
-    echo "Usage: bash scripts/alpaca.sh <account|positions|position|quote|orders|order|cancel|cancel-all|close|close-all|options-chain|option-quote> [args]" >&2
+    echo "Usage: bash scripts/alpaca.sh <account|positions|position|quote|orders|order|cancel|cancel-all|close|close-all|options-chain|option-quote|movers|most-actives|bars> [args]" >&2
     exit 1
     ;;
 esac

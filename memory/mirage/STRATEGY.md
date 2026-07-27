@@ -20,113 +20,157 @@ for the same person.
 
 ## THE CORE RULE: no overnight holds, ever
 **Every position Mirage opens must be closed the same trading day, before
-market close, with no exceptions.** This isn't a target — it's mandatory.
-The EOD-close routine force-closes anything still open at ~2:45pm Chicago
-(15 min before the 3:00pm close) regardless of P&L, regardless of whether
-a thesis "looks like it just needs one more day." A position held
-overnight is a bug, not a strategic choice.
+market close, with no exceptions.** The EOD-close routine force-closes
+anything still open at ~2:45pm Chicago (15 min before the 3:00pm close)
+regardless of P&L, regardless of whether a thesis "looks like it just needs
+one more day." A position held overnight is a bug, not a strategic choice.
 
-### Why this exists, and an honest limitation to know
-Mirage (like Oasis) only "wakes up" a few times a day — a morning entry
-check, a midday check, and the mandatory EOD close. It is **not** truly
-watching the market tick-by-tick between those times. This means Mirage
-cannot react in real time to something happening at, say, 10:15am if its
-next check-in isn't until noon. The real protection between check-ins is
-the **stop-loss order placed live with Alpaca at entry** (see below) —
-that order sits on the exchange and can trigger any time during market
-hours, independent of when Mirage's own reasoning next runs. Never open a
-position without that live stop in place immediately on fill.
+## Operating model: near-continuous intraday scan (v2, 2026-07-27)
+Mirage runs an **Intraday Scan** every 5 minutes from 8:30am to 2:45pm
+Chicago (market open to just before the mandatory EOD close) — roughly 75
+check-ins per trading day, plus the EOD-close routine and an after-hours
+Evening Research routine. Each scan is a fresh, stateless session (no memory
+of the prior scan except what's committed to git) that:
+1. Reads today's date and this file for rules.
+2. Pulls live account/positions/orders.
+3. Manages anything already open (see "Position management" below).
+4. If under 4 open positions, screens for a new entry (see "Entry model"
+   below) and trades it if it clears every rule.
+5. Commits and pushes **only if something changed** (a trade opened,
+   a trade closed, a stop adjusted). A pure "scanned, nothing qualified"
+   cycle is a silent no-op — no commit. This is deliberate: at ~75
+   scans/day, logging every single no-op would flood the trade/research
+   logs with noise. Silence between logged entries means "nothing
+   happened," not "the bot is broken."
 
-## Position sizing & risk
+### Why this replaced the old 3-checkpoint model
+The original version (morning-entry / midday-check / EOD-close, 3x/day)
+relied on WebSearch to find "same-day catalysts." In practice this failed
+on quiet news days (confirmed 2026-07-27: two HOLD decisions in a row
+because WebSearch cannot see live pre-market/intraday tape — it's a search
+engine, not a real-time data feed). The v2 model fixes this by using
+**Alpaca's own market-data endpoints** as the primary signal source instead
+of news search:
+- `bash scripts/alpaca.sh movers [top_n]` — real-time gainers/losers
+  (gap detection), resets at market open
+- `bash scripts/alpaca.sh most-actives [top_n] [volume|trades]` — real-time
+  relative-volume leaders
+- `bash scripts/alpaca.sh bars SYM [timeframe] [limit]` — intraday OHLCV
+  bars (1Min/5Min/etc.) with VWAP built into each bar
+
+News/WebSearch is now used only in the separate Evening Research routine
+(next-day prep, not live trading) — see below. **A same-day news story is
+no longer required to trade; a clean, confirmed price-action setup is
+sufficient on its own.** This is the one deliberate philosophy change from
+v1: Mirage trades what the tape is doing, not what the news says it should
+be doing.
+
+## Entry model: Gap-and-Go confirmed by Opening Range Breakout, managed by VWAP
+Three techniques, used together (a well-documented combination — the gap
+identifies the candidate, the ORB confirms the move is real rather than a
+fade, VWAP governs the exit):
+
+1. **Screen** `movers`/`most-actives` for candidates with:
+   - Gap or intraday move of at least 3% (either direction; short the
+     losers side is a future extension — for now, long-only, see below)
+   - Relative volume materially elevated (treat "most-actives" appearance
+     itself as the RVOL confirmation signal — Alpaca doesn't expose a raw
+     RVOL multiple directly, so presence in the top-10 most-actives list by
+     volume is the proxy)
+2. **Confirm** with `bash scripts/alpaca.sh bars SYM 5Min 20`:
+   - Establish the opening range: the high/low of the first 5-15 minutes
+     of trading (the first one to three 5-minute bars after 8:30am
+     Chicago).
+   - Only enter once price has **closed** a 5-minute bar beyond that range
+     in the gap's direction — never enter mid-bar on a wick, wait for the
+     confirmed close. This avoids the classic ORB failure mode of entering
+     a breakout that immediately fails.
+   - One trade per side per symbol per day: if the first breakout attempt
+     fails and reverses, do not re-enter the same direction on that symbol
+     today.
+3. **Manage** using VWAP (the `vwap` field on each bar from the `bars`
+   command):
+   - A reclaim/rejection of VWAP on rising volume is meaningful; a drift
+     across VWAP on thin volume is not — don't treat a low-volume cross as
+     a signal either way.
+   - If a position loses VWAP on a volume spike after being above it, that
+     is an early "thesis broke" signal — exit before waiting for the fixed
+     stop or the EOD close to do it.
+   - Target: first objective is a retest of the high (long) or low
+     (short) of day; take partial/full profit there rather than waiting
+     for the forced EOD close if already well ahead.
+
+Long-only for now (calls/long stock; no shorting, no puts on this entry
+model yet) — keep the first iteration of a new, unproven strategy simple.
+Existing catalyst-based entries (a confirmed earnings reaction, a stated
+FDA/contract-win headline) are still valid **in addition to** a technical
+setup if one surfaces intraday, but are no longer required to trade.
+
+## Position sizing & risk (unchanged from v1)
 1. **HARD CAP, never bends:** no single trade may risk more than 8% of
    CURRENT Mirage equity (position size x stop distance for stocks;
    premium paid for long options). At the $50,000 start, that's $4,000.
-2. Max 4 concurrent positions (day trading works better with focus, not
-   8 simultaneous bets you can't watch closely).
+2. Max 4 concurrent positions.
 3. Max 40% of equity notional per position — subject to the 8% loss cap
    above, which will usually bind first.
 4. No weekly or daily trade-count cap — multiple trades per day are fine
-   when setups justify it, but every one still needs a documented catalyst
-   and the Rule 1 loss-cap math shown explicitly.
-5. Target 50-80% capital deployed during the trading day — lower than
-   Oasis's target, because day trading needs cash in reserve for
-   same-day opportunities and because everything unwinds by the close
-   anyway (no benefit to being 100% deployed at 8:31am if nothing else
-   qualifies until 11am).
+   when setups justify it, and the Rule 1 loss-cap math must be shown
+   explicitly every time.
+5. Target 50-80% capital deployed during the trading day.
 
 ## Stock rules
-- **Stop: 2-3% below entry** (much tighter than Oasis's 7-10% — day
-  trades need less room since the whole thesis plays out in hours, not
-  days). Place as a real stop order (not trailing — trailing stops add
-  complexity for something that's getting force-closed in hours anyway;
-  a fixed stop is simpler and sufficient for a same-day hold).
-- Target: minimum 2:1 reward-to-risk, same discipline as Oasis.
-- If a position is up meaningfully (+3-5%) well before the EOD close
-  window, consider taking profit rather than waiting for the mandatory
-  close to do it — a deliberate exit beats a forced one when you're
-  already ahead.
+- **Stop: 2-3% below entry**, or the opening-range low/high if that's
+  tighter — whichever gives the smaller defined loss while still
+  satisfying Rule 1. Place as a real fixed stop order immediately on fill
+  (not trailing).
+- Target: minimum 2:1 reward-to-risk. First partial at 2:1, remainder
+  trails toward the high/low-of-day retest per the VWAP management rule
+  above.
 
 ## Options rules
-- **Minimum 3 DTE at entry** — deliberately NOT 0DTE/1DTE. Same-day
-  expiration options have extreme gamma/theta swings that turn a same-day
-  hold into a lottery ticket rather than a sized bet; a few days of buffer
-  keeps the position's value behavior sane for an intraday hold even
-  though it will be closed same-day regardless.
-- Only long calls/puts (buy-to-open) for now — no verticals, no naked
-  single-leg, no covered calls/CSPs on this sleeve. Day trading is already
-  a new, unproven strategy for this bot; keep the options side simple
-  (defined-risk, max loss = premium paid) until there's a track record.
+- **Minimum 3 DTE at entry** — deliberately NOT 0DTE/1DTE.
+- Only long calls (buy-to-open) for now, matching the long-only entry
+  model above — no verticals, no naked single-leg, no covered calls/CSPs
+  on this sleeve.
 - Max loss = premium paid, must satisfy the 8%-of-equity Rule 1 cap.
 - Close by end of day regardless of P&L — same mandatory rule as stocks.
-  If it's down badly, cut it well before the close, don't wait for the
-  force-close routine to do it at the last minute.
-
-## What counts as a catalyst (day-trading specific)
-Multi-day fundamental themes (sector momentum over a month, YTD leadership)
-are Oasis's domain, not Mirage's — by the time a monthly trend matters,
-it's not a day-trade signal. Mirage's catalysts should be same-day and
-concrete:
-- A confirmed earnings reaction that morning (beat/miss + price holding
-  the gap, re-validated with a live quote, not just the pre-market print)
-- Unusual volume/news specific to that day (an FDA approval, a contract
-  win, an analyst up/downgrade with a stated reason)
-- A confirmed gap at the open with a stated reason — not just "it gapped,"
-  but why, and whether the gap is holding or fading in the first minutes
-  of trading
-- Economic data (CPI, jobs, Fed announcements) released that morning,
-  with a clear, statable direction of reaction
-
-If nothing that specific and same-day exists, the correct call is no
-trade that day — same "bias toward action, but only when something real
-clears the bar" philosophy as Oasis, just calibrated to intraday signals
-instead of multi-week ones.
+  Options have no native stop order on Alpaca — the -50%-premium close
+  plan must be checked every scan cycle for any open option position, not
+  just at midday/EOD as in v1.
 
 ## Entry checklist (every trade)
-- What is the specific, same-day catalyst? (see above — must be dated
-  today, not "this has been trending")
-- Confirmed with a live quote at entry time, not a stale/pre-market price
-- Stop level (2-3% stocks) and target (min 2:1 R:R)
+- Candidate surfaced via `movers` or `most-actives` (or, secondarily, a
+  confirmed same-day catalyst)
+- Opening range established, and a 5-minute bar has **closed** beyond it
+  in the trade direction (not a mid-bar wick)
+- Live quote confirms the level at entry time
+- Stop level (2-3% or opening-range extreme) and target (min 2:1 R:R)
+  defined before the order is placed
 - The Rule 1 max-loss-at-8%-of-equity calculation, shown explicitly
-- For options: DTE (>=3), defined-risk confirmation (long calls/puts only)
+- For options: DTE (>=3), long calls only
+- Position count check: currently under 4 open positions
+- Not a second attempt on the same symbol/side that already failed today
 
 ## What happens at each check-in
-- **Morning entry:** research today's specific catalysts, size and place
-  any qualifying trades, immediately place real stop-loss orders.
-- **Midday check:** re-evaluate open positions (take profit early if
-  already well ahead; cut early if the thesis has clearly broken — don't
-  wait for the stop or the forced close if something's obviously wrong).
-  Can also open a new position here if a fresh same-day catalyst appears
-  that wasn't there this morning.
+- **Intraday Scan (every 5 min, 8:30am-2:45pm Chicago):** manage open
+  positions first (VWAP-loss exit, thesis break, profit-take, stop
+  maintenance), then screen and trade new entries if under 4 positions.
+  Commit only if something changed.
+- **Evening Research (after close, ~4pm Chicago):** WebSearch-based,
+  research-only, no trading. Builds a "watchlist for tomorrow" entry in
+  RESEARCH-LOG.md (upcoming earnings before tomorrow's open, overnight
+  news, economic calendar) that tomorrow's first Intraday Scan can read
+  for a head start. Always commits (this is the one log write per day
+  guaranteed to happen even on a totally quiet day).
 - **EOD close (mandatory, ~2:45pm Chicago):** close every remaining open
   position — market order, no exceptions — cancel any remaining stop
-  orders, log the day's realized results.
+  orders, log the day's realized results. Unchanged from v1.
 
 ## Learning loop
-Because Mirage force-closes everything daily, it will have **real,
-realized closed trades** far faster than Oasis (which is still sitting on
-unrealized swing positions). Use that: track win rate and average
-win/loss size explicitly once there's a few days of data, and flag to a
-human if a specific pattern (e.g., a particular catalyst type, or entries
-after a certain time of day) is producing repeated losses — this is a new,
-unproven strategy and the first couple of weeks are as much about finding
-out if this approach has real edge as they are about making money.
+Because Mirage force-closes everything daily, it will have real, realized
+closed trades fast. Track win rate and average win/loss size explicitly
+once there's a few days of data, and flag to a human if a specific pattern
+(e.g., a particular time-of-day, or entries right after a screener hit
+without a clean ORB confirmation) is producing repeated losses — this is a
+new, unproven strategy and the first couple of weeks are as much about
+finding out if this approach has real edge as they are about making money.

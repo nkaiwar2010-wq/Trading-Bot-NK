@@ -25,11 +25,21 @@ with its own credentials, separate memory files under `memory/mirage/`.
 Core rule: every position opened must close the same day — the EOD-close
 routine force-closes everything before market close, no exceptions.
 
-| File | Cron (America/Chicago) | Purpose |
-|---|---|---|
-| mirage-morning-entry.md | `30 8 * * 1-5` | Research today's specific catalysts, open positions with real stops |
-| mirage-midday-check.md | `0 12 * * 1-5` | Take early profit/cut broken theses; optionally add a fresh same-day catalyst |
-| mirage-eod-close.md | `45 14 * * 1-5` | MANDATORY: force-close everything, log the day's realized results |
+**v2 (2026-07-27):** replaced the original 3x/day WebSearch-catalyst model
+with a near-continuous, screener-driven model. WebSearch can't see live
+intraday tape, so entries now come from Alpaca's own `movers`/
+`most-actives`/`bars` endpoints (Gap-and-Go confirmed by Opening Range
+Breakout, managed by VWAP) instead of news search. See
+`memory/mirage/STRATEGY.md` for the full model.
+
+| File | Cron (UTC) | Cron (America/Chicago) | Purpose |
+|---|---|---|---|
+| mirage-intraday-scan.md | `*/5 13-19 * * 1-5` | every 5 min, 8:30am-2:45pm (self-guards to the real 8:30-2:44 window) | Manage open positions (VWAP-loss/target exit), screen movers/most-actives, confirm ORB, trade if it clears the checklist. Commits only when something changes. |
+| mirage-eod-close.md | `45 19 * * 1-5` | `45 14 * * 1-5` | MANDATORY: force-close everything, log the day's realized results. Unchanged from v1. |
+| mirage-evening-research.md | `0 21 * * 1-5` | `0 16 * * 1-5` | Research-only (no trading): builds tomorrow's watchlist from earnings/econ-calendar/overnight news via WebSearch. Always commits. |
+
+Retired (v1, disabled): mirage-morning-entry.md, mirage-midday-check.md —
+superseded by mirage-intraday-scan.md above.
 
 Setup steps for each routine (Part 7 of the guide):
 1. Install the Claude GitHub App on this repo.
