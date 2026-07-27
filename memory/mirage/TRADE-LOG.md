@@ -87,3 +87,16 @@ the actual fill price. Verified against Alpaca's fill ledger, the real numbers a
 <!-- DAEMON_EXIT: LVWR 2026-07-27 18:02 -->
 ### Jul 27 18:02 UTC — Intraday Daemon Exit
 **LVWR** closed @ ~$2.69 | entry $2.52 | realized P&L $722.90 (6.7%) | reason: target reached (6.7%, >= 2.0:1 R:R)
+
+### Jul 27 — EOD Force-Close (Day 1) — Final Summary
+
+**Portfolio:** $49,056.48 | **Cash:** $49,056.48 (100% — always ends the day fully flat) | **Day P&L:** -$943.52 (-1.89%) | **Phase P&L:** -$943.52 (-1.89%)
+
+| Ticker/OCC | Entry | Exit | Realized P&L | Reason closed |
+|---|---|---|---|---|
+| ENTX | $3.81 | $3.68 | -$499.98 (-3.41%) | Manual close — protective stop was missing due to a same-day bug (stop submitted before entry-fill confirmation); closed after price had already moved past the intended stop level |
+| KIDZ | $0.6923 | $0.6562 | -$595.00 (-5.21%) | Manual close — same missing-stop bug as ENTX |
+| LVWR | $2.52 | $2.68 | +$684.00 (+6.35%) | Target reached (2.0:1 R:R), daemon exit |
+| GOSS | $0.1991 | $0.1928 | -$532.54 (-3.16%) | Stop-loss hit (manual protective stop @ $0.1931) |
+
+**Notes:** All four positions were opened and closed intraday, well before this EOD routine ran — `positions` and `orders` both returned empty when this force-close check executed. `close-all`/`cancel-all` were still run per protocol and confirmed empty (no-op). Two live bugs were found and fixed mid-session in `mirage_daemon.py`: (1) stop-loss orders were submitted before confirming the entry fill, occasionally leaving positions briefly unprotected; (2) the stop-price formula used `min()` instead of `max()`, picking the wider/weaker candidate stop instead of the tighter one STRATEGY.md specifies. Both were patched and pushed same-day. A third bug — a `close_position()` call that silently failed and logged a false "closed" record for LVWR — was also caught and fixed; LVWR's real close later in the session (target hit) settled at **$2.68, +$684.00 (+6.35%)**, which supersedes the earlier intraday estimate of $2.69/$722.90 logged above (that figure was read off unrealized P&L before the fill ledger confirmed the actual price). Verified: entry/exit prices and P&L above are pulled directly from Alpaca's orders and `/account/activities/FILL` records, and the total (-$943.52) reconciles exactly with account equity (last_equity $50,000.00 → equity $49,056.48). Day tally: 4 opened, 4 closed, 1 win (LVWR) / 3 losses (ENTX, KIDZ, GOSS). Flag for tomorrow: confirm the three bug fixes hold up in a clean session with no manual intervention before trusting the daemon unattended.
