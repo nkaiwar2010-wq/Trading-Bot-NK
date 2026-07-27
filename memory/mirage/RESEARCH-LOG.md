@@ -113,3 +113,19 @@ close.
 - Econ calendar tomorrow is light: Consumer Confidence (10:00 ET), Richmond Fed Manufacturing (10:00 ET), Dallas Fed Texas Retail Outlook (10:30 ET) — none are typically index-moving; Consumer Confidence is the only one worth a glance if it's a big beat/miss. No CPI/GDP/FOMC tomorrow (GDP advance estimate + PCE land Thursday 7/30).
 - No unusual after-hours mover of tradeable size/quality surfaced via WebSearch tonight — after-hours screens were dominated by illiquid micro-caps, not actionable.
 - Overall: earnings-heavy morning (energy + pharma + CDNS reaction) gives a few gap-and-go candidates to confirm live at the open; nothing here should be treated as a pre-committed trade — all setups require intraday tape confirmation before entry.
+
+## 2026-07-27 21:07 UTC (evening research — watchlist for tomorrow)
+
+### Account (sanity check)
+- Confirmed flat: yes, equity $49,056.48, 0 positions (bash scripts/alpaca.sh positions returned [])
+
+### Tomorrow's Setups to Watch
+- INTC (Intel) — reported Q2 after today's close: EPS $0.42 vs. $0.21 consensus, revenue $16.13B vs. $14.33B consensus, both big beats. Stock fell 2.46% into the close, then swung to +3.44% after hours on AI-demand/margin commentary — a genuinely two-sided, still-unsettled reaction. Overhang: FY26 capex guide raised to $20B+ (~$3B above prior plan), which is the bear case. Confirm at open: gap direction, whether it holds above/below today's $100.10 close in the first 15 min before treating as a momentum long or fade.
+- FOMC meeting begins tomorrow (July 28) with the rate decision landing Wednesday July 29 at 2:00pm ET — no decision tomorrow, but a "quiet before the print" dynamic can suppress follow-through on other setups. Econ data tomorrow: Consumer Confidence, Richmond Fed Mfg (both 10:00 ET), Dallas Fed Texas Retail Outlook (10:30 ET) — none typically index-moving; Consumer Confidence is the only one worth a glance on a big beat/miss.
+- Before-open earnings tomorrow: UPS, Boeing (BA), Coca-Cola (KO), PayPal (PYPL), Corning (GLW), Hilton (HLT), Royal Caribbean (RCL), Ecolab (ECL), Oshkosh (OSK). Boeing and UPS are the two with the most history of outsized gap-and-hold moves; confirm live at open before sizing anything.
+- Semis broadly weak today (AMD -5%, Teradyne -4%, Micron -2%) ahead of a heavy megacap-tech earnings week (MSFT/META/ARM Wed after close, AAPL/AMZN Thu after close — not tomorrow). Watch whether INTC's beat provides sector support or gets overwhelmed by continued AI-capex-fatigue rotation out of chips tomorrow morning.
+- Crypto-proxy stocks (Bitmine, Strategy, Coinbase) rallied today on the US/Iran strike pause; oil fell on the same news. Not a tomorrow-specific catalyst by itself, but worth noting as context if oil/crypto continue trending on the truce holding or breaking overnight.
+
+### Notes
+- No single overwhelming catalyst for tomorrow — it's a "confirm at the open" day: INTC's reaction is unresolved, several mid-cap industrials/consumer names report before the bell, and FOMC day-before positioning could add chop. Normal intraday scan with extra attention on INTC gap direction and the Boeing/UPS/Coca-Cola prints.
+- WebSearch limitation stands: can't see live after-hours tape/RVOL, so INTC's actual after-hours settle price and any other stealth after-hours movers need to be confirmed live tomorrow morning, not assumed from tonight's headlines.
