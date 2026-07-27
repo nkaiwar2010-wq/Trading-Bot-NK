@@ -27,3 +27,7 @@ No positions yet. Bot launches next trading session. (Paper trading — no real 
 <!-- DAEMON_ENTRY: KIDZ long 2026-07-27 -->
 ### Jul 27 17:24 UTC — Intraday Daemon Entry
 **KIDZ** long 16482 sh @ ~$0.72 | stop $0.48 | target $1.20 (2.0:1) | gap 64.6%, ORB confirmed above $0.53 | Rule 1: 16482 x $0.24 = $3950.74 (8.0% of $49,386 equity, cap 8%)
+
+<!-- DAEMON_ENTRY: GOSS long 2026-07-27 -->
+### Jul 27 17:25 UTC — Intraday Daemon Entry
+**GOSS** long 84530 sh @ ~$0.20 | stop $0.15 | target $0.29 (2.0:1) | gap 45.5%, ORB confirmed above $0.17 | Rule 1: 84530 x $0.05 = $3913.74 (8.0% of $48,922 equity, cap 8%)
