@@ -25,9 +25,9 @@ IMPORTANT — PERSISTENCE:
 - Fresh clone every cycle, no memory of the previous scan except what's
   committed to git. Commit and push ONLY IF something actually changed
   (a trade opened, a trade closed, a stop adjusted). A pure "scanned,
-  nothing qualified" cycle must NOT commit — at ~75 cycles/day, logging
-  every no-op would flood the logs. Silence is the expected, correct
-  outcome most cycles.
+  nothing qualified" cycle must NOT commit — logging every no-op would
+  flood the logs for no reason. Silence is the expected, correct outcome
+  most cycles.
 
 STEP 1 — Read for context:
 - memory/mirage/STRATEGY.md (full rules — Entry model, Position sizing,
