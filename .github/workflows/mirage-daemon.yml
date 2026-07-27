@@ -1,0 +1,32 @@
+name: Mirage Intraday Daemon
+
+on:
+  schedule:
+    # 13:30 UTC = 8:30am America/Chicago (CDT) = market open. Weekdays only.
+    - cron: "30 13 * * 1-5"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  run-daemon:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run Mirage intraday daemon
+        env:
+          ALPACA_API_KEY: ${{ secrets.MIRAGE_ALPACA_API_KEY }}
+          ALPACA_SECRET_KEY: ${{ secrets.MIRAGE_ALPACA_SECRET_KEY }}
+          ALPACA_ENDPOINT: https://paper-api.alpaca.markets/v2
+          ALPACA_DATA_ENDPOINT: https://data.alpaca.markets/v2
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/mirage_daemon.py

@@ -25,34 +25,45 @@ anything still open at ~2:45pm Chicago (15 min before the 3:00pm close)
 regardless of P&L, regardless of whether a thesis "looks like it just needs
 one more day." A position held overnight is a bug, not a strategic choice.
 
-## Operating model: hourly intraday scan (v2, 2026-07-27)
-Mirage runs an **Intraday Scan** once per hour, on the half-hour, from
-8:30am to 2:30pm Chicago (market open through 15 min before the mandatory
-EOD close) — 7 check-ins per trading day, plus the EOD-close routine and
-an after-hours Evening Research routine. Hourly is the platform's minimum
-cron interval for Claude Code cloud routines (RemoteTrigger rejects
-anything scheduled more frequently than once per hour) — not a strategy
-choice; true continuous/tick-by-tick monitoring isn't available in this
-architecture. Each scan is a fresh, stateless session (no memory of the
-prior scan except what's committed to git) that:
-1. Reads today's date and this file for rules.
-2. Pulls live account/positions/orders.
-3. Manages anything already open (see "Position management" below).
-4. If under 4 open positions, screens for a new entry (see "Entry model"
-   below) and trades it if it clears every rule.
-5. Commits and pushes **only if something changed** (a trade opened,
-   a trade closed, a stop adjusted). A pure "scanned, nothing qualified"
-   cycle is a silent no-op — no commit. Silence between logged entries
-   means "nothing happened," not "the bot is broken." Because check-ins
-   are hourly rather than continuous, the live stop-loss order placed on
-   Alpaca at entry remains the real protection between scans — same
-   honest limitation as v1, just a shorter gap now (up to ~1 hour instead
-   of up to ~3.5 hours).
+## Operating model: continuous daemon (v3, 2026-07-27)
+Mirage's entries and position management now run as a **continuous
+GitHub Actions daemon** (`scripts/mirage_daemon.py`), not a Claude Code
+cloud routine. Claude Code's routine scheduler (`RemoteTrigger`) has a
+hard platform floor of one firing per hour — that was v2's ceiling, and
+it's still too slow for real day-trading. The daemon works around this
+by moving outside Claude Code's routine system entirely: a single
+GitHub Actions job starts at market open and loops in-process, polling
+Alpaca every ~60 seconds until a safety cutoff before the mandatory
+EOD-close, holding state (which symbols were already attempted today)
+in memory for the whole session instead of losing it between fires like
+v1/v2 did.
 
-### Why this replaced the old 3-checkpoint model
-The original version (morning-entry / midday-check / EOD-close, 3x/day)
-relied on WebSearch to find "same-day catalysts." In practice this failed
-on quiet news days (confirmed 2026-07-27: two HOLD decisions in a row
+The daemon is **deterministic code, not an LLM call per decision** — the
+Gap-and-Go / Opening-Range-Breakout / VWAP rules below are fully
+specified, so a script executes them directly against Alpaca rather than
+an agent re-reasoning every cycle. This is a deliberate scope cut for v3:
+**stock-only, long-only** (movers/most-actives are stock screeners
+anyway; options can be added back once this is proven). Any existing
+option position is left for the hourly-cadence tooling / EOD-close to
+handle, not touched by the daemon.
+- Runs 8:30am Chicago (market open) through a hard exit around 2:30pm
+  Chicago, stopping new entries at 2:15pm — safely under GitHub Actions'
+  6-hour job limit and with buffer before the separate, still-mandatory
+  EOD-close routine at 2:45pm, which remains the hard backstop for the
+  no-overnight-holds rule regardless of what the daemon did or didn't do.
+- Commits to TRADE-LOG.md only on an actual entry or exit, tagged with a
+  machine-parseable `<!-- DAEMON_ENTRY: SYMBOL long YYYY-MM-DD -->` /
+  `<!-- DAEMON_EXIT: ... -->` marker so a mid-day restart can recover
+  which symbols were already attempted without re-reading the whole log.
+- Claude's role narrows to what it's good at: the nightly Evening
+  Research routine (still WebSearch-based, still builds tomorrow's
+  watchlist) and periodic strategy review — not live tick-by-tick
+  execution.
+
+### Why this replaced the hourly-scan model
+v2 (hourly Claude Code routine) was itself a replacement for v1's 3x/day
+WebSearch-catalyst model, which failed on quiet news days (confirmed
+2026-07-27: two HOLD decisions in a row
 because WebSearch cannot see live pre-market/intraday tape — it's a search
 engine, not a real-time data feed). The v2 model fixes this by using
 **Alpaca's own market-data endpoints** as the primary signal source instead
@@ -133,7 +144,10 @@ setup if one surfaces intraday, but are no longer required to trade.
   trails toward the high/low-of-day retest per the VWAP management rule
   above.
 
-## Options rules
+## Options rules (currently dormant — see v3 scope cut above)
+The daemon that runs Mirage as of v3 is stock-only; nothing currently
+opens new option positions on this sleeve. These rules stay documented
+for when options are added back:
 - **Minimum 3 DTE at entry** — deliberately NOT 0DTE/1DTE.
 - Only long calls (buy-to-open) for now, matching the long-only entry
   model above — no verticals, no naked single-leg, no covered calls/CSPs
@@ -141,8 +155,7 @@ setup if one surfaces intraday, but are no longer required to trade.
 - Max loss = premium paid, must satisfy the 8%-of-equity Rule 1 cap.
 - Close by end of day regardless of P&L — same mandatory rule as stocks.
   Options have no native stop order on Alpaca — the -50%-premium close
-  plan must be checked every scan cycle for any open option position, not
-  just at midday/EOD as in v1.
+  plan must be checked continuously for any open option position.
 
 ## Entry checklist (every trade)
 - Candidate surfaced via `movers` or `most-actives` (or, secondarily, a
@@ -157,20 +170,23 @@ setup if one surfaces intraday, but are no longer required to trade.
 - Position count check: currently under 4 open positions
 - Not a second attempt on the same symbol/side that already failed today
 
-## What happens at each check-in
-- **Intraday Scan (every 5 min, 8:30am-2:45pm Chicago):** manage open
-  positions first (VWAP-loss exit, thesis break, profit-take, stop
-  maintenance), then screen and trade new entries if under 4 positions.
-  Commit only if something changed.
-- **Evening Research (after close, ~4pm Chicago):** WebSearch-based,
-  research-only, no trading. Builds a "watchlist for tomorrow" entry in
-  RESEARCH-LOG.md (upcoming earnings before tomorrow's open, overnight
-  news, economic calendar) that tomorrow's first Intraday Scan can read
-  for a head start. Always commits (this is the one log write per day
-  guaranteed to happen even on a totally quiet day).
-- **EOD close (mandatory, ~2:45pm Chicago):** close every remaining open
-  position — market order, no exceptions — cancel any remaining stop
-  orders, log the day's realized results. Unchanged from v1.
+## What happens each day
+- **Intraday Daemon (continuous, ~8:30am-2:30pm Chicago):** a single
+  GitHub Actions job, not a Claude Code routine. Manages open positions
+  (VWAP-loss exit, target hit) and screens/trades new entries every
+  ~60 seconds, stock-only. Commits to TRADE-LOG.md only on an actual
+  entry or exit.
+- **Evening Research (after close, ~4pm Chicago, Claude Code routine):**
+  WebSearch-based, research-only, no trading. Builds a "watchlist for
+  tomorrow" entry in RESEARCH-LOG.md (upcoming earnings before tomorrow's
+  open, overnight news, economic calendar) that the daemon can factor in.
+  Always commits — the one guaranteed daily log entry even on a quiet
+  night.
+- **EOD close (mandatory, ~2:45pm Chicago, Claude Code routine):** close
+  every remaining open position — market order, no exceptions — cancel
+  any remaining stop orders, log the day's realized results. This is the
+  hard backstop for the no-overnight-holds rule regardless of what the
+  daemon did or didn't do, unchanged since v1.
 
 ## Learning loop
 Because Mirage force-closes everything daily, it will have real, realized

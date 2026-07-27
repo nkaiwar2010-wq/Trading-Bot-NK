@@ -25,21 +25,28 @@ with its own credentials, separate memory files under `memory/mirage/`.
 Core rule: every position opened must close the same day — the EOD-close
 routine force-closes everything before market close, no exceptions.
 
-**v2 (2026-07-27):** replaced the original 3x/day WebSearch-catalyst model
-with a near-continuous, screener-driven model. WebSearch can't see live
-intraday tape, so entries now come from Alpaca's own `movers`/
-`most-actives`/`bars` endpoints (Gap-and-Go confirmed by Opening Range
-Breakout, managed by VWAP) instead of news search. See
-`memory/mirage/STRATEGY.md` for the full model.
+**v3 (2026-07-27):** entries/exits now run as a **continuous GitHub
+Actions daemon** (`scripts/mirage_daemon.py`), not a Claude Code cloud
+routine — Claude Code's `RemoteTrigger` scheduler has a hard 1-hour
+minimum firing interval, which was v2's ceiling and still too slow for
+real day-trading. The daemon runs deterministic code (Gap-and-Go +
+Opening Range Breakout + VWAP, stock-only for now) against Alpaca's own
+`movers`/`most-actives`/`bars` endpoints, polling every ~60 seconds in a
+single long-lived job from market open to a safety cutoff before the
+still-mandatory EOD close. See `memory/mirage/STRATEGY.md` for the full
+model and why each prior version was replaced.
 
-| File | Cron (UTC) | Cron (America/Chicago) | Purpose |
+| Component | Type | Schedule | Purpose |
 |---|---|---|---|
-| mirage-intraday-scan.md | `30 13-19 * * 1-5` | hourly, 8:30am-2:30pm (7 check-ins/day) | Manage open positions (VWAP-loss/target exit), screen movers/most-actives, confirm ORB, trade if it clears the checklist. Commits only when something changes. Hourly is the platform's minimum cron interval (RemoteTrigger rejects anything more frequent than 1 hour) — not a strategy choice. |
-| mirage-eod-close.md | `45 19 * * 1-5` | `45 14 * * 1-5` | MANDATORY: force-close everything, log the day's realized results. Unchanged from v1. |
-| mirage-evening-research.md | `0 21 * * 1-5` | `0 16 * * 1-5` | Research-only (no trading): builds tomorrow's watchlist from earnings/econ-calendar/overnight news via WebSearch. Always commits. |
+| `.github/workflows/mirage-daemon.yml` → `scripts/mirage_daemon.py` | GitHub Actions (not Claude Code) | cron `30 13 * * 1-5` UTC (8:30am Chicago) start, runs continuously to ~2:30pm Chicago | Manage open positions (VWAP-loss/target exit), screen movers/most-actives, confirm ORB, trade if it clears the checklist. Commits only on an actual entry/exit. Requires repo secrets `MIRAGE_ALPACA_API_KEY` / `MIRAGE_ALPACA_SECRET_KEY`. |
+| mirage-eod-close.md | Claude Code cloud routine | `45 19 * * 1-5` UTC / `45 14 * * 1-5` Chicago | MANDATORY: force-close everything, log the day's realized results. Unchanged since v1 — the hard backstop regardless of what the daemon did. |
+| mirage-evening-research.md | Claude Code cloud routine | `0 21 * * 1-5` UTC / `0 16 * * 1-5` Chicago | Research-only (no trading): builds tomorrow's watchlist from earnings/econ-calendar/overnight news via WebSearch. Always commits. |
 
-Retired (v1, disabled): mirage-morning-entry.md, mirage-midday-check.md —
-superseded by mirage-intraday-scan.md above.
+Retired (disabled, not deleted): mirage-morning-entry.md,
+mirage-midday-check.md (v1), mirage-intraday-scan.md (v2, hourly Claude
+Code routine) — all superseded by the daemon above. Running the v2
+hourly routine alongside the daemon would mean two independent traders
+fighting over the same account/position limits, so it stays off.
 
 Setup steps for each routine (Part 7 of the guide):
 1. Install the Claude GitHub App on this repo.
