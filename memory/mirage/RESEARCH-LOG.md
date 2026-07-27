@@ -97,3 +97,19 @@ for anything that develops intraday.
 HOLD — no genuinely new same-day catalyst clears the bar. No new
 position opened. Nothing open to manage. Next check-in: mandatory EOD
 close.
+
+## 2026-07-27 (evening research — watchlist for tomorrow)
+
+### Account (sanity check)
+- Confirmed flat: yes, equity $50,000, 0 positions, 0 open orders (EOD-close ran as expected)
+
+### Tomorrow's Setups to Watch
+- CDNS (Cadence Design Systems) — reported Q2 after today's close; consensus was EPS $2.05 / rev $1.58B against a prior FY26 guide raise to ~$6.2B rev. Reaction still developing at time of writing (WebSearch can't see the print/after-hours tape). Confirm at open: gap direction vs. consensus, and whether it holds above/below prior close — software/semis-design names have been reaction-sensitive this earnings season.
+- XOM, CVX (energy majors) — both report before tomorrow's open. Watch for a coordinated sector gap; confirm with early volume in XLE if fading or holding.
+- ABBV, MRNA (pharma/biotech) — both report before tomorrow's open; watch for guidance-driven gaps, confirm with first-15-min range before committing.
+- Broader macro backdrop: Alphabet fell 7.1% last Thursday on capex/free-cash-flow concerns (its worst earnings reaction since Feb 2025), reinforcing a "AI spenders punished / semis rewarded" dynamic. MSFT, META, ARM report Wednesday after close and AAPL/AMZN Thursday after close (not tomorrow), but expect continued positioning/rotation chatter tomorrow that could move megacap tech and semis even without a same-day print.
+
+### Notes
+- Econ calendar tomorrow is light: Consumer Confidence (10:00 ET), Richmond Fed Manufacturing (10:00 ET), Dallas Fed Texas Retail Outlook (10:30 ET) — none are typically index-moving; Consumer Confidence is the only one worth a glance if it's a big beat/miss. No CPI/GDP/FOMC tomorrow (GDP advance estimate + PCE land Thursday 7/30).
+- No unusual after-hours mover of tradeable size/quality surfaced via WebSearch tonight — after-hours screens were dominated by illiquid micro-caps, not actionable.
+- Overall: earnings-heavy morning (energy + pharma + CDNS reaction) gives a few gap-and-go candidates to confirm live at the open; nothing here should be treated as a pre-committed trade — all setups require intraday tape confirmation before entry.
