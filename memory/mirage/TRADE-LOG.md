@@ -62,5 +62,24 @@ this fix was still running the old, buggy code in memory — it needs to be manu
 cancelled and re-triggered to pick up both fixes for the remainder of today's session.
 
 <!-- DAEMON_EXIT: LVWR 2026-07-27 17:39 -->
-### Jul 27 17:39 UTC — Intraday Daemon Exit
-**LVWR** closed @ ~$2.68 | entry $2.52 | realized P&L $683.57 (6.3%) | reason: target reached (6.3%, >= 2.0:1 R:R)
+### Jul 27 17:39 UTC — Intraday Daemon Exit — **CORRECTION: THIS DID NOT HAPPEN**
+~~**LVWR** closed @ ~$2.68 | entry $2.52 | realized P&L $683.57 (6.3%) | reason: target reached (6.3%, >= 2.0:1 R:R)~~
+**Third bug found, same session:** `close_position()` was called and the log entry above
+was written, but Alpaca's own fill ledger (`/v2/account/activities/FILL`) shows **no sell
+fill for LVWR ever occurred** — only the original buy. The liquidation call silently
+failed (most likely because the still-open protective stop order had qty_available
+locked at 0) and the code logged success without verifying it. LVWR **remained open**
+the whole time; its protective stop was cancelled as part of the (failed) close attempt,
+leaving it naked until the safety-net check re-placed a stop on the next cycle.
+**Fixed in code:** existing orders for a symbol are now cancelled *before* attempting the
+close (not after), and the close is only logged/committed once `wait_for_close()`
+confirms the position is actually gone — a timeout re-places the protective stop and
+retries next cycle instead of writing a false record.
+**Real state as of this correction:** LVWR still open, 4275 sh, protected by a real stop.
+
+**Also correcting the manual ENTX/KIDZ figures logged earlier** — those were
+estimated from the unrealized P&L shown at the moment I issued the manual close, not
+the actual fill price. Verified against Alpaca's fill ledger, the real numbers are:
+- ENTX: sold @ $3.68 avg (entry $3.81) → realized **-$499.98**, not the ~-$530 estimated.
+- KIDZ: sold @ $0.6562 avg (entry $0.6923) → realized **-$595.00**, not the ~-$427 estimated.
+- Combined realized loss from these two: **-$1,094.98**.

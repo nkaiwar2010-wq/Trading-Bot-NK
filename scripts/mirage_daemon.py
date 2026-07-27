@@ -149,6 +149,21 @@ def wait_for_fill(order_id, timeout_seconds=15, poll_seconds=1):
     return int(float(order.get("filled_qty", 0))) if order else 0
 
 
+def wait_for_close(symbol, timeout_seconds=15, poll_seconds=1):
+    """Poll until the position is actually gone. Returns True if confirmed
+    closed, False if it timed out still showing a position — a liquidation
+    call can fail (rejected order, etc.) and must not be assumed to have
+    worked just because it was submitted."""
+    waited = 0
+    while waited < timeout_seconds:
+        positions = get_positions()
+        if not any(p["symbol"] == symbol for p in positions):
+            return True
+        time.sleep(poll_seconds)
+        waited += poll_seconds
+    return False
+
+
 def opening_range(bars):
     """High/low of the first 1-3 five-minute bars after 13:30 UTC (8:30am Chicago)."""
     session_bars = [b for b in bars if b["t"][11:16] >= "13:30"]
@@ -279,10 +294,26 @@ def manage_positions(equity):
             reason = f"target reached ({unrealized_pct:.1%}, >= {MIN_RR}:1 R:R)"
         if reason:
             log(f"Closing {symbol}: {reason}")
-            close_position(symbol)
-            for o in get_orders("open"):
+            # Cancel existing orders FIRST — an open stop order reserves the
+            # shares (qty_available drops to 0), which can make the
+            # liquidation call below fail. Only after cancelling do we
+            # attempt the close, and only log/commit if it's CONFIRMED,
+            # not just attempted (a prior version logged "closed" even
+            # when the liquidation silently failed, corrupting the record).
+            for o in open_orders:
                 if o["symbol"] == symbol:
                     cancel_order(o["id"])
+            close_position(symbol)
+            if not wait_for_close(symbol):
+                log(f"{symbol} close did NOT confirm within timeout — position "
+                    f"likely still open; re-placing a protective stop so it "
+                    f"isn't left naked, will retry the close next cycle")
+                fallback_stop = round(min(entry, current) * (1 - STOP_PCT), 2)
+                place_order({
+                    "symbol": symbol, "qty": str(qty), "side": "sell",
+                    "type": "stop", "stop_price": f"{fallback_stop:.2f}", "time_in_force": "day",
+                })
+                continue
             pnl = float(pos["unrealized_pl"])
             entry_line = (
                 f"<!-- DAEMON_EXIT: {symbol} {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M')} -->\n"
