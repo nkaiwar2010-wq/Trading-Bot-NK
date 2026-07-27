@@ -179,3 +179,13 @@ structure to slowly bleed on both legs while the underlying thesis is already de
 worse expected outcome than taking the loss now and redeploying into a genuinely new,
 distinct catalyst. Flagging for the next research cycle: avoid layering a hedge on top of
 an invalidated thesis going forward — a broken thesis should be exited, not hedged.
+
+### Jul 27 — EOD Snapshot (Day 9, Monday)
+
+**Portfolio:** $94,070.08 | **Cash:** $91,010.08 (96.7%) | **Day P&L:** -$5,933.51 (-5.93%) | **Phase P&L:** -$5,929.92 (-5.93%) | **Challenge:** -$5,929.92 of $50,000 target, 23 days left
+
+| Ticker/OCC | Shares/Contracts | Entry | Close | Day Chg | Unrealized P&L | Stop/Close Plan |
+|---|---|---|---|---|---|---|
+| SLB260821C00052000 | 20 contracts | $1.65 | $1.53 | -27.83% | -$240.00 (-7.27%) | Close at -50% (~$0.825) or +50-100% gain |
+
+**Notes:** A volatile day dominated by a confirmed US-Iran ceasefire pause that reversed the oil-supply-shock catalyst underlying the entire long-energy book (XLE stock, XOP stock, XLE 58.5C, XLE 61C). Two new defined-risk hedge puts were opened at the open (XOP 158P, XLE 55P) against the existing longs, but a mid-day manual intervention judged the original oil-up thesis fully dead and exited the entire 6-position structure (both stock legs, both calls, and both newly-opened hedge puts) rather than let it bleed slowly toward individual stop triggers — realized equity at the time of exit was $95,190.08. Continued intraday drift left EOD equity at $94,070.08, down -$5,933.51 (-5.93%) on the day and -$5,929.92 (-5.93%) since challenge start — the first meaningfully red day of the challenge. Only the SLB 52C position (distinct post-earnings catalyst, not invalidated by the oil reversal) remains open, down -7.27% unrealized but well clear of its -50% stop. Cash is now 96.7% of equity (8 trades today: 2 opens, 6 closes), leaving the book almost entirely in cash and needing a fresh, distinct catalyst for redeployment. Day 9 of 30, 23 days left to the Aug 19 deadline — now behind flat pace by ~$5,930 against the $50,000 target; not yet a structural pace concern with 23 days remaining, but a reminder that today's lesson (avoid hedging a broken thesis instead of exiting it) should inform faster thesis-invalidation response going forward. PERPLEXITY_API_KEY and ClickUp creds still missing this cycle — no blocker, using WebSearch fallback and local DAILY-SUMMARY.md fallback respectively.
