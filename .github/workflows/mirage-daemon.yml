@@ -4,8 +4,16 @@ on:
   # No schedule: trigger here on purpose -- GitHub Actions' own cron is
   # documented as best-effort with no SLA and was unreliable in practice
   # (fired 5.5 hours late on day 1, didn't fire at all on day 2). A Claude
-  # Code cloud routine (reliable cron all session) triggers this via the
-  # workflow_dispatch API instead -- see routines/mirage-trigger-daemon.md.
+  # Code cloud routine (reliable cron all session) triggers this instead by
+  # pushing a commit that touches the trigger file below -- git push is
+  # something these routines already do reliably every day, and GitHub's
+  # push webhook fires instantly, unlike schedule:. Direct GitHub API calls
+  # (workflow_dispatch via curl) turned out to be blocked at the Claude Code
+  # session/proxy level (needs a GitHub App org connection this project
+  # doesn't have), so this avoids that path entirely.
+  push:
+    paths:
+      - ".github/mirage-trigger.txt"
   workflow_dispatch: {}
 
 permissions:

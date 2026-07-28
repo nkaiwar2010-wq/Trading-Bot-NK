@@ -1,0 +1,5 @@
+This file's only purpose is to be touched (timestamp updated) to fire the
+Mirage Intraday Daemon workflow via a push event. See
+.github/workflows/mirage-daemon.yml and routines/mirage-trigger-daemon.md.
+
+last triggered: (not yet triggered)
