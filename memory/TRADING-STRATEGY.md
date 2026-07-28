@@ -117,6 +117,29 @@ deliberately, not as an afterthought to stocks.
 - Combined stock + options positions count toward the same 8 max open
   positions — this is one book, not two. There is no weekly trade cap.
 
+### Entry timing relative to a catalyst (IV crush awareness)
+Added 2026-07-28 after a live lesson: the SLB $52 call (bought right after
+a confirmed earnings beat) lost -35.76% of its value over two trading days
+while the underlying stock barely moved (-0.3%). The directional read was
+never wrong — the stock didn't drop — but the option still bled value
+because implied volatility was elevated right after the catalyst and
+collapsed afterward (classic post-event IV crush), and this was a
+near-the-money call (delta ~0.42), which makes it especially IV-sensitive.
+- Buying an option in the minutes/hours immediately after a catalyst
+  (earnings beat/miss, major news) means paying an IV premium that is
+  likely to deflate over the following days regardless of whether the
+  directional thesis proves correct. This is a real, structural cost, not
+  a risk that shows up in the Rule 3 max-loss calc.
+- Where practical, prefer confirming the move holds for a bit (even
+  same-day, later in the session) before entering, rather than chasing
+  the very first print after news breaks — or size smaller / prefer
+  further-OTM (cheaper, less delta/IV-sensitive) strikes when entering
+  immediately is still the better call.
+- This is a judgment-call guideline, not a hard rule with a fixed waiting
+  period — the goal is awareness that "the stock hasn't moved against me"
+  does not mean "the option isn't losing value," especially in the first
+  1-3 days after a catalyst.
+
 ### Days-to-expiration (DTE) rules
 - Do not open a new options position with fewer than 7 DTE (avoid
   gamma/pin risk close to expiration) — this floor stays in place even
