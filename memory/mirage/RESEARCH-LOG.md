@@ -129,3 +129,20 @@ close.
 ### Notes
 - No single overwhelming catalyst for tomorrow — it's a "confirm at the open" day: INTC's reaction is unresolved, several mid-cap industrials/consumer names report before the bell, and FOMC day-before positioning could add chop. Normal intraday scan with extra attention on INTC gap direction and the Boeing/UPS/Coca-Cola prints.
 - WebSearch limitation stands: can't see live after-hours tape/RVOL, so INTC's actual after-hours settle price and any other stealth after-hours movers need to be confirmed live tomorrow morning, not assumed from tonight's headlines.
+
+## 2026-07-28 21:08 UTC (evening research — watchlist for tomorrow)
+
+### Account (sanity check)
+- Confirmed flat: yes, equity $49,038.20, 0 positions (bash scripts/alpaca.sh positions returned [])
+
+### Tomorrow's Setups to Watch
+- FOMC rate decision at 2:00pm ET tomorrow (statement + implementation note), press conference 2:30pm ET. Non-SEP meeting, so no updated dot plot/projections. Fed has held 3.50-3.75% through Jan/Mar/Apr/June 2026, citing inflation above target — a hold is the base case, so the tradeable catalyst is Powell's tone in the press conference, not the decision itself. Confirm live: does SPY/QQQ chop into 2pm then break on the statement/presser, watch for a reversal candle either direction.
+- MSFT and META both report Q2 tomorrow (7/29) — META confirmed after market close (call 4:30pm ET), MSFT also reporting same day. This means the earnings reaction lands Thursday morning (7/30), not tomorrow's open — but expect elevated positioning/hedging chatter in both names and in semis tomorrow ahead of the print, layered on top of FOMC day. Not a tomorrow-morning gap play by itself; note for Thursday's research instead.
+- Memory/chip sector rout continuing: SanDisk (SNDK) closed -14.14% today, down ~35% over three sessions, extending Monday's SK Hynix -7.47% and Tuesday's Micron/AMD >8% drops. Driver: AI-memory-trade unwind + fear of Chinese NAND/DRAM competition (CXMT's ~$487B Shanghai IPO) pressuring margins, plus Fed commentary on stretched tech valuations. Watch SNDK, MU, WDC, SK Hynix-linked names at tomorrow's open for continuation vs. dead-cat bounce; this is a live, still-unresolved trend, not a one-day event.
+- Today's session context: Dow +1.03% (chip weakness offset by earnings optimism/falling oil), S&P +0.21%, Nasdaq -0.22%. Sherwin-Williams +8% and Coca-Cola +5% on beats — no incremental catalyst for tomorrow from either, just confirms a "industrials/consumer staples beats, semis punished" rotation that could persist into tomorrow's FOMC session.
+- No before-open earnings of size confirmed for tomorrow beyond the MSFT/META after-close pair; will recheck live at open since after-hours WebSearch coverage is incomplete.
+
+### Notes
+- Tomorrow is dominated by one macro catalyst (FOMC 2pm ET) layered on an already-jumpy tape (semis/memory unwind). Expect a quiet morning followed by a directional move into/after the 2pm decision and presser — normal intraday scan pre-2pm, heightened attention post-2pm.
+- The MSFT/META prints are real but their tradeable reaction is a Thursday story, not tomorrow's — flagged here so it isn't missed, but no tomorrow-morning setup is being built around them.
+- WebSearch limitation stands: can't see live after-hours/premarket tape, so tomorrow's actual gappers (especially in the memory/chip complex) need live confirmation at the open, not assumption from tonight's headlines.
