@@ -1,9 +1,11 @@
 name: Mirage Intraday Daemon
 
 on:
-  schedule:
-    # 13:30 UTC = 8:30am America/Chicago (CDT) = market open. Weekdays only.
-    - cron: "30 13 * * 1-5"
+  # No schedule: trigger here on purpose -- GitHub Actions' own cron is
+  # documented as best-effort with no SLA and was unreliable in practice
+  # (fired 5.5 hours late on day 1, didn't fire at all on day 2). A Claude
+  # Code cloud routine (reliable cron all session) triggers this via the
+  # workflow_dispatch API instead -- see routines/mirage-trigger-daemon.md.
   workflow_dispatch: {}
 
 permissions:
