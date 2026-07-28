@@ -100,3 +100,13 @@ the actual fill price. Verified against Alpaca's fill ledger, the real numbers a
 | GOSS | $0.1991 | $0.1928 | -$532.54 (-3.16%) | Stop-loss hit (manual protective stop @ $0.1931) |
 
 **Notes:** All four positions were opened and closed intraday, well before this EOD routine ran — `positions` and `orders` both returned empty when this force-close check executed. `close-all`/`cancel-all` were still run per protocol and confirmed empty (no-op). Two live bugs were found and fixed mid-session in `mirage_daemon.py`: (1) stop-loss orders were submitted before confirming the entry fill, occasionally leaving positions briefly unprotected; (2) the stop-price formula used `min()` instead of `max()`, picking the wider/weaker candidate stop instead of the tighter one STRATEGY.md specifies. Both were patched and pushed same-day. A third bug — a `close_position()` call that silently failed and logged a false "closed" record for LVWR — was also caught and fixed; LVWR's real close later in the session (target hit) settled at **$2.68, +$684.00 (+6.35%)**, which supersedes the earlier intraday estimate of $2.69/$722.90 logged above (that figure was read off unrealized P&L before the fill ledger confirmed the actual price). Verified: entry/exit prices and P&L above are pulled directly from Alpaca's orders and `/account/activities/FILL` records, and the total (-$943.52) reconciles exactly with account equity (last_equity $50,000.00 → equity $49,056.48). Day tally: 4 opened, 4 closed, 1 win (LVWR) / 3 losses (ENTX, KIDZ, GOSS). Flag for tomorrow: confirm the three bug fixes hold up in a clean session with no manual intervention before trusting the daemon unattended.
+
+### Jul 28 — EOD Force-Close (Day 2)
+
+**Portfolio:** $49,038.20 | **Cash:** $49,038.20 (100% — always ends the day fully flat) | **Day P&L:** -$18.28 (-0.04%) | **Phase P&L:** -$961.80 (-1.92%)
+
+| Ticker/OCC | Entry | Exit | Realized P&L | Reason closed |
+|---|---|---|---|---|
+| — | — | — | — | — |
+
+**Notes:** No morning-entry cycle ran today — account had 0 open positions and 0 open orders when this EOD routine executed (`positions` and `orders` both returned empty before `close-all`/`cancel-all`, which were run per protocol as no-ops and reconfirmed empty). No trades opened, no trades closed, 0 wins / 0 losses. The -$18.28 day drift with no trading activity is a small overnight equity adjustment already reflected in Alpaca's `last_equity`/`equity` fields (not attributable to any position). Nothing to flag for tomorrow beyond confirming the daemon actually fires a morning-entry cycle — two days in a row now (day 1 post-bugfix session, day 2 today) with no autonomous entries logged outside the manual Day 1 intervention.
