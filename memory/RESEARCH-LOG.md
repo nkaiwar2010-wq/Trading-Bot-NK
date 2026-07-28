@@ -1390,3 +1390,15 @@ live asks, (d) keep combined new-premium spend proportionate given the
 book is still only at 3 of 8 max positions after this cycle and remains
 far under the 85-100% deployment target — more distinct catalysts should
 still be sourced through the day.
+
+## 2026-07-28 17:03 UTC — Midday Scan Addendum (Day 10, Tuesday)
+
+**Account:** Equity $91,931.34 (last close $95,246.40, day P&L -$3,315.06/-3.48%). Cash $84,181.34. No open orders, no stock positions (2 of 8 max: SLB260821C00052000, SMH260821P00505000). Challenge: -$8,068.66 vs. $150,000 target, 22 days left — behind flat pace, not yet a structural concern.
+
+**Position checks (live bid/ask, not stale position-mark):**
+- SLB260821C00052000 (20 ct, entry $1.65): live $1.09/$1.19 (mid ~$1.14), -30.9% from entry. Stop trigger is -50% (~$0.825/ct). No action — well clear. DTE 24, no expiration concern. SLB stock $50.65/$50.66, roughly flat since entry — no thesis break (Jefferies/Barclays analyst notes from this morning still net constructive, no new negative catalyst found).
+- SMH260821P00505000 (3 ct, entry $22.75): live $18.49/$19.59 (mid ~$19.04), -16.3% from entry. Stop trigger is -50% (~$11.375/ct). No action — well clear. DTE 24, no expiration concern.
+
+**Thesis check (Step 5) — SMH put:** SMH underlying has round-tripped intraday from this morning's confirmed weakness (open $530.70, session low $527.62) back up to live $532.39/$532.70 — essentially flat-to-slightly-up vs. Monday's $532.35 close, i.e. the specific "second consecutive day of weakness" catalyst that justified the entry is not holding up as cleanly as it did at the open. WebSearch (Perplexity unavailable — fallback used) returned conflicting same-day percentage figures for SMH/NVDA from published articles (stale/mistimed snapshots), so treated with caution vs. the live Alpaca quote, which is authoritative. No new confirmed news catalyst reversing the chip-weakness thesis was found (no bullish semiconductor headline, no dovish Fed surprise yet — FOMC decision itself is tomorrow, not today). Given (a) no confirmed news-based thesis reversal, (b) position not at its -50% rule stop, (c) elevated intraday two-way chop is expected/normal on an FOMC-eve day — judgment call is to HOLD, not force an early exit, unlike the Jul 27 ceasefire case where a specific confirming news event reversed the catalyst. Flagged as the position to watch first on the next cycle; a continued bounce back above session highs without a stop trigger would warrant revisiting this judgment call intraday or at EOD.
+
+**Action taken this cycle:** None. No stock positions to cut/tighten (Steps 3-4 N/A). No option stop/DTE/thesis-break trigger fired (Step 4b/5). No ClickUp notification sent per Step 7 (no action taken). PERPLEXITY_API_KEY and ClickUp creds still missing — WebSearch fallback and local-log fallback used, as in prior cycles.
