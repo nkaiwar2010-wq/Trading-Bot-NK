@@ -5,3 +5,4 @@ Mirage Intraday Daemon workflow via a push event. See
 last triggered: (not yet triggered)
 last triggered: 2026-07-29T05:55:20Z
 last triggered: 2026-07-29T13:39:08Z
+last triggered (manual restart for top=50 fix): 2026-07-29T17:51:24Z
