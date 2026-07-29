@@ -238,3 +238,13 @@ an invalidated thesis going forward — a broken thesis should be exited, not he
 **No stock positions open** — Step 3/4 (loss cut / trailing-stop tighten) N/A this cycle.
 
 **Positions after scan:** 1 of 8 max (SMH260821P00505000 only). Equity $93,550.88, cash $85,600.88 (91.5%) — still heavily under-deployed vs. the 85-100% target range; redeployment into a fresh, distinct catalyst remains the priority for the next research/execution cycle. PERPLEXITY_API_KEY and ClickUp creds still missing this cycle — no blocker, using WebSearch fallback (not needed this cycle) and local DAILY-SUMMARY.md fallback respectively.
+
+### Jul 29 — EOD Snapshot (Day 11, Wednesday)
+
+**Portfolio:** $94,405.88 | **Cash:** $85,600.88 (90.7%) | **Day P&L:** +$2,534.54 (+2.76%) | **Phase P&L:** -$5,594.12 (-5.59%) | **Challenge:** -$5,594.12 of $50,000 target, 21 days left
+
+| Ticker/OCC | Shares/Contracts | Entry | Close | Day Chg | Unrealized P&L | Stop/Close Plan |
+|---|---|---|---|---|---|---|
+| SMH260821P00505000 | 3 contracts | $22.75 | $29.35 | +46.82% | +$1,980.00 (+29.01%) | Close at +50-100% gain (~$34.13-$45.50) or -50% stop (~$11.375) |
+
+**Notes:** A strong rebound day — equity closed at $94,405.88, up +$2,534.54 (+2.76%) vs. yesterday's $91,871.34, cutting the phase drawdown to -$5,594.12 (-5.59%) from Tuesday's -8.13%. The gain was driven almost entirely by the SMH 505P chip-weakness put, which continued its move and closed at $29.35 (+29.01% unrealized, +46.82% intraday), now well inside the +50-100% take-profit zone approach territory but not yet triggered — top watch item for tomorrow's open. The only trade today was the SLB 52C exit (Options Rule stop-loss, -50% premium breach), realized at -$1,880 (-56.97%), executed at the midday scan; no new positions were opened. Cash sits at 90.7% of equity, still well above the 75-85% deployment target following the SLB exit — one position (SMH put) remains open of the 8-max book. Day 11 of 30, 21 days left to the Aug 19 deadline — behind flat pace by $5,594.12 against the $50,000 target (needing +$55,594.12 in the remaining 21 days), but today's recovery narrows the gap meaningfully after two red days. PERPLEXITY_API_KEY and ClickUp creds still missing this cycle — no blocker, using WebSearch fallback and local DAILY-SUMMARY.md fallback respectively.
