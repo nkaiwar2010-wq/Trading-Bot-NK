@@ -110,3 +110,7 @@ the actual fill price. Verified against Alpaca's fill ledger, the real numbers a
 | — | — | — | — | — |
 
 **Notes:** No morning-entry cycle ran today — account had 0 open positions and 0 open orders when this EOD routine executed (`positions` and `orders` both returned empty before `close-all`/`cancel-all`, which were run per protocol as no-ops and reconfirmed empty). No trades opened, no trades closed, 0 wins / 0 losses. The -$18.28 day drift with no trading activity is a small overnight equity adjustment already reflected in Alpaca's `last_equity`/`equity` fields (not attributable to any position). Nothing to flag for tomorrow beyond confirming the daemon actually fires a morning-entry cycle — two days in a row now (day 1 post-bugfix session, day 2 today) with no autonomous entries logged outside the manual Day 1 intervention.
+
+<!-- DAEMON_ENTRY: LAD long 2026-07-29 -->
+### Jul 29 17:51 UTC — Intraday Daemon Entry
+**LAD** long 21 sh @ ~$448.41 | stop $434.96 | target $475.31 (2.0:1) | gap 19.8%, ORB confirmed above $403.31 | Rule 1: 21 x $13.45 = $282.50 (0.6% of $49,038 equity, cap 4%)
