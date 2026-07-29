@@ -122,3 +122,7 @@ the actual fill price. Verified against Alpaca's fill ledger, the real numbers a
 <!-- DAEMON_ENTRY: GRMN long 2026-07-29 -->
 ### Jul 29 17:53 UTC — Intraday Daemon Entry
 **GRMN** long 32 sh @ ~$298.21 | stop $289.26 | target $316.10 (2.0:1) | gap 17.3%, ORB confirmed above $297.00 | Rule 1: 32 x $8.95 = $286.28 (0.6% of $48,998 equity, cap 4%)
+
+<!-- DAEMON_ENTRY: NNNN long 2026-07-29 -->
+### Jul 29 17:54 UTC — Intraday Daemon Entry
+**NNNN** long 840 sh @ ~$11.65 | stop $11.30 | target $12.35 (2.0:1) | gap 18.6%, ORB confirmed above $10.88 | Rule 1: 840 x $0.35 = $293.58 (0.6% of $48,977 equity, cap 4%)
