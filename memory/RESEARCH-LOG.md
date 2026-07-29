@@ -1402,3 +1402,186 @@ still be sourced through the day.
 **Thesis check (Step 5) — SMH put:** SMH underlying has round-tripped intraday from this morning's confirmed weakness (open $530.70, session low $527.62) back up to live $532.39/$532.70 — essentially flat-to-slightly-up vs. Monday's $532.35 close, i.e. the specific "second consecutive day of weakness" catalyst that justified the entry is not holding up as cleanly as it did at the open. WebSearch (Perplexity unavailable — fallback used) returned conflicting same-day percentage figures for SMH/NVDA from published articles (stale/mistimed snapshots), so treated with caution vs. the live Alpaca quote, which is authoritative. No new confirmed news catalyst reversing the chip-weakness thesis was found (no bullish semiconductor headline, no dovish Fed surprise yet — FOMC decision itself is tomorrow, not today). Given (a) no confirmed news-based thesis reversal, (b) position not at its -50% rule stop, (c) elevated intraday two-way chop is expected/normal on an FOMC-eve day — judgment call is to HOLD, not force an early exit, unlike the Jul 27 ceasefire case where a specific confirming news event reversed the catalyst. Flagged as the position to watch first on the next cycle; a continued bounce back above session highs without a stop trigger would warrant revisiting this judgment call intraday or at EOD.
 
 **Action taken this cycle:** None. No stock positions to cut/tighten (Steps 3-4 N/A). No option stop/DTE/thesis-break trigger fired (Step 4b/5). No ClickUp notification sent per Step 7 (no action taken). PERPLEXITY_API_KEY and ClickUp creds still missing — WebSearch fallback and local-log fallback used, as in prior cycles.
+
+## 2026-07-29 — Pre-market Research (Day 11, Wednesday)
+
+**Challenge pace:** Day 11 of 30. 21 days remaining to 2026-08-19 deadline.
+Equity $91,871.28 vs. $150,000 target -> phase P&L -$8,128.72 (-8.13%).
+**Behind flat pace** (need +$58,128.72 in 21 remaining days to hit target).
+Per Core Rule 11/THE CHALLENGE section, biasing toward the more aggressive
+end of allowed sizing while the 8%-of-equity hard loss cap stays unchanged.
+
+**Account snapshot (live):**
+- Equity: $91,871.28 | Cash: $84,181.28 (91.6%) | Buying power: $336,725.12
+- Options buying power: $84,181.28 | Position market value: $7,690 (2 of 8
+  max positions) | Daytrade count: not returned by this endpoint response
+  (not a PDT concern at this equity level regardless)
+- Open positions: SLB260821C00052000 (20 ct, entry $1.65, mark $0.86,
+  -47.88% unrealized) and SMH260821P00505000 (3 ct, entry $22.75, mark
+  $19.90, -12.53% unrealized). No open orders.
+
+**Market context:**
+- **Oil:** WTI $81.29/bbl, Brent $89.53/bbl (Brent +$0.45 vs. yesterday
+  morning) — both up, a continuation of the post-ceasefire-reversal
+  bounce rather than a fresh supply-shock spike. No new energy-sector
+  trade idea triggered by this alone.
+- **S&P 500 futures:** +0.18-0.2% premarket, Polymarket implying ~70%
+  odds of a higher open, as markets await the FOMC decision and Big Tech
+  earnings.
+- **VIX:** ~19.05 (range 18.22-19.52 intraday yesterday) — moderately
+  elevated vs. typical ~15-16 baseline, consistent with FOMC + earnings
+  event risk being priced in.
+- **Today's releases:** FOMC rate decision 2:00pm ET (Chair Warsh press
+  conference 2:30pm ET) — this is a non-projection meeting (no dot
+  plot/SEP); consensus expects rates held at 3.5-3.75% since no July CPI
+  print exists yet for the Fed to react to. Traders pricing only ~30%
+  odds of a hike. MSFT and META report earnings after today's close;
+  AAPL/AMZN report Thursday.
+- **Semiconductor sell-off — 3rd consecutive session:** NVDA, AMD, Micron,
+  and SanDisk all extending losses in pre-market today after SK Hynix's
+  quarterly results (a beat) still failed to reassure investors on
+  AI-capex/circular-financing durability concerns — the same overarching
+  worry that triggered Tuesday's SMH put entry (Trade 8) is confirmed
+  continuing into a third day, not a one-off. SMH itself is described as
+  forming a bearish head-and-shoulders pattern despite still being +45%
+  YTD; NVDA is comparatively the YTD laggard among mega-cap tech (+11.04%
+  YTD) given the same overhang.
+- **Sector momentum YTD:** Energy still a nominal leader (~+22% YTD);
+  Technology broad ~+26.1% YTD (XLK) but flagged as a 2H-2026 underperform
+  candidate on leadership-concentration risk; Healthcare and Industrials
+  also showing strength as defensive/momentum plays respectively.
+- **Held-ticker news (SLB):** No fresh news found today; last confirmed
+  catalyst remains the Jul 24 Q2 beat (revenue $8.97B vs. $8.67B est.,
+  +10-11% post-earnings pop, data-center revenue +80% YoY) and this
+  week's mixed analyst-target tweaks (Jefferies raise / Barclays trim),
+  net still constructive. No thesis break; SLB 52C needs no action beyond
+  the standing -50% stop watch (see below).
+- **Held-ticker news (SMH):** Directly reconfirmed by today's 3rd-day
+  chip sell-off above — thesis holding, not invalidated.
+- **Data caveat (recurring):** `alpaca.sh option-quote`/`quote` calls this
+  cycle returned timestamps of 2026-07-28T19:59:59 (yesterday's close),
+  not live NBBO — pre-market/pre-open snapshot, consistent with the
+  standing data caveat. SLB stock bid/ask ($47.72/$55.38) is an
+  abnormally wide, clearly stale spread. All strikes/premiums below are
+  pre-market estimates and **must be reconfirmed live at market open**
+  before sizing/placing anything.
+
+### Trade Ideas
+
+**1. NVDA put — defined-risk bearish play on confirmed 3rd-day
+semiconductor weakness (new position).**
+- Catalyst: NVDA, AMD, Micron, and SanDisk all extending pre-market
+  losses today (per TipRanks) after SK Hynix's beat still failed to calm
+  AI-capex/circular-financing durability concerns — the same worry that
+  drove Monday/Tuesday's chip weakness is now confirmed for a 3rd
+  consecutive session across multiple names, not a single-day blip.
+- Strike/Expiration/DTE: ~$183-185 strike (approx. 5-6% OTM from
+  Tuesday's live ~$195 area; **must reconfirm against live open print**),
+  2026-08-21 expiration, **23 DTE** (clears >=7 floor).
+- Risk type: Defined-risk (long put, buy-to-open) — max loss = premium
+  paid.
+- 8% max-loss calc: cap = 8% x $91,871.28 = **$7,349.70**. Rough premium
+  estimate ~$4-6/contract x100 = $400-600/contract -> approx. 12-18
+  contracts stays under the cap; **exact contract count must be computed
+  from the live ask at market open**, not this pre-market estimate.
+- Stop/target: close at -50% of premium paid; take profit at +50-100%
+  gain per Options Rules.
+- Thesis: NVDA is the most liquid, cleanest single-name expression of
+  the AI-capex-durability worry that is now a confirmed multi-day,
+  multi-name trend, distinct from (and additive to) the existing SMH
+  sector-ETF put.
+
+**2. Add to SMH 505P (existing position) — reinforce confirmed,
+continuing sector thesis.**
+- Catalyst: same 3rd-consecutive-day chip weakness as Idea 1, now
+  directly reconfirming (not just holding) the thesis behind Tuesday's
+  entry — SMH's own bearish head-and-shoulders technical read adds a
+  second, independent reason the sector-level short still has room.
+- Strike/Expiration/DTE: same $505 strike, 2026-08-21 expiration, 23 DTE
+  — adding to the existing 3-contract position rather than opening a new
+  strike.
+- Risk type: Defined-risk (long put, buy-to-open) — max loss = premium
+  paid on the incremental contracts only.
+- 8% max-loss calc: cap = $7,349.70 (sized independently for this
+  addition, per Rule 3). Rough premium estimate (mid ~$20.86 per
+  yesterday's close snapshot, must reconfirm live) ~$20-22/contract x100
+  = $2,000-2,200/contract -> approx. 3 contracts (~$6,300, 6.9% of
+  equity) stays under the cap.
+- Stop/target: same -50%-of-blended-premium close rule / +50-100% gain
+  target applies to the position as a whole once averaged; track blended
+  cost basis after the add.
+- Thesis: doubles down on a thesis that has now proven out for 2 full
+  sessions (entry Tuesday, confirmed again this morning) rather than
+  diversifying into a brand-new, unproven name — lower-conviction-per-
+  dollar than Idea 1 only in the sense that it doesn't add name
+  diversification, but higher-conviction on the specific SMH technical +
+  fundamental setup.
+
+**3. FOMC decision (2pm ET) + MSFT/META earnings (after close) —
+WATCH ONLY, not yet actionable pre-market.**
+- Real, scheduled event risk landing today: a non-projection FOMC
+  decision (consensus: hold at 3.5-3.75%, ~30% priced odds of a hike)
+  plus Chair Warsh's press conference, then MSFT and META earnings after
+  the close. Any of these could sharply move NVDA/SMH/the broader tech
+  tape in either direction within hours of a fresh Ideas 1/2 entry.
+- No confirmed pre-decision direction exists for a fresh FOMC-specific
+  trade (a straddle-type bet would just be a guess, not a documented
+  catalyst), so this doesn't clear the "confirmed catalyst" bar for a
+  new position today. Revisit post-2pm decision and post-earnings
+  (tomorrow morning) once results are live — and treat this event risk as
+  the reason to keep Idea 1/2 sizing meaningfully under the 8% cap rather
+  than maxing it out, since a dovish surprise or a blowout MSFT/META
+  AI-capex beat could reverse the chip-weakness thesis fast.
+
+### Risk Factors
+- **FOMC decision + Warsh press conference (2pm/2:30pm ET)** and **MSFT/
+  META earnings after today's close** are the two biggest event risks —
+  either could whipsaw NVDA/SMH sharply against Ideas 1/2 within the same
+  session, independent of this morning's confirmed chip-weakness catalyst
+  holding up through the open.
+- **AAPL/AMZN earnings Thursday** — a second wave of Big Tech AI-capex
+  commentary one day later; keep this in mind for tomorrow's cycle
+  regardless of today's outcome.
+- **SLB 52C is within ~4% of its -50% stop-close trigger** (mark $0.86,
+  live mid ~$0.895, stop trigger ~$0.825) — top watch item for the
+  market-open workflow; no action expected pre-open but reconfirm live
+  bid/ask before assuming no change.
+- Pre-market quotes returned by `alpaca.sh` this cycle are yesterday's
+  close snapshot (SLB stock bid/ask abnormally wide at $47.72/$55.38) —
+  every strike/premium above is a pre-market estimate only and must be
+  reconfirmed live before any order.
+- Book is 91.6% cash with only 2 of 8 max positions open — well under
+  the 85-100% deployment target; both trade ideas above are steps toward
+  closing that gap but are not sufficient alone — continue sourcing
+  distinct catalysts through the day.
+- Conflicting SMH YTD-return figures across sources (+45% YTD per one
+  article vs. the broader momentum-index framing) — treat with the same
+  caution as the recurring stale/conflicting-figure caveat from prior
+  cycles; live Alpaca quotes remain the authoritative price source at
+  execution time.
+- PERPLEXITY_API_KEY and ClickUp creds still missing this cycle — no
+  blocker; using WebSearch fallback and local DAILY-SUMMARY.md fallback
+  respectively, per standard operating procedure.
+
+### Decision
+**TRADE (hand off to market-open workflow for live-quote sizing).** A
+confirmed, multi-source, 3rd-consecutive-session semiconductor sell-off
+(NVDA/AMD/Micron/SanDisk all extending pre-market losses again today,
+SMH's own bearish technical pattern reinforcing it) clears the
+documented-catalyst bar cleanly for Idea 1 (new NVDA put) and/or Idea 2
+(adding to the existing SMH 505P), each independently sized to the
+8%-of-equity max-loss cap ($7,349.70). Idea 3 (FOMC/MSFT/META event risk)
+is correctly held to WATCH rather than traded blind pre-decision, but is
+not a reason to sit out today's already-confirmed, multi-day chip-
+weakness catalyst — bias toward action means acting on what's confirmed
+now (Ideas 1/2) while sizing conservatively against what's still unknown
+today (FOMC outcome, MSFT/META earnings). Priority handoff items for the
+market-open workflow, in order: (a) reconfirm live NBBO on NVDA/SMH/SLB
+before anything else given the stale pre-open quotes flagged above, (b)
+check SLB 52C's live mark first — closest position to a rule-triggered
+stop this cycle, (c) size and place the NVDA put and/or SMH 505P add from
+Idea 1/2 using live asks, (d) keep combined new-premium spend
+proportionate given the book remains at only 2 of 8 max positions and
+91.6% cash, well under the 85-100% deployment target — more distinct
+catalysts should still be sourced through the day given the challenge is
+running 8.13% behind flat pace with 21 days left.
