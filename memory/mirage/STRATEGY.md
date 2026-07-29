@@ -138,6 +138,38 @@ Existing catalyst-based entries (a confirmed earnings reaction, a stated
 FDA/contract-win headline) are still valid **in addition to** a technical
 setup if one surfaces intraday, but are no longer required to trade.
 
+## Backtest findings (2026-07-29, `scripts/mirage_backtest.py`)
+Ran the exact live rules above against 90 days of real historical bars
+across 40 liquid, historically volatile tickers (154 qualifying trades) —
+enough sample to see real patterns instead of guessing from 2 live days.
+Honest result: **roughly breakeven, -0.7% total, 45.5% win rate.** This
+strategy does not show a strong backtested edge on its own. Two findings
+worth acting on, and one tested idea that was explicitly rejected:
+
+- **Stop-hit trades are the single biggest drag**: 36 of 154 trades hit
+  their stop, and **every single one lost** (0% win rate, -$9,665 total —
+  more than the entire backtest's net loss). This means the ORB
+  confirmation (one 5-min bar closing above the range) lets through a lot
+  of breakouts that immediately fail. Worth continued attention; no fix
+  shipped yet pending a validated one (see rejected idea below).
+- **Target-hit and VWAP-loss-exit trades pull their weight**: target
+  hits are 10/10 winners (+$5,405 total); VWAP-loss-exit, despite being a
+  loss-cutting mechanism, actually nets positive (37/67 won, +$2,281) —
+  it's correctly catching some failing setups before they become full
+  stop-outs. Both are working as designed.
+- **Rejected: requiring above-average volume on the breakout bar.**
+  Tested against the same 90-day window as a direct comparison — this
+  *reduced* win rate (37.6% vs 45.5%) and *worsened* total P&L (-2.1% vs
+  -0.7%). Do not re-add this filter without new evidence; it was a
+  reasonable hypothesis that the data didn't support.
+
+Practical takeaway: today's real fixes (screening top 50 movers instead
+of top 10, computing stop/target from actual fill price instead of a
+stale quote) are correctness fixes — they let the strategy actually see
+and correctly size real trades it was blind to before. They are not the
+same as improving the underlying edge, which this backtest shows is thin.
+Re-run the backtest whenever a rule changes, before shipping it live.
+
 ## Position sizing & risk (unchanged from v1)
 1. **HARD CAP, never bends:** no single trade may risk more than 8% of
    CURRENT Mirage equity (position size x stop distance for stocks;
