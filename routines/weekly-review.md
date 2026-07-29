@@ -72,8 +72,17 @@ STEP 4 — Append full review section to memory/WEEKLY-REVIEW.md:
 - Adjustments for next week
 - Overall letter grade (A-F)
 
-STEP 5 — If a rule needs to change (proven out for 2+ weeks, or failed badly),
-also update memory/TRADING-STRATEGY.md and call out the change in the review.
+STEP 5 — Actively look for a REPEATED pattern across this week and prior
+WEEKLY-REVIEW entries — the same mistake type recurring (e.g. the
+2026-07-28 IV-crush lesson: buying options right after a catalyst pays an
+elevated-volatility premium that decays even when the direction is right).
+One bad trade is not a pattern; the same failure mode showing up 2+ times
+is worth fixing. If found: update memory/TRADING-STRATEGY.md with the
+specific, evidence-backed rule change and call it out explicitly in this
+review under "Adjustments for next week" — do not just describe the
+problem again without changing anything, the point is to stop repeating
+it. If no repeated pattern exists yet, say so plainly rather than forcing
+a change.
 
 STEP 6 — Send ONE ClickUp message. <= 15 lines:
 bash scripts/clickup.sh "Week ending MMM DD
