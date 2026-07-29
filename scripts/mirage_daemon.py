@@ -336,7 +336,12 @@ def manage_positions(equity):
 def screen_new_entry(equity, attempted, open_count):
     if open_count >= MAX_POSITIONS:
         return
-    candidates = get_movers(10) + get_most_actives(10)
+    # top=50, not 10: the top ~10 gainers/losers are dominated by extreme
+    # penny-stock/warrant moves (40-100%+) that fail GAP_MAX_PCT anyway --
+    # confirmed live 2026-07-28/29, legitimate 3-20% candidates in real,
+    # liquid names (e.g. LAD, GRMN, EXLS, NEO) sit just below the top 10
+    # and were being missed entirely.
+    candidates = get_movers(50) + get_most_actives(50)
     seen = set()
     for c in candidates:
         symbol = c.get("symbol")

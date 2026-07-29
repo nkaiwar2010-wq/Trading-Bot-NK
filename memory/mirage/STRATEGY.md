@@ -98,8 +98,17 @@ fade, VWAP governs the exit):
      derived line from a 4-trade sample.
    - Relative volume materially elevated (treat "most-actives" appearance
      itself as the RVOL confirmation signal — Alpaca doesn't expose a raw
-     RVOL multiple directly, so presence in the top-10 most-actives list by
+     RVOL multiple directly, so presence in the most-actives list by
      volume is the proxy)
+   - **Screen the top 50 of movers/most-actives, not top 10** (fixed
+     2026-07-29): confirmed live on two separate real trading days that
+     the top ~10 gainers/losers are dominated entirely by extreme
+     penny-stock/warrant moves (40-105%+) that fail the 20% ceiling
+     anyway. Legitimate 3-20% candidates in real, liquid names (e.g. LAD,
+     GRMN, EXLS, NEO on 2026-07-29) sit just below the top 10 and were
+     being missed completely — zero trades on two consecutive real
+     trading days despite real candidates existing, purely from not
+     looking far enough down the list.
 2. **Confirm** with `bash scripts/alpaca.sh bars SYM 5Min 20`:
    - Establish the opening range: the high/low of the first 5-15 minutes
      of trading (the first one to three 5-minute bars after 8:30am
