@@ -219,3 +219,22 @@ an invalidated thesis going forward — a broken thesis should be exited, not he
 | SMH260821P00505000 | 3 contracts | $22.75 | $19.90 | new position | -$855.00 (-12.53%) | Close at -50% (~$11.375) or +50-100% gain |
 
 **Notes:** A losing day — equity closed at $91,871.34, down -$2,198.74 (-2.34%) vs. yesterday's $94,070.08 and now -$8,128.66 (-8.13%) below the $100,000 challenge-start baseline, the deepest phase drawdown of the challenge so far. The SLB 52C call (post-earnings-beat thesis from Jul 24) continued to fade, closing at $0.86 (-47.88% unrealized, -43.79% on the day vs. yesterday's $1.53 close) and is now within roughly 4% of its -50% (~$0.825) stop-close trigger — live bid/ask reconfirmed at $0.88/$0.91 (mid ~$0.895), so the position-mark $0.86 is close to but not materially understating the live price this time; this is the single position to check first at tomorrow's open. Only one new trade today: the SMH 505P sector-level semiconductor-weakness put (Trade 8), opened at market open after the paired NVDA idea was invalidated by live price action; it closed the day at $19.90 (-12.53% unrealized), well clear of its own -50% stop, live bid/ask $20.26/$21.45 roughly consistent with the position mark. Trades today: 1 (SMH 505P). Cash sits at 91.6% of equity, still heavily under-deployed relative to the 75-85%+ target range following Monday's full unwind of the energy book — redeployment into fresh, distinct catalysts remains the priority alongside managing the SLB stop. Day 10 of 30, 22 days left to the Aug 19 deadline — now meaningfully behind flat pace (-$8,128.66 against the $50,000 target, i.e. effectively needing +$58,128.66 in the remaining 22 days to hit target), a pace concern worth flagging though not yet a structural one this early. PERPLEXITY_API_KEY and ClickUp creds still missing this cycle — no blocker, using WebSearch fallback and local DAILY-SUMMARY.md fallback respectively.
+
+## Jul 29 — Midday Scan (Day 11, Wednesday)
+
+**Challenge status:** Day 11 of 30. 21 days remaining to 2026-08-19 deadline. Equity $93,550.88 (post-exit, live) vs. $150,000 target -> phase P&L -$6,449.12 (-6.45%). Behind flat pace; per Core Rule 11, no HOLD-only bias — action taken per rule trigger below.
+
+**Positions/orders at scan start:** SLB260821C00052000 (20 ct, entry $1.65, mark $0.71, unrealized_plpc -56.97%) and SMH260821P00505000 (3 ct, entry $22.75, mark $26.50, unrealized_plpc +16.48%). No open stock positions, no open orders (no trailing stops to manage this cycle).
+
+### Exit — SLB 52C, sell-to-close (Options Rule: -50% stop breached)
+- **OCC symbol:** SLB260821C00052000
+- **Trigger:** long call stop-loss rule — close at -50% of premium paid. Position-mark showed -56.97% unrealized; live quote reconfirmed bid $0.73 / ask $0.93 (mid $0.83), consistent with the mark and past the -50% (~$0.825) trigger.
+- **Exit order:** sell-to-close, 20 contracts, market, filled @ $0.71 avg
+- **Realized P&L:** proceeds $1,420 vs. cost basis $3,300 = **-$1,880 (-56.97%)**
+- **Rationale:** rule-triggered exit, not a thesis call — the Jul 24 post-earnings-beat thesis for SLB was directionally fine (stock never broke), but the option decayed past its hard -50% premium stop via theta/IV drift, same pattern flagged in TRADING-STRATEGY.md's Jul 28 IV-crush note. No thesis override needed; the stop did its job.
+
+**SMH260821P00505000 — no action.** Up +16.48% unrealized (mark $26.50 vs entry $22.75, live bid/ask $27.01/$28.08 confirms), not yet at the +50-100% take-profit target. DTE 23, well clear of the <=2 DTE close/roll trigger. 3rd-consecutive-day chip-weakness thesis (per today's pre-market RESEARCH-LOG) still holding — no thesis break, hold per plan.
+
+**No stock positions open** — Step 3/4 (loss cut / trailing-stop tighten) N/A this cycle.
+
+**Positions after scan:** 1 of 8 max (SMH260821P00505000 only). Equity $93,550.88, cash $85,600.88 (91.5%) — still heavily under-deployed vs. the 85-100% target range; redeployment into a fresh, distinct catalyst remains the priority for the next research/execution cycle. PERPLEXITY_API_KEY and ClickUp creds still missing this cycle — no blocker, using WebSearch fallback (not needed this cycle) and local DAILY-SUMMARY.md fallback respectively.
