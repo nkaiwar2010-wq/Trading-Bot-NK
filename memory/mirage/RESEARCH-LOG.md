@@ -146,3 +146,20 @@ close.
 - Tomorrow is dominated by one macro catalyst (FOMC 2pm ET) layered on an already-jumpy tape (semis/memory unwind). Expect a quiet morning followed by a directional move into/after the 2pm decision and presser — normal intraday scan pre-2pm, heightened attention post-2pm.
 - The MSFT/META prints are real but their tradeable reaction is a Thursday story, not tomorrow's — flagged here so it isn't missed, but no tomorrow-morning setup is being built around them.
 - WebSearch limitation stands: can't see live after-hours/premarket tape, so tomorrow's actual gappers (especially in the memory/chip complex) need live confirmation at the open, not assumption from tonight's headlines.
+
+## 2026-07-29 (evening research — watchlist for tomorrow)
+
+### Account (sanity check)
+- Confirmed flat: yes, equity $47,687.49, 0 positions (bash scripts/alpaca.sh positions returned [])
+
+### Tomorrow's Setups to Watch
+- META — reported Q2 after today's close: EPS $6.18 missed the $7.14 consensus; revenue $60.8B beat ($60.2B consensus); ad revenue $59.3B beat. FY26 capex guidance raised to $135-145B (low end up $10B in one quarter). Shares fell ~8% in after-hours on the capex overhang. Confirm at open: gap direction vs. after-hours print, whether it holds below today's close in the first 15 min before treating as a momentum short or fade-the-gap long.
+- MSFT — reported Q4 FY26 after today's close: beat on both lines ($4.74 EPS vs. $4.24 consensus; $90.01B rev vs. $87.61B consensus), Azure crossed $100B FY revenue for the first time. Shares rose ~2% after hours — a much calmer reaction than META. Confirm at open whether the +2% holds or fades once combined with broader tech tape.
+- AAPL, AMZN — both report tomorrow (7/30) after market close, so their reaction is a Friday story, not tomorrow morning. Note for tomorrow evening's research, not a tomorrow-AM setup.
+- Heavy before-open earnings slate tomorrow (7/30): MA, VLO, BMY, CI, RACE, OWL, MO, PWR, STLA, BAX, EPD, SHEL, HSY, NCLH, PBF, REGN, AEP, ICE, IP, MLM, XRX, BUD, and dozens more. No single one flagged as outsized-mover-of-size yet; recheck premarket for gap leaders since this list is too broad to pre-commit to any one name.
+- Semis/chip rout — Nasdaq 100 entered technical correction (~10% off June peak) as the chip selloff extended a 4th straight session: Sandisk -14%, AMD/ARM/Micron/Seagate each -8%+, Intel -6%, Western Digital -7%. Driver: reports of a Chinese chipmaking breakthrough plus a deepening memory-chip crisis and a forecast 13% YoY collapse in global smartphone volumes. This is a live, unresolved multi-day trend — watch SNDK/MU/WDC/AMD at tomorrow's open for continuation vs. dead-cat bounce.
+- Broader macro backdrop: Fed held rates at 3.50-3.75% today as expected, but 3 members (Hammack, Kashkari, Logan) dissented in favor of a hike — a hawkish-leaning dissent count that, combined with 30-year Treasury yields hitting their highest since 2007 and Brent crude topping $90, drove a broad risk-off day (Dow -2.19%, its worst since April 2025; S&P -1.5%). Expect continued yield/inflation-driven chop tomorrow layered on top of the megacap-earnings and chip-sector reactions.
+
+### Notes
+- Tomorrow is a genuinely loaded session: two megacap earnings reactions (META down hard, MSFT up modestly) resolving at the open, a still-unresolved multi-day semis/memory rout, a hawkish-dissent Fed digest, and a very heavy before-open earnings slate on top. Expect an active, gappy morning — confirm every setup with live premarket/first-15-min tape before sizing; nothing here is pre-committed.
+- WebSearch limitation stands: can't see live premarket tape, so actual gap sizes/direction for META, MSFT, and the before-open earnings names need live confirmation at the open, not assumption from tonight's headlines.
