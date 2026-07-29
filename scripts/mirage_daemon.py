@@ -141,20 +141,27 @@ def cancel_order(order_id):
 
 
 def wait_for_fill(order_id, timeout_seconds=15, poll_seconds=1):
-    """Poll an order until it's filled (or timeout). Returns filled_qty as
-    int, or 0 if it never filled in time. Placing a protective stop before
-    the buy actually fills risks Alpaca rejecting it for insufficient
-    position quantity — this closes that race condition."""
+    """Poll an order until it's filled (or timeout). Returns
+    (filled_qty, filled_avg_price) -- both 0 if it never filled in time.
+    Placing a protective stop before the buy actually fills risks Alpaca
+    rejecting it for insufficient position quantity — this closes that
+    race condition. filled_avg_price matters separately: a fast-moving or
+    thin stock can fill far from the quote used to size the trade (seen
+    live 2026-07-29: NNNN quoted ~$11.65, filled at $12.90-13.26 avg, an
+    ~11-14% slip) -- stop/target must be computed from the REAL fill
+    price, not the pre-fill quote, or the whole risk model is wrong."""
     waited = 0
     while waited < timeout_seconds:
         order = get_order(order_id)
         if order and order.get("status") == "filled":
-            return int(float(order.get("filled_qty", 0)))
+            return int(float(order.get("filled_qty", 0))), float(order.get("filled_avg_price") or 0)
         time.sleep(poll_seconds)
         waited += poll_seconds
     log(f"order {order_id} did not report 'filled' within {timeout_seconds}s")
     order = get_order(order_id)
-    return int(float(order.get("filled_qty", 0))) if order else 0
+    if not order:
+        return 0, 0.0
+    return int(float(order.get("filled_qty", 0))), float(order.get("filled_avg_price") or 0)
 
 
 def wait_for_close(symbol, timeout_seconds=15, poll_seconds=1):
@@ -384,11 +391,23 @@ def screen_new_entry(equity, attempted, open_count):
         if not order:
             continue
         attempted.add(symbol)  # mark attempted even if the stop-placement below has trouble
-        filled_qty = wait_for_fill(order["id"])
+        filled_qty, filled_avg_price = wait_for_fill(order["id"])
         if filled_qty <= 0:
             log(f"{symbol} buy did not confirm filled — SKIPPING stop placement, "
                 f"will be caught by manage_positions/EOD-close but flag this run for review")
         else:
+            # Recompute stop/target from the ACTUAL fill price, not the
+            # pre-fill quote -- a thin/fast-moving stock can slip badly
+            # (see wait_for_fill docstring). Falls back to the quoted
+            # entry_price only if Alpaca didn't report a fill price.
+            real_entry = filled_avg_price if filled_avg_price > 0 else entry_price
+            slippage_pct = (real_entry - entry_price) / entry_price * 100 if entry_price else 0
+            if abs(slippage_pct) > 2:
+                log(f"{symbol} SLIPPAGE WARNING: quoted ${entry_price:.4f}, filled ${real_entry:.4f} "
+                    f"({slippage_pct:+.1f}%) -- recomputing stop/target from real fill price")
+            entry_price = real_entry
+            stop_price = max(or_low, entry_price * (1 - STOP_PCT))
+            target_price = entry_price + MIN_RR * (entry_price - stop_price)
             stop_order = place_order({
                 "symbol": symbol, "qty": str(filled_qty), "side": "sell",
                 "type": "stop", "stop_price": f"{stop_price:.2f}", "time_in_force": "day",
@@ -401,7 +420,7 @@ def screen_new_entry(equity, attempted, open_count):
         entry_line = (
             f"<!-- DAEMON_ENTRY: {symbol} long {now.strftime('%Y-%m-%d')} -->\n"
             f"### {now.strftime('%b %d %H:%M UTC')} — Intraday Daemon Entry\n"
-            f"**{symbol}** long {qty} sh @ ~${entry_price:.2f} | stop ${stop_price:.2f} | "
+            f"**{symbol}** long {qty} sh @ ~${entry_price:.2f} (actual fill) | stop ${stop_price:.2f} | "
             f"target ${target_price:.2f} ({MIN_RR}:1) | gap {pct_change:.1f}%, ORB confirmed above ${or_high:.2f} | "
             f"Rule 1: {qty} x ${abs(entry_price - stop_price):.2f} = ${risk:.2f} "
             f"({risk / equity:.1%} of ${equity:,.0f} equity, cap {MAX_LOSS_PCT:.0%})"

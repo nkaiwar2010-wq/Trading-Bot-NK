@@ -127,6 +127,22 @@ the actual fill price. Verified against Alpaca's fill ledger, the real numbers a
 ### Jul 29 17:54 UTC — Intraday Daemon Entry
 **NNNN** long 840 sh @ ~$11.65 | stop $11.30 | target $12.35 (2.0:1) | gap 18.6%, ORB confirmed above $10.88 | Rule 1: 840 x $0.35 = $293.58 (0.6% of $48,977 equity, cap 4%)
 
+### Jul 29 17:56 UTC — Manual Intervention: NNNN closed, 4th bug found and fixed
+
+**Bug found:** NNNN's real fill (confirmed via `/v2/account/activities/FILL`) was **840 sh @ $12.9043 avg**
+(range $12.90-$13.26), not the ~$11.65 quoted price logged above — an **~11-14% slip** in a thin/
+fast-moving stock. The stop ($11.30) and position size (840 sh, sized off the $11.65 quote) were both
+computed from the pre-fill quote, not the real fill, so: (a) the real notional deployed was ~$10,840,
+about 22% of equity — over the 20% MAX_NOTIONAL_PCT cap — and (b) the stop ended up ~12.4% below the
+real entry instead of the intended ~3%. By the time this was caught, price ($12.04) had already fallen
+below where the *intended* 3% stop should have fired, so the responsible action was to close now rather
+than wait for the (mis-sized) $11.30 stop.
+**Manual correction:** closed at market, realized P&L ≈ **-$726** (~-6.7% from actual entry).
+**Fixed in code:** `wait_for_fill()` now also returns `filled_avg_price`; stop/target are recomputed from
+the real fill price (with a logged slippage warning if it differs from the quote by >2%), not the
+pre-fill quote used to originally size the trade. LAD/CBZ/GRMN (same session) filled with negligible
+slippage and needed no correction — this appears specific to thinner names like NNNN, not systemic.
+
 <!-- DAEMON_ENTRY: EXLS long 2026-07-29 -->
 ### Jul 29 17:57 UTC — Intraday Daemon Entry
 **EXLS** long 266 sh @ ~$35.80 | stop $34.73 | target $37.95 (2.0:1) | gap 16.9%, ORB confirmed above $33.21 | Rule 1: 266 x $1.07 = $285.68 (0.6% of $47,793 equity, cap 4%)
