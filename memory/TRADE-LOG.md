@@ -239,7 +239,37 @@ an invalidated thesis going forward — a broken thesis should be exited, not he
 
 **Positions after scan:** 1 of 8 max (SMH260821P00505000 only). Equity $93,550.88, cash $85,600.88 (91.5%) — still heavily under-deployed vs. the 85-100% target range; redeployment into a fresh, distinct catalyst remains the priority for the next research/execution cycle. PERPLEXITY_API_KEY and ClickUp creds still missing this cycle — no blocker, using WebSearch fallback (not needed this cycle) and local DAILY-SUMMARY.md fallback respectively.
 
-### Jul 29 — EOD Snapshot (Day 11, Wednesday)
+### Jul 30 — Market-Open Execution (Day 12, Thursday)
+
+**Challenge status:** Day 12 of 30. 20 days remaining to 2026-08-19 deadline. Equity $91,390.51 (live, pre-trade) vs. $150,000 target -> phase P&L -$8,609.49 (-8.61%). Behind flat pace; per Core Rule 11, biasing toward action while the 8%-of-equity hard loss cap stays unchanged.
+
+**Catalyst re-validation at open (from RESEARCH-LOG 2026-07-30 11:12 UTC cycle):** two candidate legs — XOP/XLE energy calls (renewed US-Iran conflict, oil spike) and an add to the existing SMH 505P (chip-weakness thesis). Live reconfirmation: SMH spot traded at $526.29 (vs. $525.87 bid), a sharp reversal from the stale pre-market snapshot ($500-505) and well above the $505 strike — the "continuing chip weakness" thesis behind the existing put is now directly invalidated by live price action, not reinforced. **Idea 3 (SMH add) skipped** per the documented-catalyst gate (catalyst no longer holds) and per the Jul 27 strategy lesson against layering into/onto a broken thesis. Existing SMH put position (3 ct) left open as-is — outside this workflow's scope to close; flagged below for the midday/EOD workflow to reassess given the reversal, since it is not yet at its -50% stop (-17.4% unrealized as of this cycle) but the underlying thesis is broken.
+
+Energy catalyst (XOP/XLE) reconfirmed live: XOP $173.13, XLE $58.50 — both consistent with the overnight oil-driven premarket move holding into the open.
+
+### Trade 9 — XOP 175C, 2026-08-21 exp (defined-risk directional long call, new position)
+- **OCC symbol:** XOP260821C00175000
+- **Entry:** 8 contracts @ $5.35 avg fill (market order), cost basis $4,280
+- **Strike/Expiration/DTE:** $175 strike (~1.1% OTM from live $173.13 spot), 2026-08-21 expiration, 22 DTE (clears >=7 floor)
+- **Risk type:** Defined-risk (long call, buy-to-open) — max loss = premium paid = $4,280 = 4.68% of $91,390.51 equity (inside the 8% cap of $7,311.24)
+- **Thesis:** Direct, high-delta expression of the renewed/active US-Iran conflict and oil supply-shock catalyst — fresh overnight strikes on Iran, Brent/WTI +6-8% and holding into the open.
+- **Stop/close plan:** Close at -50% premium (~$2.675/contract, ~$2,140 total) or +50-100% gain per Options Rules; enforced manually via midday/EOD workflows (no native Alpaca option stop support).
+- **Target:** +50-100% gain.
+- **R:R:** ~1:1 to 2:1 depending on exit.
+
+### Trade 10 — XLE 61C, 2026-08-21 exp (defined-risk directional long call, new position)
+- **OCC symbol:** XLE260821C00061000
+- **Entry:** 30 contracts @ $0.76 avg fill (market order), cost basis $2,280
+- **Strike/Expiration/DTE:** $61 strike (~4.3% OTM from live $58.50 spot), 2026-08-21 expiration, 22 DTE
+- **Risk type:** Defined-risk (long call, buy-to-open) — max loss = premium paid = $2,280 = 2.49% of $91,390.51 equity (inside the 8% cap of $7,311.24)
+- **Thesis:** Same catalyst as Trade 9, cheaper/lower-delta companion vehicle for the energy-bull thesis; sized conservatively (30 of a ~94-contract theoretical cap) given thin displayed ask depth (25 ct) at entry.
+- **Stop/close plan:** Close at -50% premium (~$0.38/contract, ~$1,140 total) or +50-100% gain per Options Rules.
+- **Target:** +50-100% gain.
+- **R:R:** ~1:1 to 2:1 depending on exit.
+
+**Positions after trade:** 3 of 8 max (SMH260821P00505000, XOP260821C00175000, XLE260821C00061000). Combined new spend $6,560 (7.18% of pre-trade equity) across two independently-sized trades, each individually inside the 8% Rule 3 cap. Cash ~88.1% post-fill. Idea 3 (SMH add) skipped — thesis invalidated by live SMH reversal above the $505 strike; flagging for the next (midday) cycle to reassess the existing SMH put given the broken thesis, even though it hasn't yet hit its own -50% stop. PERPLEXITY_API_KEY and ClickUp creds still missing this cycle — no blocker, using WebSearch fallback and local DAILY-SUMMARY.md fallback respectively.
+
+## Jul 29 — EOD Snapshot (Day 11, Wednesday)
 
 **Portfolio:** $94,405.88 | **Cash:** $85,600.88 (90.7%) | **Day P&L:** +$2,534.54 (+2.76%) | **Phase P&L:** -$5,594.12 (-5.59%) | **Challenge:** -$5,594.12 of $50,000 target, 21 days left
 
