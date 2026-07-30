@@ -150,3 +150,7 @@ slippage and needed no correction — this appears specific to thinner names lik
 <!-- DAEMON_ENTRY: AGRZ long 2026-07-30 -->
 ### Jul 30 13:56 UTC — Intraday Daemon Entry
 **AGRZ** long 29068 sh @ ~$0.28 (actual fill) | stop $0.28 | target $0.30 (2.0:1) | gap -17.6%, ORB confirmed above $0.27 | Rule 1: 29068 x $0.01 = $248.10 (0.5% of $47,687 equity, cap 4%)
+
+<!-- DAEMON_ENTRY: WETO long 2026-07-30 -->
+### Jul 30 14:15 UTC — Intraday Daemon Entry
+**WETO** long 279743 sh @ ~$0.03 (actual fill) | stop $0.03 | target $0.03 (2.0:1) | gap -19.7%, ORB confirmed above $0.03 | Rule 1: 279743 x $0.00 = $251.77 (0.5% of $47,556 equity, cap 4%)
