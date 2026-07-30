@@ -154,3 +154,14 @@ slippage and needed no correction — this appears specific to thinner names lik
 <!-- DAEMON_ENTRY: WETO long 2026-07-30 -->
 ### Jul 30 14:15 UTC — Intraday Daemon Entry
 **WETO** long 279743 sh @ ~$0.03 (actual fill) | stop $0.03 | target $0.03 (2.0:1) | gap -19.7%, ORB confirmed above $0.03 | Rule 1: 279743 x $0.00 = $251.77 (0.5% of $47,556 equity, cap 4%)
+
+### Jul 30 — EOD Force-Close (Day 4)
+
+**Portfolio:** $47,556.40 | **Cash:** $47,556.40 (100% — always ends the day fully flat) | **Day P&L:** -$130.81 (-0.27%) | **Phase P&L:** -$2,443.60 (-4.89%)
+
+| Ticker/OCC | Entry | Exit | Realized P&L | Reason closed |
+|---|---|---|---|---|
+| AGRZ | $0.2845 | $0.28 | -$130.81 (-1.58%) | Stop-loss hit (daemon, 13:56 UTC) |
+| WETO | $0.0300 | $0.0300 | $0.00 (0.00%) | Stop-loss hit (daemon, 14:23 UTC) — breakeven; entry and stop were both effectively at the same sub-penny level, and Alpaca's fill/quote precision (2 decimals) can't resolve finer than that for a $0.03 stock |
+
+**Notes:** Both of today's trades (AGRZ, WETO) were opened and stopped out by the daemon intraday, well before this EOD routine ran — `positions` and `orders` both returned empty when checked, and `close-all`/`cancel-all` were run per protocol as no-ops and reconfirmed empty. Day tally: 2 opened, 2 closed, 0 wins / 1 loss (AGRZ) / 1 breakeven (WETO). AGRZ's actual buy fill ($0.2845) came in above the quoted ~$0.28 entry, so the stop at $0.28 realized a small loss instead of breakeven — same slippage pattern as the NNNN incident on Jul 29, this time in the tolerable range. **Flag for tomorrow:** this routine found no Jul 29 EOD Force-Close entry in this log (Day 3 is missing between Day 2 and today). Cross-checked against Alpaca's fill history: LAD, CBZ, GRMN, and EXLS were all correctly force-closed via market sell_to_close orders at 2026-07-29 19:46 UTC (consistent with a same-second EOD sweep) — so the account was flat every night as required and no capital was left at risk. The gap is a **logging failure only** (Day 3's EOD entry was never appended to TRADE-LOG.md), not a trading failure. Worth checking why that day's routine didn't write its log entry before trusting future runs unattended.
