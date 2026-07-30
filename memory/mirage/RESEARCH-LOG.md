@@ -163,3 +163,19 @@ close.
 ### Notes
 - Tomorrow is a genuinely loaded session: two megacap earnings reactions (META down hard, MSFT up modestly) resolving at the open, a still-unresolved multi-day semis/memory rout, a hawkish-dissent Fed digest, and a very heavy before-open earnings slate on top. Expect an active, gappy morning — confirm every setup with live premarket/first-15-min tape before sizing; nothing here is pre-committed.
 - WebSearch limitation stands: can't see live premarket tape, so actual gap sizes/direction for META, MSFT, and the before-open earnings names need live confirmation at the open, not assumption from tonight's headlines.
+
+## 2026-07-30 (evening research — watchlist for tomorrow)
+
+### Account (sanity check)
+- Confirmed flat: yes, equity $47,556.40, 0 positions (bash scripts/alpaca.sh positions returned [])
+
+### Tomorrow's Setups to Watch
+- AAPL — reported Q3 FY26 after today's close: beat on both lines (EPS $2.02 vs. $1.89 consensus; revenue $109.42B vs. $108.65B consensus), iPhone sales +22%, gross margin 50.1% (beat, helped by tariff rebates). Shares fell ~4% in after-hours despite the beat — Services revenue ($30.74B vs. $31.22B consensus) missed and drove the negative reaction. Confirm at open: gap direction vs. after-hours print, whether the ~4% down move holds or fades in the first 15 min before treating as a momentum short or fade-the-gap long.
+- AMZN — reported Q2 after today's close: big beat (EPS $5.75, revenue $200.6B), AWS growth >25-37% reported across sources, capex-discipline commentary well received. Stock reaction reported positive (up mid-single-digits), a contrast to AAPL's fade. Confirm at open: gap size/direction, whether AWS-driven optimism holds through the first 15 min.
+- Broader earnings-week context: MSFT/META reported Tue after close (MSFT +modest, META -8% on capex), and today's chip rally (AMD/Intel +13%, Lam Research +18%, SOXX +8%) was driven by MSFT's strong Azure capex signal + Lam Research's AI-demand guidance, rebounding off Wednesday's SK Hynix-driven semis selloff. This is a live, still-unresolved "AI capex spenders" rotation story — watch whether AAPL's services miss reintroduces risk-off tone or gets overwhelmed by continued semis/AI-capex enthusiasm tomorrow morning.
+- Heavy before-open earnings tomorrow (7/31): XOM, CVX, ABBV, LIN, ETN, SONY, CL, IMO, D, CCJ, CBOE, FTS, ARES, TROW, MRNA, AN — energy majors (XOM/CVX) and pharma (ABBV/MRNA) are the two clusters with the most history of coordinated sector gaps; confirm live with early volume in XLE/XLV before sizing.
+- Econ data tomorrow: Employment Cost Index (8:30 ET), Michigan Consumer Sentiment Final (10:00 ET) — ECI is the more index-moving of the two given ongoing inflation focus post-FOMC (July 28-29 meeting, Warsh press conference); no scheduled Fed speakers noted. Watch for a reaction window around 8:30 ET regardless of which names are already gapping on earnings.
+
+### Notes
+- Tomorrow is another loaded earnings-week session: AAPL's post-beat selloff and AMZN's post-beat rally give two contrasting megacap gap setups to confirm at the open, layered on a live semis/AI-capex rotation story and a busy energy/pharma before-open slate. Normal intraday scan with extra attention on AAPL/AMZN gap direction in the first 15 min and the 8:30 ET ECI print.
+- WebSearch limitation stands: can't see live after-hours/premarket tape, so AAPL's and AMZN's actual settle prices and any other stealth after-hours movers need live confirmation at tomorrow's open, not assumption from tonight's headlines.
