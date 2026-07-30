@@ -146,3 +146,7 @@ slippage and needed no correction — this appears specific to thinner names lik
 <!-- DAEMON_ENTRY: EXLS long 2026-07-29 -->
 ### Jul 29 17:57 UTC — Intraday Daemon Entry
 **EXLS** long 266 sh @ ~$35.80 | stop $34.73 | target $37.95 (2.0:1) | gap 16.9%, ORB confirmed above $33.21 | Rule 1: 266 x $1.07 = $285.68 (0.6% of $47,793 equity, cap 4%)
+
+<!-- DAEMON_ENTRY: AGRZ long 2026-07-30 -->
+### Jul 30 13:56 UTC — Intraday Daemon Entry
+**AGRZ** long 29068 sh @ ~$0.28 (actual fill) | stop $0.28 | target $0.30 (2.0:1) | gap -17.6%, ORB confirmed above $0.27 | Rule 1: 29068 x $0.01 = $248.10 (0.5% of $47,687 equity, cap 4%)
