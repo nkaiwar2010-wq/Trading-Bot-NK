@@ -1585,3 +1585,164 @@ proportionate given the book remains at only 2 of 8 max positions and
 91.6% cash, well under the 85-100% deployment target — more distinct
 catalysts should still be sourced through the day given the challenge is
 running 8.13% behind flat pace with 21 days left.
+
+## 2026-07-30 11:12 UTC — Pre-market Research (Day 12, Thursday)
+
+**Challenge pace:** Day 12 of 30. 20 days remaining to 2026-08-19 deadline.
+Equity $94,405.51 vs. $150,000 target -> phase P&L -$5,594.49 (-5.59%).
+**Behind flat pace** (need +$55,594.49 in 20 remaining days to hit target).
+Per Core Rule 11/THE CHALLENGE section, biasing toward action while the
+8%-of-equity hard loss cap stays unchanged regardless of pace pressure.
+
+**Account snapshot (live):**
+- Equity: $94,405.51 | Cash: $85,600.51 (90.7%) | Buying power: $342,402.04
+- Options buying power: $85,600.51 | Position market value: $8,805 (1 of 8
+  max positions) | Daytrade count: not returned by this endpoint response
+  (not a PDT concern at this equity level regardless)
+- Open positions: SMH260821P00505000 (3 ct, entry $22.75, mark $29.35,
+  +29.01% unrealized, 22 DTE) — well clear of the -50%/+50-100% triggers,
+  approaching the take-profit zone but not there yet. No open orders.
+
+**Market context:**
+- **Oil — fresh escalation, not a continuation:** US completed a new wave
+  of strikes on Iran overnight (Jul 29), Iran is threatening retaliation,
+  and oil spiked hard on the news: Brent crude +5.8-8% to $90.66-92.10,
+  WTI +6.4% to $84.30, holding gains into this morning (latest reads:
+  Brent $92.10 (+1.5%), WTI $85.23 (+0.9%)). This is a **distinct, fresh
+  catalyst** from the Jul 24-27 supply-shock thesis that was invalidated
+  by a ceasefire pause on Jul 27 — that pause has now itself been
+  reversed by actual combat resuming.
+- **S&P 500 futures:** +0.3-0.5% premarket, rebounding after Wednesday's
+  hawkish-Fed-hold selloff (Dow -800pts), helped by MSFT's Azure-driven
+  earnings beat (+8-9% premarket) even as META diverged lower on its own
+  earnings. Bond rout: 30-year yield above 5.2%, highest since 2007.
+- **VIX:** closed Jul 29 at 20.66, +13.45% on the day — an IMF report on
+  stalled global disinflation plus the hawkish FOMC hold drove the spike.
+  Elevated vs. the ~15-19 range seen earlier this week; options premiums
+  broadly richer than normal today.
+- **Today's releases:** Q2 GDP advance estimate (consensus +2.3% vs.
+  +2.1% prior), Core PCE price index (MoM +0.1% exp vs. +0.3% prior; YoY
+  +3.3% exp vs. +3.4% prior), and initial jobless claims — all clustered
+  this morning (source timing conflicting, ~7:30-8:30am ET; treat as
+  imminent/already-in-progress pre-open). **AAPL and AMZN report after
+  today's close** — a second wave of mega-cap earnings risk landing
+  tonight, on top of MSFT/META from Wednesday.
+- **Sector momentum YTD:** Energy still the nominal YTD leader (~+22%),
+  now further catalyzed by the Iran escalation. Healthcare a surprising
+  top performer, acting as a flight-to-safety play amid the vol spike.
+  Tech/semis remain positive YTD in aggregate (SMH +46.9% YTD) but under
+  active correction (SMH -10% over the past 30 days) on AI-capex-
+  durability and valuation concerns.
+- **Held-ticker news (SMH):** Latest snapshot has SMH at $500.54/$501.26
+  (stale, yesterday's close) vs. lastday_price $530.72 open-to-open —
+  continuing sharp weakness, now trading essentially at/through the $505
+  strike. No new catalyst needed; this is direct reconfirmation of the
+  existing thesis, third-plus consecutive session of the same overhang.
+- **Data caveat (recurring):** all `alpaca.sh` quote/options-chain pulls
+  this cycle are timestamped 2026-07-29T19:59:59-20:34 UTC — yesterday's
+  close, not live NBBO. Given oil has moved substantially overnight, all
+  strikes/premiums below are pre-market estimates and **must be
+  reconfirmed live at market open** before sizing or placing anything.
+
+### Trade Ideas
+
+**1. XOP long call — defined-risk energy-bull play on the renewed,
+active US-Iran conflict / oil supply shock (new position).**
+- Catalyst: fresh, confirmed US strikes on Iran overnight, Iran vowing
+  retaliation, Brent/WTI up 6-8% on the news and holding gains into this
+  morning — a genuinely new/renewed catalyst, distinct from the Jul 24-27
+  thesis that was invalidated by a ceasefire pause (itself now reversed).
+- Strike/Expiration/DTE: $175 strike (~4.6% OTM from stale-close spot
+  $167.31), 2026-08-21 expiration, **22 DTE** (clears >=7 floor).
+- Risk type: Defined-risk (long call, buy-to-open) — max loss = premium
+  paid.
+- 8% max-loss calc: cap = 8% x $94,405.51 = **$7,552.44**. Stale-close
+  ask $5.34/contract x100 = $534/contract -> up to 14 contracts fits the
+  cap ($7,476, 7.92%); given live premium will likely be higher after the
+  overnight oil move, working target is **~8-10 contracts** (~$4,272-
+  5,340, 4.5-5.7% of equity), exact count recomputed off the live ask at
+  open, hard-capped at whatever keeps cost <= $7,552.44.
+- Stop/target: close at -50% of premium paid; take profit at +50-100%
+  gain per Options Rules.
+
+**2. XLE long call — companion energy vehicle, same catalyst, cheaper
+optionality (new position, smaller/optional third leg).**
+- Catalyst: same as Idea 1.
+- Strike/Expiration/DTE: $61 strike (~4.4% OTM from stale-close spot
+  $58.43), 2026-08-21 expiration, **22 DTE**.
+- Risk type: Defined-risk (long call) — max loss = premium paid.
+- 8% max-loss calc: cap = $7,552.44. Stale-close ask $0.89/contract x100
+  = $89/contract -> mathematically ~84 contracts fits the cap, but that
+  exceeds visible book depth and risks slippage; working target is
+  **~35-40 contracts** (~$3,115-3,560, 3.3-3.8% of equity), well under
+  the cap for buffer, reconfirmed live.
+- Stop/target: -50% premium stop / +50-100% target.
+- Note: Ideas 1+2 combined, at the conservative working targets above,
+  run ~7.9-9.4% of equity split across two positions (bringing the book
+  to 3 of 8 max). If only one is taken, prefer Idea 1 (XOP) as the more
+  directly oil-linked, higher-delta expression.
+
+**3. Add to SMH 505P (existing position) — reinforce confirmed,
+continuing thesis.**
+- Catalyst: SMH's decline continuing into today (-10% over 30 days),
+  trading essentially at/through the $505 strike per the latest
+  snapshot, with the AI-capex-durability overhang still the dominant
+  sector narrative — pure reinforcement, no contradicting signal since
+  Tuesday's entry.
+- Strike/Expiration/DTE: same $505 strike, 2026-08-21 expiration, 22 DTE
+  — adding to the existing 3-contract position.
+- Risk type: Defined-risk (long put) — max loss = incremental premium
+  paid.
+- 8% max-loss calc: cap = $7,552.44. Using the current mark ~$29.35/
+  contract x100 = $2,935/contract (live ask must be reconfirmed and will
+  differ from mark) -> up to 2 contracts (~$5,870, 6.2% of equity) stays
+  under the cap.
+- Stop/target: existing -50%-of-blended-premium stop / +50-100% gain
+  target applies to the whole position once averaged. Position is
+  already +29.01% unrealized, approaching the take-profit zone — an add
+  here raises the cost basis while the trade is already working, so size
+  conservatively (1-2 contracts), not to the full cap.
+
+### Risk Factors
+- **Compounding same-day event risk:** GDP/Core PCE/jobless claims this
+  morning, an already-active US-Iran military escalation, and AAPL/AMZN
+  earnings after tonight's close all land within ~36 hours of each other
+  — any one could sharply reverse the moves the ideas above are based on.
+- **Energy whipsaw risk:** this is the second flip in the Iran/oil
+  catalyst in 9 days (supply-shock Jul 24-27 -> ceasefire-pause reversal
+  Jul 27 -> renewed active strikes now). Re-entering energy longs here
+  carries real "chasing a reversing headline" risk — size at the
+  conservative end of the ranges above, not the full 8% cap, and revisit
+  fast if the conflict shows signs of another de-escalation.
+- **Stale quotes:** all pricing above is yesterday's close snapshot: must
+  be reconfirmed live before any order, especially given oil's overnight
+  move likely repriced both XOP/XLE premiums and IV meaningfully higher.
+- **VIX elevated (20.66, +13.45%)** — options broadly richer than normal;
+  factor into live entry-price expectations, not just the stale-close
+  estimates above.
+- **30-year Treasury yield >5.2%** (highest since 2007) — an ongoing bond
+  rout that could pressure rate-sensitive equities broadly, independent
+  of the sector-specific theses above.
+- PERPLEXITY_API_KEY and ClickUp creds still missing this cycle — no
+  blocker; using WebSearch fallback and local DAILY-SUMMARY.md fallback
+  respectively, per standard operating procedure.
+
+### Decision
+**TRADE (hand off to market-open workflow for live-quote sizing).** Two
+independent, confirmed catalysts clear the documented-catalyst + 8%-cap
+bar: the renewed, active US-Iran conflict/oil spike (Ideas 1/2) and
+continuing, reconfirmed chip-sector weakness (Idea 3). Book is at only 1
+of 8 max positions and 90.7% cash, well under the 85-100% deployment
+target, so redeploying is appropriate — bias toward action per Core Rule
+11. Priority handoff order: (a) reconfirm live NBBO/spot for XOP, XLE,
+and SMH before anything else, since all chain data here is a stale
+yesterday-close snapshot and oil has moved substantially overnight; (b)
+recompute exact contract counts off live asks per the 8% cap math above;
+(c) take Idea 1 (XOP call) first given the cleanest, most direct link to
+the active catalyst; (d) Idea 3 (SMH add) second, since it's a proven,
+already-profitable thesis; (e) Idea 2 (XLE call) as an optional third
+leg only if pace/book capacity still justifies a third new position this
+cycle; (f) size at the conservative end of the stated ranges, not the
+full 8% cap on every idea simultaneously, given three major catalysts
+(GDP/PCE, active Iran conflict, AAPL/AMZN earnings) converging within the
+same ~36 hours.
