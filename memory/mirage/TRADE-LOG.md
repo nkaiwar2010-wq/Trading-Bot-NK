@@ -173,3 +173,7 @@ slippage and needed no correction — this appears specific to thinner names lik
 <!-- DAEMON_ENTRY: AAPU long 2026-07-31 -->
 ### Jul 31 13:48 UTC — Intraday Daemon Entry
 **AAPU** long 250 sh @ ~$38.08 (actual fill) | stop $36.94 | target $40.36 (2.0:1) | gap -16.8%, ORB confirmed above $37.99 | Rule 1: 250 x $1.14 = $285.60 (0.6% of $47,639 equity, cap 4%)
+
+<!-- DAEMON_ENTRY: AMZN long 2026-07-31 -->
+### Jul 31 14:02 UTC — Intraday Daemon Entry
+**AMZN** long 35 sh @ ~$270.50 (actual fill) | stop $262.38 | target $286.73 (2.0:1) | gap 14.9%, ORB confirmed above $269.41 | Rule 1: 35 x $8.11 = $284.02 (0.6% of $47,479 equity, cap 4%)
