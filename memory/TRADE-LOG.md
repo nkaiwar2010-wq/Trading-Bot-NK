@@ -308,3 +308,27 @@ Energy catalyst (XOP/XLE) reconfirmed live: XOP $173.13, XLE $58.50 — both con
 | XOP260821C00175000 | 8 contracts | $5.35 | $5.45 | +16.70% | +$80.00 (+1.87%) | Close at -50% stop (~$2.675) or +50-100% gain |
 
 **Notes:** A rough day overall — equity closed at $89,969.69, down -$4,436.19 (-4.70%) vs. yesterday's $94,405.88, pushing the phase drawdown to -$10,030.31 (-10.03%) below the $100,000 challenge-start baseline, the deepest of the challenge so far. The decline was driven by the midday SMH 505P thesis-break exit (Step 5 discipline exit, not a stop-loss trigger), realized at -$2,625.00 (-38.46%) after SMH reversed sharply above the $505 strike; the two new energy-catalyst calls opened at this morning's market open (Trade 9 XOP 175C, Trade 10 XLE 61C) both closed the day modestly green (+$90.00 and +$80.00 unrealized respectively) as the US-Iran conflict/oil-spike catalyst held into the close, partially offsetting the SMH loss. Trades today: 3 (XOP 175C buy, XLE 61C buy, SMH 505P sell-to-close). Cash sits at 92.5% of equity, still well above the 85-100% deployment target with only 2 of 8 max positions open — both single-direction energy longs, so the book carries concentration risk in one catalyst; diversifying into a distinct, uncorrelated idea remains the priority for the next cycle. Day 12 of 30, 20 days left to the Aug 19 deadline — meaningfully behind flat pace at -$10,030.31 against the $50,000 target (needing +$60,030.31 in the remaining 20 days), the first double-digit-percentage phase drawdown of the challenge and worth flagging as a pace concern heading into the back half. PERPLEXITY_API_KEY and ClickUp creds still missing this cycle — no blocker, using WebSearch fallback (not needed) and local DAILY-SUMMARY.md fallback respectively.
+
+## Jul 31 — Market-Open Execution (Day 13, Friday)
+
+### Trade 11 — SPY 755C, 2026-08-21 exp (defined-risk directional long call, new position)
+- **OCC symbol:** SPY260821C00755000
+- **Entry:** 12 contracts @ $5.41 avg fill (market order), cost basis $6,492
+- **Strike/Expiration/DTE:** $755 strike (~1.2% OTM from live $745.78 spot), 2026-08-21 expiration, 21 DTE (clears >=7 floor)
+- **Risk type:** Defined-risk (long call, buy-to-open) — max loss = premium paid = $6,492 = 7.22% of $89,869.04 pre-trade equity (inside the 8% cap of $7,189.52)
+- **Thesis:** Broad-market continuation of the AI-earnings-driven rally (MSFT/AMZN beats) + VIX-crush risk-on backdrop (VIX -17.28% to 17.09), cooler June PCE + softer Q2 GDP supporting a dovish Fed read, S&P futures +0.47%/Nasdaq futures +1.11% premarket. Macro/breadth trade, not a single-name earnings chase.
+- **Stop/close plan:** Close at -50% premium (~$2.705/contract, ~$3,246 total) or +50-100% gain per Options Rules; enforced manually via midday/EOD workflows.
+- **Target:** +50-100% gain.
+- **R:R:** ~1:1 to 2:1.
+
+### Trade 12 — SMH 600C, 2026-08-21 exp (defined-risk directional long call, new position)
+- **OCC symbol:** SMH260821C00600000
+- **Entry:** 3 contracts @ $11.60 avg fill (market order), cost basis $3,480
+- **Strike/Expiration/DTE:** $600 strike (~7.5% OTM from live $557.92 spot — re-picked at execution vs. RESEARCH-LOG's stale-close-based $560 plan, since SMH had already run further intraday and $560 was nearly ATM by the open; $600 restores the intended ~8% OTM tactical sizing), 2026-08-21 expiration, 21 DTE
+- **Risk type:** Defined-risk (long call, buy-to-open) — max loss = premium paid = $3,480 = 3.87% of $89,869.04 pre-trade equity (inside the 8% cap of $7,189.52)
+- **Thesis:** SMH +6.5%+ momentum trigger on renewed AI-capex optimism post MSFT/AMZN earnings, distinct from the chip-weakness thesis this book already exited (Jul 30) for cause. Sized small/tactical given the still-active head-and-shoulders technical pattern ($510-520 flagged support/resistance) — this is a bounce through the zone, not a confirmed pattern break.
+- **Stop/close plan:** Close at -50% premium (~$5.80/contract, ~$1,740 total) or +50-100% gain per Options Rules.
+- **Target:** +50-100% gain.
+- **R:R:** ~1:1 to 2:1.
+
+**Positions after trade:** 4 of 8 max (XLE260821C00061000, XOP260821C00175000, SPY260821C00755000, SMH260821C00600000). Combined new spend $9,972 (11.1% of pre-trade equity) across two independently-sized trades, each individually inside the 8% Rule 3 cap. Equity post-fill $89,304.74, cash $73,266.74 (82.1%) — within the 85-100% deployment target range approaching from below. Energy book (XLE/XOP) untouched per RESEARCH-LOG decision — hold, no add this cycle. Day 13 of 30, 19 days left to the Aug 19 deadline. PERPLEXITY_API_KEY and ClickUp creds still missing this cycle — no blocker, using WebSearch fallback and local DAILY-SUMMARY.md fallback respectively.
