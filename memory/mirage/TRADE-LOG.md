@@ -233,3 +233,7 @@ slippage and needed no correction — this appears specific to thinner names lik
 <!-- DAEMON_ENTRY: FATN long 2026-07-31 -->
 ### Jul 31 17:15 UTC — Intraday Daemon Entry
 **FATN** long 1319 sh @ ~$6.00 (actual fill) | stop $5.82 | target $6.36 (2.0:1) | gap 16.7%, ORB confirmed above $4.78 | Rule 1: 1319 x $0.18 = $237.42 (0.5% of $45,077 equity, cap 4%)
+
+<!-- DAEMON_ENTRY: AEON long 2026-07-31 -->
+### Jul 31 17:44 UTC — Intraday Daemon Entry
+**AEON** long 24998 sh @ ~$0.31 (actual fill) | stop $0.30 | target $0.33 (2.0:1) | gap 19.5%, ORB confirmed above $0.31 | Rule 1: 24998 x $0.01 = $234.73 (0.5% of $44,534 equity, cap 4%)
