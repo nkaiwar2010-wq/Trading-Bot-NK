@@ -346,3 +346,16 @@ Energy catalyst (XOP/XLE) reconfirmed live: XOP $173.13, XLE $58.50 — both con
 **No action taken this cycle.** Positions unchanged at 4 of 8 max. Cash $73,266.74 (83.2% of equity) — within the 85-100% deployment target range. PERPLEXITY_API_KEY and ClickUp creds still missing this cycle — no blocker, using WebSearch fallback (not needed) and local DAILY-SUMMARY.md fallback respectively.
 
 **Positions after trade:** 4 of 8 max (XLE260821C00061000, XOP260821C00175000, SPY260821C00755000, SMH260821C00600000). Combined new spend $9,972 (11.1% of pre-trade equity) across two independently-sized trades, each individually inside the 8% Rule 3 cap. Equity post-fill $89,304.74, cash $73,266.74 (82.1%) — within the 85-100% deployment target range approaching from below. Energy book (XLE/XOP) untouched per RESEARCH-LOG decision — hold, no add this cycle. Day 13 of 30, 19 days left to the Aug 19 deadline. PERPLEXITY_API_KEY and ClickUp creds still missing this cycle — no blocker, using WebSearch fallback and local DAILY-SUMMARY.md fallback respectively.
+
+## Jul 31 — EOD Snapshot (Day 13, Friday)
+
+**Portfolio:** $89,297.74 | **Cash:** $73,266.74 (82.1%) | **Day P&L:** -$671.95 (-0.75%) | **Phase P&L:** -$10,702.26 (-10.70%) | **Challenge:** -$10,702.26 of $50,000 target, 19 days left
+
+| Ticker/OCC | Shares/Contracts | Entry | Close | Day Chg | Unrealized P&L | Stop/Close Plan |
+|---|---|---|---|---|---|---|
+| SMH260821C00600000 | 3 contracts | $11.60 | $6.75 | -11.18% | -$1,455.00 (-41.81%) | Close at -50% stop (~$5.80) or +50-100% gain — near stop, top watch item |
+| SPY260821C00755000 | 12 contracts | $5.41 | $5.28 | +11.86% | -$156.00 (-2.40%) | Close at -50% stop (~$2.705) or +50-100% gain |
+| XLE260821C00061000 | 30 contracts | $0.76 | $0.85 | +2.41% | +$270.00 (+11.84%) | Close at -50% stop (~$0.38) or +50-100% gain |
+| XOP260821C00175000 | 8 contracts | $5.35 | $6.40 | +18.74% | +$840.00 (+19.63%) | Close at -50% stop (~$2.675) or +50-100% gain |
+
+**Notes:** A roughly flat day overall — equity closed at $89,297.74, down -$671.95 (-0.75%) vs. yesterday's $89,969.69, as the two new AI/macro calls opened at this morning's open (Trade 11 SPY 755C, Trade 12 SMH 600C) pulled the book in opposite directions: SMH 600C dropped sharply to -41.81% unrealized (-$1,455) as SMH gave back its bounce and pulled back toward the $510-520 head-and-shoulders zone, now closing in on its -50% stop (~$5.80) and the top watch item for tomorrow's open; SPY 755C stayed roughly flat at -2.40% (-$156) with the AI-rally/VIX-crush macro thesis intact. The energy book continued to grind higher — XLE 61C +11.84% (+$270) and XOP 175C +19.63% (+$840) — nearly offsetting the SMH drag. Trades today: 2 (SPY 755C buy, SMH 600C buy at market open); no exits or stop triggers today. Cash sits at 82.1% of equity, within the 85-100% deployment target range approaching from below, with 4 of 8 max positions open. Day 13 of 30, 19 days left to the Aug 19 deadline — meaningfully behind flat pace at -$10,702.26 against the $50,000 target (needing +$60,702.26 in the remaining 19 days); SMH's approach to its stop level is the priority watch item heading into next week. PERPLEXITY_API_KEY and ClickUp creds still missing this cycle — no blocker, using WebSearch fallback (not needed) and local DAILY-SUMMARY.md fallback respectively.
