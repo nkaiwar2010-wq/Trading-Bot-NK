@@ -209,3 +209,7 @@ slippage and needed no correction — this appears specific to thinner names lik
 <!-- DAEMON_ENTRY: IREZ long 2026-07-31 -->
 ### Jul 31 16:07 UTC — Intraday Daemon Entry
 **IREZ** long 535 sh @ ~$17.43 (actual fill) | stop $16.91 | target $18.48 (2.0:1) | gap 15.0%, ORB confirmed above $15.56 | Rule 1: 535 x $0.52 = $279.79 (0.6% of $46,698 equity, cap 4%)
+
+<!-- DAEMON_ENTRY: LFS long 2026-07-31 -->
+### Jul 31 16:21 UTC — Intraday Daemon Entry
+**LFS** long 3140 sh @ ~$2.64 (actual fill) | stop $2.56 | target $2.80 (2.0:1) | gap 19.7%, ORB confirmed above $2.44 | Rule 1: 3140 x $0.08 = $248.69 (0.5% of $46,485 equity, cap 4%)
