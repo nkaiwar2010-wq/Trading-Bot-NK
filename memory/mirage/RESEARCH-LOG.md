@@ -179,3 +179,23 @@ close.
 ### Notes
 - Tomorrow is another loaded earnings-week session: AAPL's post-beat selloff and AMZN's post-beat rally give two contrasting megacap gap setups to confirm at the open, layered on a live semis/AI-capex rotation story and a busy energy/pharma before-open slate. Normal intraday scan with extra attention on AAPL/AMZN gap direction in the first 15 min and the 8:30 ET ECI print.
 - WebSearch limitation stands: can't see live after-hours/premarket tape, so AAPL's and AMZN's actual settle prices and any other stealth after-hours movers need live confirmation at tomorrow's open, not assumption from tonight's headlines.
+
+## 2026-07-31 (evening research — watchlist for tomorrow)
+
+### Account (sanity check)
+- Confirmed flat: yes, equity $43,493.90, 0 positions (bash scripts/alpaca.sh positions returned [])
+- Note: equity down from $47,529.29 (last_equity) to $43,493.90 day-over-day — reflects today's closed trading, not a discrepancy; no open positions to reconcile.
+
+### Tomorrow's Setups to Watch
+- Note: today is Friday 7/31, so "tomorrow" is Monday 8/3 — a weekend sits between tonight's research and the next session, so weekend headline risk (geopolitical, macro data revisions) is an extra unknown to check at Monday's open.
+- AAPL — reported Q3 FY26 after Thursday 7/30 close; fell ~7.2% during Friday's regular session on weak forward guidance, rising component costs, and soft China/Services revenue. This is now a Friday story that has had a full session to digest, not a fresh Monday gap — check Monday premarket for whether the selloff extended, stabilized, or started reversing over the weekend news cycle.
+- AMZN — reported Q2 after Thursday 7/30 close; beat expectations on cloud strength, surged ~13-15% intraday Friday, its biggest single-day gain in over a decade. Also a fully-digested Friday move; watch Monday open for continuation vs. profit-taking after such a large single-day spike.
+- RDDT — plunged ~23% Friday after failing to announce new data-licensing agreements in its earnings report. Confirm at Monday's open whether the slide continued/stabilized over the weekend or whether an oversold bounce is developing.
+- AXT/Advanced Energy — jumped ~25% Friday on an earnings beat (EPS $0.19 vs. $0.07 consensus, revenue +165% YoY). Momentum name to watch for follow-through vs. fade at Monday's open.
+- Macro/rates backdrop — 10-year Treasury yield surged to ~4.7% (highest since Jan 2025), 30-year near 5.2% (highest since 2007), following the Fed's July 29 hold with 3 dissents (hawkish-leaning) plus oil-driven inflation concern. This is a live, unresolved yield-pressure story — watch rate-sensitive sectors (banks, homebuilders, REITs, high-multiple tech) for continued pressure Monday.
+- Monday 8/3 econ data: S&P Global Manufacturing PMI (flash, 9:45 ET), Construction Spending for June (10:00 ET), ISM Manufacturing PMI for July (10:00 ET) — ISM Manufacturing is the more market-moving print given the current inflation/yield focus.
+- Monday 8/3 before-open earnings: TSN, MAR, L, CNH, TGTX, KRYS, CGEN, CNA, DEA, HESM, KOS, PLOW, SBH, SRAD, TWST, AVA, ABTC, ALX, LIND, MMYT — broad list, no single name flagged as outsized yet; recheck premarket for gap leaders since this is too broad to pre-commit to any one name.
+
+### Notes
+- Market closed for the weekend after today; this entry captures Friday's fully-realized reactions (AAPL down, AMZN way up, RDDT down, AXT up) plus a real yield/rate-pressure backdrop and a Monday econ/earnings slate. Nothing here is a fresh unresolved after-hours gap — Monday's actual setups depend on whether these moves persist, extend, or reverse over the weekend, so confirm everything with live premarket/first-15-min tape before sizing.
+- WebSearch limitation stands: can't see live premarket tape or weekend-developing news between now and Monday's open — treat all of the above as Friday-close context to re-verify live, not assumptions to trade on directly.
