@@ -286,3 +286,27 @@ this backfill was written — chronology preserved as committed.)
 <!-- DAEMON_ENTRY: INBS long 2026-07-31 -->
 ### Jul 31 18:27 UTC — Intraday Daemon Entry
 **INBS** long 4057 sh @ ~$1.92 (actual fill) | stop $1.86 | target $2.04 (2.0:1) | gap 20.0%, ORB confirmed above $1.83 | Rule 1: 4057 x $0.06 = $233.68 (0.5% of $44,023 equity, cap 4%)
+
+### Jul 31 19:48 UTC — Backfill: 4 more exits that never got logged (same bug recurring after the 17:45 fix)
+
+**Found by this EOD routine:** `positions` at EOD-close time showed only AMZN and GDDY open, but four more symbols entered today (CDNA, LESL, INBS, AEON) had already hit their standing stop-loss orders and closed via Alpaca's own fill — the same failure mode as the 17:45 backfill above, recurring even after that fix was committed earlier today. Reconstructed from Alpaca's closed-orders history (authoritative).
+
+| Ticker | Entry | Exit | Realized P&L | Time (UTC) |
+|---|---|---|---|---|
+| CDNA | $44.3800 | $42.7659 | -$329.28 (-3.64%) | 17:52 |
+| AEON | $0.3130 | $0.2987 | -$356.40 (-4.55%) | 17:44 |
+| LESL | $1.0400 | $1.0000 | -$299.56 (-3.85%) | 18:16 |
+| INBS | $1.9200 | $1.7200 | -$811.40 (-10.42%) | 18:38 |
+
+Combined backfilled realized loss: **-$1,796.64**. AEON is notable: entry and stop fired only 23 seconds apart (17:44:14 → 17:44:37 UTC) — a near-instant reversal or thin-liquidity gap-through the stop level, not a clean trigger. INBS was today's single worst loser at -10.42%, well outside the usual ~3-3.6% stop band, consistent with the same fast-slippage pattern seen in SCYX/FATN earlier. **Flag for tomorrow:** the cycle-tracking fix from the 17:45 backfill did not catch these four — this is now the second unlogged-exit incident in one day, worth a closer look at the daemon's external-fill detection before trusting it unattended again.
+
+### Jul 31 — EOD Force-Close (Day 5)
+
+**Portfolio:** $43,493.90 | **Cash:** $43,493.90 (100% — always ends the day fully flat) | **Day P&L:** -$4,062.50 (-8.54%) | **Phase P&L:** -$6,506.10 (-13.01%)
+
+| Ticker/OCC | Entry | Exit | Realized P&L | Reason closed |
+|---|---|---|---|---|
+| AMZN | $270.4957 | $271.5200 | +$35.85 (+0.38%) | Force-closed by EOD routine (in profit; resting stop was $262.38) |
+| GDDY | $79.7312 | $83.3691 | +$422.00 (+4.56%) | Force-closed by EOD routine (in profit; resting stop was $77.34) |
+
+**Notes:** `positions`/`orders` at routine start showed only AMZN and GDDY open (both nicely in profit — GDDY +4.6%, AMZN +0.4% — sitting on resting stops well below market); `cancel-all` cleared those two stops and `close-all` force-sold both at market, confirmed flat via a follow-up `positions` check. Everything else opened today (15 of 17 trades) had already been closed intraday by the daemon's own stop-loss logic well before this routine ran, though 4 of those 15 (CDNA, LESL, INBS, AEON) never got a log entry until this routine reconstructed them above. Full day tally: **17 opened, 17 closed, 3 wins (AMCX +$153.36, AMZN +$35.85, GDDY +$422.00) / 14 losses**. INBS (-10.42%) and AEON (-4.55%, 23-second stop-out) were the day's ugliest fills — both point at slippage/liquidity risk on the daemon's smaller-cap picks rather than a thesis problem. The two positions still open at EOD (AMZN, GDDY) were also the day's biggest winners by dollar size, which stings a little — the strategy has no discretion to let a winner run past EOD, and today that discretion would have paid off, but the no-exception force-close rule stays as-is per protocol. Equity-based Day P&L (-$4,062.50) runs a bit heavier than the sum of today's individual trade P&Ls (~-$4,035), a gap consistent with slippage/spread that doesn't show up per-trade until compared against the account-level mark.
