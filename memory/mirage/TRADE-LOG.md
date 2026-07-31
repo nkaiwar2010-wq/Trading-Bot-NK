@@ -225,3 +225,7 @@ slippage and needed no correction — this appears specific to thinner names lik
 <!-- DAEMON_ENTRY: CDNA long 2026-07-31 -->
 ### Jul 31 16:50 UTC — Intraday Daemon Entry
 **CDNA** long 204 sh @ ~$44.38 (actual fill) | stop $43.05 | target $47.04 (2.0:1) | gap 16.3%, ORB confirmed above $43.01 | Rule 1: 204 x $1.33 = $271.61 (0.6% of $45,408 equity, cap 4%)
+
+<!-- DAEMON_EXIT: FFAI 2026-07-31 16:53 -->
+### Jul 31 16:53 UTC — Intraday Daemon Exit
+**FFAI** closed @ ~$6.42 | entry $6.55 | realized P&L $-165.09 (-2.1%) | reason: VWAP loss on volume spike (thesis break)
