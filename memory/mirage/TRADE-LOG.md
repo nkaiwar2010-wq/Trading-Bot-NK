@@ -201,3 +201,7 @@ slippage and needed no correction — this appears specific to thinner names lik
 <!-- DAEMON_ENTRY: GDDY long 2026-07-31 -->
 ### Jul 31 14:40 UTC — Intraday Daemon Entry
 **GDDY** long 116 sh @ ~$79.73 (actual fill) | stop $77.34 | target $84.52 (2.0:1) | gap -19.9%, ORB confirmed above $78.18 | Rule 1: 116 x $2.39 = $277.46 (0.6% of $47,106 equity, cap 4%)
+
+<!-- DAEMON_ENTRY: FORR long 2026-07-31 -->
+### Jul 31 15:50 UTC — Intraday Daemon Entry
+**FORR** long 707 sh @ ~$11.60 (actual fill) | stop $11.25 | target $12.30 (2.0:1) | gap 18.4%, ORB confirmed above $11.06 | Rule 1: 707 x $0.35 = $246.04 (0.5% of $46,773 equity, cap 4%)
