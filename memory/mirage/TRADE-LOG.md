@@ -241,3 +241,7 @@ slippage and needed no correction — this appears specific to thinner names lik
 <!-- DAEMON_ENTRY: LESL long 2026-07-31 -->
 ### Jul 31 18:07 UTC — Intraday Daemon Entry
 **LESL** long 7489 sh @ ~$1.04 (actual fill) | stop $1.01 | target $1.10 (2.0:1) | gap 19.8%, ORB confirmed above $0.95 | Rule 1: 7489 x $0.03 = $233.66 (0.5% of $44,185 equity, cap 4%)
+
+<!-- DAEMON_ENTRY: INBS long 2026-07-31 -->
+### Jul 31 18:27 UTC — Intraday Daemon Entry
+**INBS** long 4057 sh @ ~$1.92 (actual fill) | stop $1.86 | target $2.04 (2.0:1) | gap 20.0%, ORB confirmed above $1.83 | Rule 1: 4057 x $0.06 = $233.68 (0.5% of $44,023 equity, cap 4%)
