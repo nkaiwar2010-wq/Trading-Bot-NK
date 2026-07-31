@@ -181,3 +181,7 @@ slippage and needed no correction — this appears specific to thinner names lik
 <!-- DAEMON_ENTRY: AMCX long 2026-07-31 -->
 ### Jul 31 14:04 UTC — Intraday Daemon Entry
 **AMCX** long 852 sh @ ~$11.13 (actual fill) | stop $10.80 | target $11.80 (2.0:1) | gap 15.0%, ORB confirmed above $11.04 | Rule 1: 852 x $0.33 = $284.48 (0.6% of $47,466 equity, cap 4%)
+
+<!-- DAEMON_ENTRY: SMST long 2026-07-31 -->
+### Jul 31 14:14 UTC — Intraday Daemon Entry
+**SMST** long 147 sh @ ~$63.83 (actual fill) | stop $61.92 | target $67.66 (2.0:1) | gap 17.1%, ORB confirmed above $60.97 | Rule 1: 147 x $1.91 = $281.49 (0.6% of $47,065 equity, cap 4%)
