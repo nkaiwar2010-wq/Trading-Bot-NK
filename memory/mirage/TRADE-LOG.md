@@ -217,3 +217,7 @@ slippage and needed no correction — this appears specific to thinner names lik
 <!-- DAEMON_ENTRY: SCYX long 2026-07-31 -->
 ### Jul 31 16:29 UTC — Intraday Daemon Entry
 **SCYX** long 1835 sh @ ~$4.36 (actual fill) | stop $4.23 | target $4.62 (2.0:1) | gap 16.6%, ORB confirmed above $4.34 | Rule 1: 1835 x $0.13 = $239.85 (0.5% of $46,072 equity, cap 4%)
+
+<!-- DAEMON_ENTRY: FFAI long 2026-07-31 -->
+### Jul 31 16:39 UTC — Intraday Daemon Entry
+**FFAI** long 1224 sh @ ~$6.55 (actual fill) | stop $6.36 | target $6.95 (2.0:1) | gap 19.5%, ORB confirmed above $5.37 | Rule 1: 1224 x $0.20 = $240.70 (0.5% of $45,726 equity, cap 4%)
