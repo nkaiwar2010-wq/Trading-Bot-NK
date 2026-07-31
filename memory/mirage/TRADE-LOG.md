@@ -229,3 +229,7 @@ slippage and needed no correction — this appears specific to thinner names lik
 <!-- DAEMON_EXIT: FFAI 2026-07-31 16:53 -->
 ### Jul 31 16:53 UTC — Intraday Daemon Exit
 **FFAI** closed @ ~$6.42 | entry $6.55 | realized P&L $-165.09 (-2.1%) | reason: VWAP loss on volume spike (thesis break)
+
+<!-- DAEMON_ENTRY: FATN long 2026-07-31 -->
+### Jul 31 17:15 UTC — Intraday Daemon Entry
+**FATN** long 1319 sh @ ~$6.00 (actual fill) | stop $5.82 | target $6.36 (2.0:1) | gap 16.7%, ORB confirmed above $4.78 | Rule 1: 1319 x $0.18 = $237.42 (0.5% of $45,077 equity, cap 4%)
