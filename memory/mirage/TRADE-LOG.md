@@ -238,6 +238,47 @@ slippage and needed no correction — this appears specific to thinner names lik
 ### Jul 31 17:44 UTC — Intraday Daemon Entry
 **AEON** long 24998 sh @ ~$0.31 (actual fill) | stop $0.30 | target $0.33 (2.0:1) | gap 19.5%, ORB confirmed above $0.31 | Rule 1: 24998 x $0.01 = $234.73 (0.5% of $44,534 equity, cap 4%)
 
+### Jul 31 17:45 UTC — Backfill: 8 exits that never got logged (5th bug found and fixed)
+
+**Bug found:** a position that closes via its own standing stop-loss order filling
+directly on Alpaca's side (not through the daemon's explicit `close_position()` call)
+was never detected or logged — `manage_positions()` only wrote a TRADE-LOG entry when
+*it* decided to close something (VWAP-loss or target-hit). A stop firing on its own
+between cycles left zero record, even though the account's real P&L was correct the
+whole time. Confirmed today: 11 real closed trades, but only 3 (SMST, AMCX, FFAI) had
+log entries — the other 8 below were reconstructed from Alpaca's `/account/activities/FILL`
+ledger, the authoritative source.
+
+**Fixed in code:** the daemon now tracks which symbols were open at the end of each
+cycle; if one disappears by the next cycle without going through the explicit close
+path, it's logged immediately with real fill-based entry/exit/P&L, tagged
+"(external fill)" so it's distinguishable from a daemon-initiated close.
+
+**The 8 backfilled exits (all stop-loss fills, chronological):**
+
+| Ticker | Entry | Exit | Realized P&L | Time (UTC) |
+|---|---|---|---|---|
+| SKYQ | $5.1223 | $4.9600 | -$270.62 (-3.17%) | 14:14 |
+| MSTZ | $12.6084 | $12.2100 | -$296.84 (-3.16%) | 16:02 |
+| AAPU | $38.0800 | $36.9300 | -$287.50 (-3.02%) | 15:49 |
+| FORR | $11.6000 | $11.1800 | -$296.94 (-3.62%) | 16:21 |
+| LFS | $2.6400 | $2.5500 | -$282.60 (-3.41%) | 16:27 |
+| IREZ | $17.4327 | $16.8900 | -$290.30 (-3.11%) | 16:39 |
+| SCYX | $4.3570 | $4.0700 | -$526.71 (-6.59%) | 16:46 |
+| FATN | $6.0000 | $5.6800 | -$422.08 (-5.33%) | 17:28 |
+
+Combined backfilled realized loss: **-$2,673.59**. All eight hit stops in the
+~3-3.6% range as intended (SCYX and FATN somewhat wider, likely a fast-moving-price
+gap through the stop level rather than a clean fill at the stop price itself — normal
+slippage on a triggered stop, not a bug).
+
+**Full picture for today so far (3 logged + 8 backfilled + 3 still open):**
+1 win (AMCX +$153.36), 10 losses, combined realized **-$2,696.60**, plus -$260.72
+unrealized on AMZN/CDNA/GDDY (still open) = **-$2,957.32** today, reconciling exactly
+with account equity ($44,571.97, down from $47,529.29 last close). (Note: AEON above,
+and LESL/INBS below, were entered by the still-running pre-fix daemon process after
+this backfill was written — chronology preserved as committed.)
+
 <!-- DAEMON_ENTRY: LESL long 2026-07-31 -->
 ### Jul 31 18:07 UTC — Intraday Daemon Entry
 **LESL** long 7489 sh @ ~$1.04 (actual fill) | stop $1.01 | target $1.10 (2.0:1) | gap 19.8%, ORB confirmed above $0.95 | Rule 1: 7489 x $0.03 = $233.66 (0.5% of $44,185 equity, cap 4%)

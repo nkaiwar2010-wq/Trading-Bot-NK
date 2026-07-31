@@ -243,3 +243,21 @@ once there's a few days of data, and flag to a human if a specific pattern
 without a clean ORB confirmation) is producing repeated losses — this is a
 new, unproven strategy and the first couple of weeks are as much about
 finding out if this approach has real edge as they are about making money.
+
+**2026-07-31 fix (5th live bug):** a position closing via its own standing
+stop order filling directly on Alpaca's side — not through the daemon's
+own `close_position()` call — was never detected or logged. Confirmed
+live: 11 real exits, only 3 had a TRADE-LOG entry; the other 8 were
+invisible until reconstructed from Alpaca's fill ledger. The daemon now
+tracks open symbols across cycles and logs anything that disappears
+without an explicit close as a "(external fill)" exit with real P&L. This
+matters for the whole point of this log: an accurate account balance is
+not the same as an accurate *record* of what happened and why — the
+first without the second can't be learned from.
+
+**2026-07-31 result (for context, not yet a verdict):** 1 win, 10 losses
+on the day (~91% loss rate), -$2,957 total — the worst day yet, and a
+much lower win rate than the 90-day backtest's 45.5%. Too early and too
+small a sample (one day) to say whether this is a real regime the
+strategy handles badly or ordinary variance; flag for the next
+weekly-review to check whether this pattern repeats.

@@ -95,6 +95,18 @@ def get_orders(status="open"):
     return api("GET", f"/orders?status={status}") or []
 
 
+def get_fills_today(symbol):
+    """Today's actual fills for a symbol from Alpaca's activity ledger --
+    authoritative even when a position closes via a mechanism the daemon
+    didn't initiate itself (e.g. a standing stop order filling on
+    Alpaca's side independent of the poll loop)."""
+    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    resp = api("GET", f"/account/activities/FILL?date={today}")
+    if not resp:
+        return []
+    return [f for f in resp if f.get("symbol") == symbol]
+
+
 def get_bars(symbol, timeframe="5Min", limit=30):
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     resp = api("GET", f"/stocks/{symbol}/bars?timeframe={timeframe}&start={today}T00:00:00Z&limit={limit}&adjustment=raw&feed=iex")
@@ -340,6 +352,53 @@ def manage_positions(equity):
             git_commit_and_push(f"mirage daemon exit {symbol} {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M')} UTC")
 
 
+def log_externally_closed_positions(known_open, current_positions):
+    """Detect and log positions that disappeared between cycles WITHOUT
+    going through manage_positions()'s explicit close_position() call --
+    almost always a standing stop order filling directly on Alpaca's
+    side, independent of this loop. Confirmed live 2026-07-31: 8 of 11
+    real exits that day were never logged because only the explicit-close
+    path wrote to TRADE-LOG; a stop firing on its own left no record even
+    though the account P&L was correct the whole time. Uses Alpaca's own
+    fill ledger as the source of truth for entry/exit price and P&L,
+    same approach used for the manual corrections earlier in this file's
+    history."""
+    current_symbols = {p["symbol"] for p in current_positions}
+    disappeared = known_open - current_symbols
+    for symbol in disappeared:
+        fills = get_fills_today(symbol)
+        if not fills:
+            log(f"{symbol} disappeared from positions but no fills found today — "
+                f"can't log a reason, flagging for manual review")
+            continue
+        buys = [(float(f["qty"]), float(f["price"])) for f in fills if f["side"] == "buy"]
+        sells = [(float(f["qty"]), float(f["price"])) for f in fills if f["side"] == "sell"]
+        buy_cost = sum(q * p for q, p in buys)
+        sell_proceeds = sum(q * p for q, p in sells)
+        buy_qty = sum(q for q, _ in buys)
+        sell_qty = sum(q for q, _ in sells)
+        if sell_qty <= 0:
+            log(f"{symbol} disappeared from positions but no sell fill found today — "
+                f"can't confirm it's actually closed, flagging for manual review")
+            continue
+        avg_entry = buy_cost / buy_qty if buy_qty else 0
+        avg_exit = sell_proceeds / sell_qty
+        pnl = sell_proceeds - buy_cost
+        pnl_pct = (pnl / buy_cost * 100) if buy_cost else 0
+        now = datetime.now(timezone.utc)
+        entry_line = (
+            f"<!-- DAEMON_EXIT: {symbol} {now.strftime('%Y-%m-%d %H:%M')} -->\n"
+            f"### {now.strftime('%b %d %H:%M UTC')} — Intraday Daemon Exit (external fill)\n"
+            f"**{symbol}** closed @ ~${avg_exit:.4f} | entry ${avg_entry:.4f} | "
+            f"realized P&L ${pnl:.2f} ({pnl_pct:.1f}%) | reason: stop-loss order filled "
+            f"(detected via position disappearance, not an explicit daemon close — "
+            f"P&L computed from Alpaca's fill ledger)"
+        )
+        log(f"Logging externally-closed position: {symbol}, P&L ${pnl:.2f}")
+        append_trade_log(entry_line)
+        git_commit_and_push(f"mirage daemon exit {symbol} (stop fill) {now.strftime('%Y-%m-%d %H:%M')} UTC")
+
+
 def screen_new_entry(equity, attempted, open_count):
     if open_count >= MAX_POSITIONS:
         return
@@ -439,6 +498,8 @@ def main():
         return
     attempted = already_attempted_today()
     log(f"already-attempted symbols recovered from TRADE-LOG: {attempted or 'none'}")
+    known_open = {p["symbol"] for p in get_positions()}
+    log(f"positions open at daemon start: {known_open or 'none'}")
     while True:
         if past(HARD_EXIT_AFTER_UTC):
             log("hard exit time reached, ending daemon for today")
@@ -450,11 +511,13 @@ def main():
             continue
         equity = float(account["equity"])
         positions = get_positions()
+        log_externally_closed_positions(known_open, positions)
         manage_positions(equity)
         if not past(STOP_NEW_ENTRIES_AFTER_UTC):
             screen_new_entry(equity, attempted, len(positions))
         else:
             log("past new-entry cutoff (2:15pm Chicago) — management only, no new entries")
+        known_open = {p["symbol"] for p in get_positions()}
         time.sleep(POLL_SECONDS)
     log("daemon loop ended; mandatory EOD-close routine remains the backstop at 2:45pm Chicago")
 
