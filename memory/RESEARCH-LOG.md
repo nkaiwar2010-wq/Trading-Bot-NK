@@ -1746,3 +1746,161 @@ cycle; (f) size at the conservative end of the stated ranges, not the
 full 8% cap on every idea simultaneously, given three major catalysts
 (GDP/PCE, active Iran conflict, AAPL/AMZN earnings) converging within the
 same ~36 hours.
+
+## Jul 31 — Pre-Market Research (Day 13, Friday)
+
+**Challenge pace:** Day 13 of 30. 19 days remaining to 2026-08-19 deadline.
+Equity $89,969.04 vs. $150,000 target -> phase P&L **-$10,030.96 (-10.03%)**,
+needing +$60,030.96 in the remaining 19 days. **Behind flat pace** — per
+Core Rule 11, bias toward action; per Rule 3 the 8%-of-equity loss cap is
+unchanged regardless of pace pressure.
+
+**Account snapshot (live, pre-market):**
+- Equity: $89,969.04 | Cash: $83,239.04 (92.5%) | Buying power: $332,956.16
+- Options buying power: $83,239.04 | Position market value: $6,730
+  (2 of 8 max positions) | Daytrade count: N/A (well above PDT threshold)
+- Open positions: XLE260821C00061000 (30 ct, entry $0.76, mark $0.79,
+  +3.95% unrealized, 22 DTE at last close -> 21 DTE today) and
+  XOP260821C00175000 (8 ct, entry $5.35, mark $5.45, +1.87% unrealized,
+  21 DTE). Live reconfirm at yesterday's close: XLE 61C bid/ask
+  $0.81/$0.84 (mid $0.825, +8.6% vs. entry), XOP 175C bid/ask
+  $5.49/$6.36 (mid $5.925, +10.7% vs. entry) — both well clear of the
+  -50% stop and not yet at the +50-100% take-profit zone. No open orders.
+
+**Market context:**
+- **Oil:** WTI holding near $84/bbl after swinging in an $8+ range this
+  week; Brent ~$90. Oil on track for its biggest monthly gain since
+  March, up ~20% for the month, as the active US-Iran conflict continues
+  (Iran warning it won't allow oil to transit the Strait of Hormuz if
+  strikes continue). This is a **continuation**, not a fresh spike —
+  existing XLE/XOP calls already capture this catalyst.
+- **S&P 500 / Nasdaq futures:** Broadly higher premarket — S&P futures
+  +0.47% (7,507.75), Nasdaq futures +1.11% (28,552), Dow futures +0.53%
+  (52,660). Driven by strong AI-linked mega-cap earnings (MSFT +16% in a
+  single day, ~$450B added; AMZN cloud revenue accelerated for a 5th
+  straight quarter) plus cooler-than-expected June PCE inflation and
+  softer Q2 GDP, reinforcing a "Fed done hiking" read. Polymarket implied
+  94% odds of a higher S&P open today.
+- **VIX:** Cratered to **17.09, -17.28%** on the day — signals
+  deep complacency/risk-on after the earnings-driven rally; options
+  premiums broadly cheaper than earlier this week (SPY ATM-ish IV ~10-11%
+  vs. richer levels during Wednesday's hawkish-Fed selloff).
+- **Today's releases:** Employment Cost Index (8:30am ET), Michigan
+  Consumer Sentiment Final (10am ET) — lighter data day than
+  Wed/Thu (FOMC, GDP, PCE, jobless claims already out). No major
+  scheduled catalyst risk before the open today.
+- **Earnings today:** ~69 companies reporting (per Earnings Whispers),
+  no confirmed major pre-market mega-cap names identified via search;
+  AAPL/AMZN/MSFT/META already reported this week (Wed/Thu) — avoid
+  chasing IV on those specific names per the SLB IV-crush lesson.
+- **Sector momentum:** Semis (SMH) jumped +6.5% today on renewed AI-capex
+  optimism after MSFT/AMZN results, a sharp reversal from the -10%/30-day
+  drawdown and Monday's continuing-weakness thesis (the same thesis this
+  book already exited on Jul 30 for cause). Technical caution remains: SMH
+  has formed a head-and-shoulders pattern (left shoulder mid-May, head
+  late-June, right shoulder now) with cited support/resistance at
+  $510-520 — today's bounce pushes back above that zone but the pattern
+  is a live risk, not resolved. Energy still the nominal YTD sector
+  leader (~+22%, further boosted by the oil move above).
+- **Data caveat (recurring):** all `alpaca.sh` quote/chain pulls this
+  cycle are timestamped 2026-07-30T19:59:59-20:46 UTC (yesterday's
+  4pm ET close), since this research cycle runs pre-market (~7:10am ET).
+  All strikes/premiums below are stale-close snapshots and **must be
+  reconfirmed live at market open** before sizing or placing anything.
+- PERPLEXITY_API_KEY and ClickUp creds still missing this cycle — no
+  blocker; used native WebSearch fallback (perplexity.sh confirmed exit
+  code 3) and will use local DAILY-SUMMARY.md fallback for Step 5.
+
+### Trade Ideas
+
+**1. SPY long call — broad-market continuation of the AI-earnings-driven
+rally + VIX-crush risk-on backdrop (new position, defined-risk).**
+- Catalyst: MSFT/AMZN AI-linked earnings beats fueling a broad market
+  rebound, cooler June PCE + softer Q2 GDP supporting a dovish Fed read,
+  VIX down -17.28% to 17.09 signaling risk-on, S&P futures +0.47%/Nasdaq
+  futures +1.11% premarket. Distinct from any single-name post-earnings
+  IV-crush risk (SPY itself has no earnings event) — this is a macro/
+  breadth trade, not a chase of an individual reporter.
+- Strike/Expiration/DTE: **$755 strike** (~1.7% OTM from stale-close spot
+  $742.7), **2026-08-21 expiration, 21 DTE** (clears >=7 floor).
+- Risk type: Defined-risk (long call, buy-to-open) — max loss = premium
+  paid.
+- Stale-close quote: bid $4.24/ask $4.27 (delta 0.344, IV ~10.5% — notably
+  cheap given the VIX crush, favorable for a long-premium entry).
+- 8% max-loss calc: cap = 8% x $89,969.04 = **$7,197.52**. At ask $4.27 x
+  100 = $427/contract -> up to 16 contracts fits the cap ($6,832, 7.6%);
+  working target **10-12 contracts** (~$4,270-5,124, 4.7-5.7% of equity)
+  to leave buffer for live-open repricing.
+- Stop/target: close at -50% of premium paid (~$2.135/contract); take
+  profit at +50-100% gain per Options Rules.
+- R:R: ~1:1 to 2:1.
+
+**2. SMH long call — tactical momentum trigger on today's +6.5% chip
+bounce, sized small given the live head-and-shoulders technical caution
+(new position, defined-risk).**
+- Catalyst: SMH +6.5% today on renewed AI-capex optimism post MSFT/AMZN
+  earnings — a genuine, fresh intraday momentum trigger per Core Rule 9,
+  distinct from the chip-weakness thesis this book already exited (Jul
+  30) for cause. Counter-consideration explicitly weighed: SMH carries an
+  active head-and-shoulders pattern with $510-520 flagged as key
+  support/resistance — today's move is a bounce through that zone, not a
+  confirmed break of the bearish pattern, so this is sized as a smaller,
+  tactical trade, not a full-conviction position.
+- Strike/Expiration/DTE: **$560 strike** (~7.9% OTM from stale-close bid
+  $519.04 — will likely be tighter OTM at live open given the +6.5% move),
+  **2026-08-21 expiration, 21 DTE**.
+- Risk type: Defined-risk (long call, buy-to-open) — max loss = premium
+  paid.
+- Stale-close quote: bid $17.56/ask $19.18 (delta 0.502, IV ~36.1%).
+- 8% max-loss calc: cap = $7,197.52. At ask $19.18 x 100 = $1,918/contract
+  -> up to 3 contracts fits the cap ($5,754, 6.4%); working target **2
+  contracts** (~$3,836, 4.3% of equity), intentionally conservative given
+  the unresolved technical pattern above.
+- Stop/target: close at -50% of premium paid (~$9.59/contract); take
+  profit at +50-100% gain per Options Rules.
+- R:R: ~1:1 to 2:1.
+
+**Energy book (XLE/XOP) — hold, no add this cycle.** Oil's move is a
+continuation (not a fresh trigger) of a catalyst already fully expressed
+in the existing 2 positions; adding further would concentrate the book
+further in a single catalyst already flagged for "whipsaw risk" (2nd
+flip in 9 days) in the Jul 30 log. Manage per existing stop/target plan
+only.
+
+### Risk Factors
+- **VIX complacency itself is a risk signal:** a -17% VIX drop to 17.09
+  after a week of hawkish-Fed/GDP/PCE volatility can mean options are
+  underpricing tail risk broadly — cheap premium cuts both ways (better
+  entries, but less cushion if sentiment reverses fast).
+- **SMH technical overhang:** head-and-shoulders pattern still active;
+  today's bounce could fail at the $510-520 zone on renewed AI-capex
+  durability concerns — sized small (Idea 2) specifically for this.
+- **Energy whipsaw:** oil/Iran conflict has already flipped narrative
+  twice in under two weeks (supply-shock -> ceasefire pause -> renewed
+  strikes) — existing XLE/XOP positions carry this risk; no new capital
+  added to it this cycle.
+- **Stale quotes:** all pricing above is yesterday's 4pm ET close; must
+  be reconfirmed live before any order, especially SMH given today's
+  reported +6.5% intraday move not yet reflected in the snapshot.
+- **~69 unidentified earnings reports today** — broad market gap risk if
+  any single report surprises meaningfully, though no confirmed major
+  pre-market name was identified this cycle.
+- PERPLEXITY_API_KEY and ClickUp creds still missing this cycle — no
+  blocker; using WebSearch fallback and local DAILY-SUMMARY.md fallback
+  respectively, per standard operating procedure.
+
+### Decision
+**TRADE (hand off to market-open workflow for live-quote sizing).** Two
+distinct, catalyst-backed ideas clear the documented-catalyst + 8%-cap
+bar: SPY calls (macro AI-rally/VIX-crush continuation, clean thesis, cheap
+IV) and a small SMH call (fresh momentum trigger, deliberately undersized
+given active technical risk). Book is at only 2 of 8 max positions and
+92.5% cash, well under the 85-100% deployment target and behind challenge
+pace (-$10,030.96 of $50,000, 19 days left), so redeploying is
+appropriate per Core Rule 11. Priority handoff order: (a) reconfirm live
+NBBO/spot for SPY and SMH before anything else, since all data here is a
+stale yesterday-close snapshot; (b) recompute exact contract counts off
+live asks per the 8% cap math above; (c) take Idea 1 (SPY call) first —
+cleanest, most distinct catalyst and cheapest IV; (d) Idea 2 (SMH call)
+second, sized conservatively per the stated technical caution; (e) no
+action on existing XLE/XOP beyond monitoring stop/target triggers.
