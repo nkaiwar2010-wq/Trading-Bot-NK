@@ -185,3 +185,7 @@ slippage and needed no correction — this appears specific to thinner names lik
 <!-- DAEMON_ENTRY: SMST long 2026-07-31 -->
 ### Jul 31 14:14 UTC — Intraday Daemon Entry
 **SMST** long 147 sh @ ~$63.83 (actual fill) | stop $61.92 | target $67.66 (2.0:1) | gap 17.1%, ORB confirmed above $60.97 | Rule 1: 147 x $1.91 = $281.49 (0.6% of $47,065 equity, cap 4%)
+
+<!-- DAEMON_EXIT: SMST 2026-07-31 14:20 -->
+### Jul 31 14:20 UTC — Intraday Daemon Exit
+**SMST** closed @ ~$63.76 | entry $63.83 | realized P&L $-10.29 (-0.1%) | reason: VWAP loss on volume spike (thesis break)
