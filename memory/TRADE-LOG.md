@@ -331,4 +331,18 @@ Energy catalyst (XOP/XLE) reconfirmed live: XOP $173.13, XLE $58.50 — both con
 - **Target:** +50-100% gain.
 - **R:R:** ~1:1 to 2:1.
 
+## Jul 31 — Midday Scan (Day 13, Friday)
+
+**Challenge status:** Day 13 of 30. 19 days remaining to 2026-08-19 deadline. Equity $88,020.74 (live) vs. $150,000 target -> phase P&L -$11,979.26 (-11.98%). Day P&L -$2,020.30 (-2.24%) vs. yesterday's $90,041.04 close. No stock positions open — Step 3/4 (loss cut / trailing-stop tighten) N/A this cycle. No open orders.
+
+**Positions at scan (4 of 8 max, all options):**
+- SMH260821C00600000 — 3 ct, entry $11.60, mark $7.90, unrealized -31.90% (-$1,110). Underlying spot $545.01 vs. $557.92 at entry (-2.3%), still well above the $510-520 head-and-shoulders support/resistance zone flagged at entry — technical thesis not broken, just a partial pullback of the +6.5% bounce. Not at the -50% (~$5.80) stop. DTE 21, clear of the <=2 DTE trigger. **Hold.**
+- SPY260821C00755000 — 12 ct, entry $5.41, mark $4.86, unrealized -10.17% (-$660). Underlying spot $745.14 vs. $745.78 at entry — essentially flat; AI-rally/VIX-crush macro thesis intact, option drag is normal theta/IV decay, not thesis failure. Not at -50% stop. DTE 21. **Hold.**
+- XLE260821C00061000 — 30 ct, entry $0.76, mark $0.74, unrealized -2.63% (-$60). Underlying spot $59.05 vs. $58.50 at entry — up slightly, energy/Iran-conflict catalyst intact. DTE 21. **Hold.**
+- XOP260821C00175000 — 8 ct, entry $5.35, mark $5.40, unrealized +0.94% (+$40). Underlying spot $175.56 vs. $173.13 at entry — up, catalyst intact. DTE 21. **Hold.**
+
+**Step 4b (options stop/profit/DTE enforcement):** none triggered — no position at -50% stop, +50-100% profit target, or <=2 DTE. **Step 5 (thesis check):** no thesis break identified for any position; SMH pullback noted and monitored but the flagged $510-520 technical level (the actual invalidation line) has not been breached. **Step 6:** no unexplained sharp move requiring Perplexity/WebSearch research this cycle — all four underlyings tracked roughly in line with their entry-day levels.
+
+**No action taken this cycle.** Positions unchanged at 4 of 8 max. Cash $73,266.74 (83.2% of equity) — within the 85-100% deployment target range. PERPLEXITY_API_KEY and ClickUp creds still missing this cycle — no blocker, using WebSearch fallback (not needed) and local DAILY-SUMMARY.md fallback respectively.
+
 **Positions after trade:** 4 of 8 max (XLE260821C00061000, XOP260821C00175000, SPY260821C00755000, SMH260821C00600000). Combined new spend $9,972 (11.1% of pre-trade equity) across two independently-sized trades, each individually inside the 8% Rule 3 cap. Equity post-fill $89,304.74, cash $73,266.74 (82.1%) — within the 85-100% deployment target range approaching from below. Energy book (XLE/XOP) untouched per RESEARCH-LOG decision — hold, no add this cycle. Day 13 of 30, 19 days left to the Aug 19 deadline. PERPLEXITY_API_KEY and ClickUp creds still missing this cycle — no blocker, using WebSearch fallback and local DAILY-SUMMARY.md fallback respectively.
