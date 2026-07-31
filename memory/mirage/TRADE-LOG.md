@@ -197,3 +197,7 @@ slippage and needed no correction — this appears specific to thinner names lik
 <!-- DAEMON_EXIT: AMCX 2026-07-31 14:34 -->
 ### Jul 31 14:34 UTC — Intraday Daemon Exit
 **AMCX** closed @ ~$11.31 | entry $11.13 | realized P&L $153.36 (1.6%) | reason: VWAP loss on volume spike (thesis break)
+
+<!-- DAEMON_ENTRY: GDDY long 2026-07-31 -->
+### Jul 31 14:40 UTC — Intraday Daemon Entry
+**GDDY** long 116 sh @ ~$79.73 (actual fill) | stop $77.34 | target $84.52 (2.0:1) | gap -19.9%, ORB confirmed above $78.18 | Rule 1: 116 x $2.39 = $277.46 (0.6% of $47,106 equity, cap 4%)
