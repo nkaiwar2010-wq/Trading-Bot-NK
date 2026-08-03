@@ -446,3 +446,7 @@ Combined backfilled realized loss: **-$1,796.64**. AEON is notable: entry and st
 <!-- DAEMON_ENTRY: LEXX long 2026-08-03 -->
 ### Aug 03 18:41 UTC — Intraday Daemon Entry
 **LEXX** long 1707 sh @ ~$5.11 (actual fill) | stop $4.96 | target $5.42 (2.0:1) | gap -18.1%, ORB confirmed above $4.64 | Rule 1: 1707 x $0.15 = $261.68 (0.6% of $43,616 equity, cap 4%)
+
+<!-- DAEMON_ENTRY: WETO long 2026-08-03 -->
+### Aug 03 19:00 UTC — Intraday Daemon Entry
+**WETO** long 1060 sh @ ~$7.18 (actual fill) | stop $6.96 | target $7.61 (2.0:1) | gap -20.0%, ORB confirmed above $5.78 | Rule 1: 1060 x $0.22 = $228.32 (0.5% of $43,535 equity, cap 4%)
