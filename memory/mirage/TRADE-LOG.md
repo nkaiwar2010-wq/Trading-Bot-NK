@@ -318,3 +318,7 @@ Combined backfilled realized loss: **-$1,796.64**. AEON is notable: entry and st
 <!-- DAEMON_EXIT: SXTC 2026-08-03 13:47 -->
 ### Aug 03 13:47 UTC — Intraday Daemon Exit
 **SXTC** closed @ ~$0.07 | entry $0.07 | realized P&L $-30.88 (-0.4%) | reason: VWAP loss on volume spike (thesis break)
+
+<!-- DAEMON_ENTRY: MGRX long 2026-08-03 -->
+### Aug 03 13:47 UTC — Intraday Daemon Entry
+**MGRX** long 16901 sh @ ~$0.45 (actual fill) | stop $0.44 | target $0.48 (2.0:1) | gap -19.5%, ORB confirmed above $0.45 | Rule 1: 16901 x $0.01 = $230.65 (0.5% of $43,453 equity, cap 4%)
