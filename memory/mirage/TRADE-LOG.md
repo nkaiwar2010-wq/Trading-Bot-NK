@@ -386,3 +386,7 @@ Combined backfilled realized loss: **-$1,796.64**. AEON is notable: entry and st
 <!-- DAEMON_ENTRY: CWVX long 2026-08-03 -->
 ### Aug 03 14:09 UTC — Intraday Daemon Entry
 **CWVX** long 617 sh @ ~$14.20 (actual fill) | stop $13.77 | target $15.05 (2.0:1) | gap 19.3%, ORB confirmed above $13.61 | Rule 1: 617 x $0.43 = $262.84 (0.6% of $43,945 equity, cap 4%)
+
+<!-- DAEMON_ENTRY: KAZR long 2026-08-03 -->
+### Aug 03 14:10 UTC — Intraday Daemon Entry
+**KAZR** long 3143 sh @ ~$2.44 (actual fill) | stop $2.37 | target $2.59 (2.0:1) | gap 18.7%, ORB confirmed above $2.15 | Rule 1: 3143 x $0.07 = $230.07 (0.5% of $43,855 equity, cap 4%)
