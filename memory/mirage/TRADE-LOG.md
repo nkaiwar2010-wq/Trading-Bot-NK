@@ -350,3 +350,7 @@ Combined backfilled realized loss: **-$1,796.64**. AEON is notable: entry and st
 <!-- DAEMON_ENTRY: CNH long 2026-08-03 -->
 ### Aug 03 14:00 UTC — Intraday Daemon Entry
 **CNH** long 743 sh @ ~$11.95 (actual fill) | stop $11.59 | target $12.67 (2.0:1) | gap 16.9%, ORB confirmed above $11.96 | Rule 1: 743 x $0.36 = $266.37 (0.6% of $44,487 equity, cap 4%)
+
+<!-- DAEMON_EXIT: KUST 2026-08-03 14:02 -->
+### Aug 03 14:02 UTC — Intraday Daemon Exit (external fill)
+**KUST** closed @ ~$1.4000 | entry $1.4399 | realized P&L $-243.64 (-2.8%) | reason: stop-loss order filled (detected via position disappearance, not an explicit daemon close — P&L computed from Alpaca's fill ledger)
