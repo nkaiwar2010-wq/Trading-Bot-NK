@@ -198,4 +198,21 @@ close.
 
 ### Notes
 - Market closed for the weekend after today; this entry captures Friday's fully-realized reactions (AAPL down, AMZN way up, RDDT down, AXT up) plus a real yield/rate-pressure backdrop and a Monday econ/earnings slate. Nothing here is a fresh unresolved after-hours gap — Monday's actual setups depend on whether these moves persist, extend, or reverse over the weekend, so confirm everything with live premarket/first-15-min tape before sizing.
+
+## 2026-08-03 (evening research — watchlist for tomorrow)
+
+### Account (sanity check)
+- Confirmed flat: yes, equity $42,527.86, 0 positions (bash scripts/alpaca.sh positions returned [])
+- Note: equity down from $43,483.98 (last_equity) to $42,527.86 day-over-day — reflects today's closed trading, not a discrepancy; no open positions to reconcile.
+
+### Tomorrow's Setups to Watch
+- PLTR (Palantir) — reported after today's (Mon 8/3) close with a large expected move (~11.4%), consensus ~$0.33-0.35 EPS / ~$1.81B revenue (~80% YoY growth). Reaction still developing at time of research; check premarket for actual gap direction/size vs. the priced-in move before sizing anything.
+- ON (ON Semiconductor) — reported after today's close, landing directly in the middle of an active chip-sector selloff (SOX -1.9% today, down ~10% for August, ~20% over the past month on demand-slowdown/DRAM-NAND pricing concerns per Citi). A weak print could extend the rout into MU/AVGO/INTC/AMD tomorrow; a beat could spark a relief bounce in the group. Watch premarket chip-sector tape broadly, not just ON.
+- SNAP, VRTX, CLX, WHR — also reported after today's close; no outsized pre-market signal found yet for any of these specifically, worth a quick premarket scan but not pre-committing.
+- Before-open earnings tomorrow (Tue 8/4) — large slate incl. CAT, MCD, PFE, MRK, SPOT, TM, BP, MPC, KMB, ADM, IDXX, APTV, HSBC and ~335 names total; too broad to pre-commit to one ticker — recheck premarket for the actual gap leaders.
+- No major scheduled Fed/econ data lands tomorrow specifically (next big prints: jobs report Fri 8/7, CPI Wed 8/12) — no macro-print catalyst for Tuesday.
+- Broader tape context — Monday's session was a "risk-on ex-chips" day: S&P/Nasdaq futures higher, Amazon hit a $3T market cap, oil fell sharply on Trump signaling talks with Iran instead of an attack (eases Strait of Hormuz risk), while semis (SOX -1.9%, MU/AVGO down) were the one weak spot. Watch whether oil-sensitive/energy names gap on the de-escalation headline, and whether chip weakness persists or reverses after tonight's ON print.
+
+### Notes
+- Real, fresh catalysts tonight (PLTR and ON After-hours reports landing right inside a live chip-sector selloff) rather than a quiet night — but both reactions are still developing post-close and need premarket confirmation before any gap direction/level is trusted. No trade action taken or implied here; this is a watchlist only, and the routine's market-closed/research-only mandate means no orders were placed.
 - WebSearch limitation stands: can't see live premarket tape or weekend-developing news between now and Monday's open — treat all of the above as Friday-close context to re-verify live, not assumptions to trade on directly.
