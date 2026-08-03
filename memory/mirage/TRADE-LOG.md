@@ -338,3 +338,7 @@ Combined backfilled realized loss: **-$1,796.64**. AEON is notable: entry and st
 <!-- DAEMON_EXIT: CRWU 2026-08-03 13:56 -->
 ### Aug 03 13:56 UTC — Intraday Daemon Exit
 **CRWU** closed @ ~$3.40 | entry $3.18 | realized P&L $604.56 (6.9%) | reason: target reached (6.9%, >= 2.0:1 R:R)
+
+<!-- DAEMON_EXIT: MGRX 2026-08-03 13:56 -->
+### Aug 03 13:56 UTC — Intraday Daemon Exit
+**MGRX** closed @ ~$0.46 | entry $0.45 | realized P&L $1.69 (0.0%) | reason: VWAP loss on volume spike (thesis break)
