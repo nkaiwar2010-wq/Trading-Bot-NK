@@ -398,3 +398,7 @@ Combined backfilled realized loss: **-$1,796.64**. AEON is notable: entry and st
 <!-- DAEMON_ENTRY: SRAD long 2026-08-03 -->
 ### Aug 03 14:27 UTC — Intraday Daemon Entry
 **SRAD** long 728 sh @ ~$11.96 (actual fill) | stop $11.60 | target $12.68 (2.0:1) | gap -17.8%, ORB confirmed above $11.94 | Rule 1: 728 x $0.36 = $261.21 (0.6% of $43,572 equity, cap 4%)
+
+<!-- DAEMON_EXIT: SRAD 2026-08-03 14:35 -->
+### Aug 03 14:35 UTC — Intraday Daemon Exit
+**SRAD** closed @ ~$12.09 | entry $11.96 | realized P&L $94.28 (1.1%) | reason: VWAP loss on volume spike (thesis break)
