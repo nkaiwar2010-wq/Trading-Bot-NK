@@ -406,3 +406,7 @@ Combined backfilled realized loss: **-$1,796.64**. AEON is notable: entry and st
 <!-- DAEMON_EXIT: CWVX 2026-08-03 14:54 -->
 ### Aug 03 14:54 UTC — Intraday Daemon Exit
 **CWVX** closed @ ~$15.12 | entry $14.20 | realized P&L $567.64 (6.5%) | reason: target reached (6.5%, >= 2.0:1 R:R)
+
+<!-- DAEMON_ENTRY: WETH long 2026-08-03 -->
+### Aug 03 15:06 UTC — Intraday Daemon Entry
+**WETH** long 7686 sh @ ~$1.00 (actual fill) | stop $0.97 | target $1.06 (2.0:1) | gap -14.6%, ORB confirmed above $1.00 | Rule 1: 7686 x $0.03 = $230.40 (0.5% of $43,815 equity, cap 4%)
