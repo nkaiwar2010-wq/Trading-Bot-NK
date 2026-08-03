@@ -362,3 +362,7 @@ Combined backfilled realized loss: **-$1,796.64**. AEON is notable: entry and st
 <!-- DAEMON_EXIT: CRCG 2026-08-03 14:04 -->
 ### Aug 03 14:04 UTC — Intraday Daemon Exit (external fill)
 **CRCG** closed @ ~$6.9200 | entry $7.0400 | realized P&L $-147.48 (-1.7%) | reason: stop-loss order filled (detected via position disappearance, not an explicit daemon close — P&L computed from Alpaca's fill ledger)
+
+<!-- DAEMON_ENTRY: FOSL long 2026-08-03 -->
+### Aug 03 14:04 UTC — Intraday Daemon Entry
+**FOSL** long 1530 sh @ ~$5.78 (actual fill) | stop $5.61 | target $6.13 (2.0:1) | gap 16.6%, ORB confirmed above $5.53 | Rule 1: 1530 x $0.17 = $265.30 (0.6% of $44,310 equity, cap 4%)
