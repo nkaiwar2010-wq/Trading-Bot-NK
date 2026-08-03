@@ -390,3 +390,7 @@ Combined backfilled realized loss: **-$1,796.64**. AEON is notable: entry and st
 <!-- DAEMON_ENTRY: KAZR long 2026-08-03 -->
 ### Aug 03 14:10 UTC — Intraday Daemon Entry
 **KAZR** long 3143 sh @ ~$2.44 (actual fill) | stop $2.37 | target $2.59 (2.0:1) | gap 18.7%, ORB confirmed above $2.15 | Rule 1: 3143 x $0.07 = $230.07 (0.5% of $43,855 equity, cap 4%)
+
+<!-- DAEMON_EXIT: KAZR 2026-08-03 14:27 -->
+### Aug 03 14:27 UTC — Intraday Daemon Exit (external fill)
+**KAZR** closed @ ~$2.2500 | entry $2.4400 | realized P&L $-597.17 (-7.8%) | reason: stop-loss order filled (detected via position disappearance, not an explicit daemon close — P&L computed from Alpaca's fill ledger)
