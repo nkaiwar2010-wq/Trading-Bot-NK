@@ -374,3 +374,7 @@ Combined backfilled realized loss: **-$1,796.64**. AEON is notable: entry and st
 <!-- DAEMON_EXIT: FOSL 2026-08-03 14:05 -->
 ### Aug 03 14:05 UTC — Intraday Daemon Exit
 **FOSL** closed @ ~$5.76 | entry $5.78 | realized P&L $-26.47 (-0.3%) | reason: VWAP loss on volume spike (thesis break)
+
+<!-- DAEMON_ENTRY: SNES long 2026-08-03 -->
+### Aug 03 14:06 UTC — Intraday Daemon Entry
+**SNES** long 4976 sh @ ~$1.56 (actual fill) | stop $1.51 | target $1.65 (2.0:1) | gap 16.6%, ORB confirmed above $1.62 | Rule 1: 4976 x $0.05 = $232.88 (0.5% of $44,287 equity, cap 4%)
