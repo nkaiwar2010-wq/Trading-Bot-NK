@@ -382,3 +382,7 @@ Combined backfilled realized loss: **-$1,796.64**. AEON is notable: entry and st
 <!-- DAEMON_EXIT: CNCK 2026-08-03 14:08 -->
 ### Aug 03 14:08 UTC — Intraday Daemon Exit
 **CNCK** closed @ ~$2.22 | entry $2.22 | realized P&L $0.00 (0.0%) | reason: VWAP loss on volume spike (thesis break)
+
+<!-- DAEMON_ENTRY: CWVX long 2026-08-03 -->
+### Aug 03 14:09 UTC — Intraday Daemon Entry
+**CWVX** long 617 sh @ ~$14.20 (actual fill) | stop $13.77 | target $15.05 (2.0:1) | gap 19.3%, ORB confirmed above $13.61 | Rule 1: 617 x $0.43 = $262.84 (0.6% of $43,945 equity, cap 4%)
