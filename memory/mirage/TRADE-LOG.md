@@ -454,3 +454,14 @@ Combined backfilled realized loss: **-$1,796.64**. AEON is notable: entry and st
 <!-- DAEMON_EXIT: WETO 2026-08-03 19:10 -->
 ### Aug 03 19:10 UTC — Intraday Daemon Exit (external fill)
 **WETO** closed @ ~$6.7900 | entry $7.1800 | realized P&L $-413.40 (-5.4%) | reason: stop-loss order filled (detected via position disappearance, not an explicit daemon close — P&L computed from Alpaca's fill ledger)
+
+### Aug 03 — EOD Force-Close (Day 6)
+
+**Portfolio:** $42,527.86 | **Cash:** $42,527.86 (100% — always ends the day fully flat) | **Day P&L:** -$966.04 (-2.22%) | **Phase P&L:** -$7,472.14 (-14.94%)
+
+| Ticker/OCC | Entry | Exit | Realized P&L | Reason closed |
+|---|---|---|---|---|
+| LEXX | $5.11 | $4.76 | -$597.45 (-6.85%) | Force-closed by EOD routine (resting stop was $4.96, cancelled and sold at market) |
+| WETH | $0.9992 | $1.00 | +$6.15 (+0.08%) | Force-closed by EOD routine (resting stop was $0.97, cancelled and sold at market) |
+
+**Notes:** `positions`/`orders` at routine start showed only LEXX and WETH open, each sitting on a resting stop (LEXX $4.96, WETH $0.97). `close-all` initially 403'd on both (`insufficient qty available`, shares held for the resting stop orders); `cancel-all` freed them and the retry force-sold both at market, confirmed flat via a follow-up `positions` check. Everything else opened today (17 of 19 trades) was already closed intraday by the daemon before this routine ran. Full day tally: **19 opened, 19 closed, 7 wins (MGRX +$1.69, CRWU +$604.56, AUTL +$542.71, SRAD +$94.28, CWVX +$567.64, CIGL +$638.71, WETH +$6.15) / 11 losses (SXTC -$30.88, KUST -$243.64, CRCG -$147.48, FOSL -$26.47, KAZR -$597.17, CNH -$267.48, SNES -$248.80, FNGR -$107.70, MBRX -$452.58, WETO -$413.40, LEXX -$597.45) / 1 breakeven (CNCK $0.00)**. Today ran hot on entry volume (19 trades vs. the prior high of 17 on Jul 31) but the daemon's own stop-loss exits dominated the loss column — KAZR (-7.8%) and LEXX (-6.85%, this routine's force-close) were the worst single fills. Target-reached exits (CRWU, AUTL, CWVX, CIGL) were the day's best performers and all came from the daemon's own 2:1 R:R logic firing cleanly, no manual intervention needed. Sum of individual trade P&Ls is ≈-$677.31, lighter than the equity-based Day P&L of -$966.04 — a ~$289 gap consistent with the same slippage/spread pattern noted on prior days that doesn't show up per-trade until compared against the account-level mark. **Flag for tomorrow:** trade volume is climbing fast (11→17→19 over the last three sessions) — worth checking whether the daemon's gap/ORB filters are loosening or if this is just a more volatile tape.
