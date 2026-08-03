@@ -2080,3 +2080,12 @@ redeployment trade; (d) only take Idea 2 (XOP put) if the energy-long
 thesis check in (b) concludes the calls should be closed/reduced first —
 do not stack the put on top of the calls; (e) monitor SMH 600C closely
 against its -50% stop.
+
+## 2026-08-03 17:05 UTC — Midday Scan Addendum (Day 16, Monday)
+
+SPY 755C hit +71.5% live unrealized, past the Options Rules +50-100%
+take-profit zone — sold to close per rule, realized +$4,608.00 (+70.98%).
+QQQ 710C at +36.5%, held (below +50% trigger, no thesis break, 18 DTE).
+No sharp unexplained moves this cycle; no Perplexity/WebSearch research
+needed. Book now 1 of 8 max positions, cash 92.8% — redeployment is the
+priority for the next research cycle per Core Rule 11.

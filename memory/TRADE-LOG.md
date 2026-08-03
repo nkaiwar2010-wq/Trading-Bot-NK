@@ -400,3 +400,22 @@ Energy catalyst (XOP/XLE) reconfirmed live: XOP $173.13, XLE $58.50 — both con
 - **R:R:** ~1:1 to 2:1.
 
 **Positions after trade:** 2 of 8 max (QQQ260821C00710000, SPY260821C00755000). Realized net today: -$4,100.00 across the three thesis/stop-triggered exits. Equity post-fill $87,677.28, cash $74,333.28 (84.8%) — within the 85-100% deployment target range. Day 16 of 30, 16 days left to the Aug 19 deadline — the energy-book unwind (broken thesis, cut for cause) plus the SMH hard-stop exit leave the book leaner (2 positions) and now concentrated in two distinct macro-index AI-rally calls (SPY, QQQ) rather than a single-sector energy bet. PERPLEXITY_API_KEY and ClickUp creds still missing this cycle — no blocker, using WebSearch fallback and local DAILY-SUMMARY.md fallback respectively.
+
+## Aug 3 — Midday Scan (Day 16, Monday)
+
+**Challenge status:** Day 16 of 30, 16 days left to the Aug 19 deadline. Equity (pre-exit) $90,278.50 vs. $150,000 target -> phase P&L -$9,721.50 (-9.72%). No stock positions open — Step 3/4 N/A this cycle. No open orders at scan start.
+
+**Positions at scan (2 of 8 max, both options, live quotes):**
+- SPY260821C00755000 — 12 ct, entry $5.41, mark ~$9.28 bid, unrealized +71.5% (+$4,644 live). Well past the +50-100% take-profit zone in Options Rules. **Action: sell-to-close.**
+- QQQ260821C00710000 — 8 ct, entry $6.09, mark ~$8.30 bid, unrealized +36.5% (+$1,776). Below the +50% profit-take threshold, not near a stop, 18 DTE. **Hold.**
+
+### Exit — SPY 755C, sell-to-close (Options Rule: +50-100% profit-take zone)
+- **OCC symbol:** SPY260821C00755000
+- **Trigger:** long call take-profit rule — live unrealized gain was +71.5%, inside the documented +50-100% target range from entry (Jul 31).
+- **Exit order:** sell-to-close, 12 contracts, market, filled @ $9.25 avg
+- **Realized P&L:** proceeds $11,100 vs. cost basis $6,492 = **+$4,608.00 (+70.98%)**
+- **Rationale:** AI-rally/VIX-crush macro thesis played out fully; banking a confirmed win inside the target zone rather than risking round-trip give-back, consistent with judgment-based profit-taking under Options Rules. Book is behind challenge pace, so locking in a real, sizable gain directly narrows the gap to the $150,000 target.
+
+**Step 4b (remaining):** QQQ 710C reviewed — +36.5%, not yet at the +50% profit trigger, no stop breach, DTE 18 (clear of <=2 floor). **Hold, no action.** **Step 5 (thesis check):** no thesis break identified for QQQ — Nasdaq/AI-rally + ISM PMI catalyst from this morning's entry remains intact. **Step 6:** no unexplained sharp move requiring Perplexity/WebSearch research this cycle.
+
+**Positions after trade:** 1 of 8 max (QQQ260821C00710000). Realized net today (midday): +$4,608.00. Equity post-fill $92,080.98, cash $85,432.98 (92.8%) — above the 85-100% deployment target range with only 1 position open; next cycle should prioritize redeployment given Core Rule 11's bias-toward-action. Phase P&L now -$7,919.02 of the $50,000 target, 16 days left. PERPLEXITY_API_KEY and ClickUp creds still missing this cycle — no blocker, using WebSearch fallback (not needed) and local DAILY-SUMMARY.md fallback respectively.
