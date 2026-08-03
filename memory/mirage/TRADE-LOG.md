@@ -322,3 +322,7 @@ Combined backfilled realized loss: **-$1,796.64**. AEON is notable: entry and st
 <!-- DAEMON_ENTRY: MGRX long 2026-08-03 -->
 ### Aug 03 13:47 UTC — Intraday Daemon Entry
 **MGRX** long 16901 sh @ ~$0.45 (actual fill) | stop $0.44 | target $0.48 (2.0:1) | gap -19.5%, ORB confirmed above $0.45 | Rule 1: 16901 x $0.01 = $230.65 (0.5% of $43,453 equity, cap 4%)
+
+<!-- DAEMON_ENTRY: CRWU long 2026-08-03 -->
+### Aug 03 13:50 UTC — Intraday Daemon Entry
+**CRWU** long 2748 sh @ ~$3.18 (actual fill) | stop $3.08 | target $3.37 (2.0:1) | gap 13.9%, ORB confirmed above $3.04 | Rule 1: 2748 x $0.10 = $262.16 (0.6% of $43,706 equity, cap 4%)
