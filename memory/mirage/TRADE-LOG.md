@@ -370,3 +370,7 @@ Combined backfilled realized loss: **-$1,796.64**. AEON is notable: entry and st
 <!-- DAEMON_EXIT: AUTL 2026-08-03 14:05 -->
 ### Aug 03 14:05 UTC — Intraday Daemon Exit
 **AUTL** closed @ ~$1.86 | entry $1.75 | realized P&L $542.71 (6.2%) | reason: target reached (6.2%, >= 2.0:1 R:R)
+
+<!-- DAEMON_EXIT: FOSL 2026-08-03 14:05 -->
+### Aug 03 14:05 UTC — Intraday Daemon Exit
+**FOSL** closed @ ~$5.76 | entry $5.78 | realized P&L $-26.47 (-0.3%) | reason: VWAP loss on volume spike (thesis break)
