@@ -438,3 +438,7 @@ Combined backfilled realized loss: **-$1,796.64**. AEON is notable: entry and st
 <!-- DAEMON_ENTRY: CIGL long 2026-08-03 -->
 ### Aug 03 15:54 UTC — Intraday Daemon Entry
 **CIGL** long 14162 sh @ ~$0.54 (actual fill) | stop $0.52 | target $0.57 (2.0:1) | gap -17.1%, ORB confirmed above $0.56 | Rule 1: 14162 x $0.02 = $227.89 (0.5% of $43,332 equity, cap 4%)
+
+<!-- DAEMON_EXIT: CIGL 2026-08-03 17:13 -->
+### Aug 03 17:13 UTC — Intraday Daemon Exit
+**CIGL** closed @ ~$0.58 | entry $0.54 | realized P&L $638.71 (8.4%) | reason: target reached (8.4%, >= 2.0:1 R:R)
