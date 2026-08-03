@@ -359,3 +359,44 @@ Energy catalyst (XOP/XLE) reconfirmed live: XOP $173.13, XLE $58.50 — both con
 | XOP260821C00175000 | 8 contracts | $5.35 | $6.40 | +18.74% | +$840.00 (+19.63%) | Close at -50% stop (~$2.675) or +50-100% gain |
 
 **Notes:** A roughly flat day overall — equity closed at $89,297.74, down -$671.95 (-0.75%) vs. yesterday's $89,969.69, as the two new AI/macro calls opened at this morning's open (Trade 11 SPY 755C, Trade 12 SMH 600C) pulled the book in opposite directions: SMH 600C dropped sharply to -41.81% unrealized (-$1,455) as SMH gave back its bounce and pulled back toward the $510-520 head-and-shoulders zone, now closing in on its -50% stop (~$5.80) and the top watch item for tomorrow's open; SPY 755C stayed roughly flat at -2.40% (-$156) with the AI-rally/VIX-crush macro thesis intact. The energy book continued to grind higher — XLE 61C +11.84% (+$270) and XOP 175C +19.63% (+$840) — nearly offsetting the SMH drag. Trades today: 2 (SPY 755C buy, SMH 600C buy at market open); no exits or stop triggers today. Cash sits at 82.1% of equity, within the 85-100% deployment target range approaching from below, with 4 of 8 max positions open. Day 13 of 30, 19 days left to the Aug 19 deadline — meaningfully behind flat pace at -$10,702.26 against the $50,000 target (needing +$60,702.26 in the remaining 19 days); SMH's approach to its stop level is the priority watch item heading into next week. PERPLEXITY_API_KEY and ClickUp creds still missing this cycle — no blocker, using WebSearch fallback (not needed) and local DAILY-SUMMARY.md fallback respectively.
+
+## Aug 3 — Market-Open Execution (Day 16, Monday)
+
+**Challenge status:** Day 16 of 30. 16 days remaining to 2026-08-19 deadline. Equity $87,606.50 (live, pre-trade) vs. $150,000 target -> phase P&L -$12,393.50 (-12.39%). Behind flat pace; per Core Rule 11, biasing toward action while the 8%-of-equity hard loss cap stays unchanged.
+
+**Live re-validation at open confirmed the overnight Iran-de-escalation/oil-crash thesis break flagged in this morning's RESEARCH-LOG:** XLE spot $58.47 and XOP spot $173.51 are essentially flat vs. entry-day levels (58.50 / 173.13), but both option premiums had already collapsed 40-46% intraday alone (IV crush — the supply-shock volatility premium the calls were built on evaporated on the de-escalation headline even though the underlying itself barely moved). SMH 600C separately breached its own -50% hard stop (-64.66% live, vs. -41.81% at Friday's close) as SMH continued fading toward the $510-520 support/resistance zone.
+
+### Exit — SMH 600C, sell-to-close (Options Rule: -50% hard stop breached)
+- **OCC symbol:** SMH260821C00600000
+- **Trigger:** long call stop-loss rule — close at -50% of premium paid. Live mark was -64.66% unrealized, well past the -50% (~$5.80) trigger.
+- **Exit order:** sell-to-close, 3 contracts, market, filled @ $4.20 avg
+- **Realized P&L:** proceeds $1,260 vs. cost basis $3,480 = **-$2,220.00 (-63.79%)**
+- **Rationale:** mandatory rule-triggered exit, not a judgment call — the -50% premium stop is a hard rule with no discretion.
+
+### Exit — XLE 61C, sell-to-close (Step 5: thesis break, not yet at -50% stop)
+- **OCC symbol:** XLE260821C00061000
+- **Trigger:** thesis check, not the -50% stop (position was -35.53% live, above the -50% ~$0.38 trigger). RESEARCH-LOG (2026-08-03 11:15 UTC) flagged the confirmed overnight US-Iran de-escalation/Hormuz-deal headline as a direct threat to the oil-supply-shock catalyst this call was built on, and explicitly deferred the Step 5 thesis check to this execution cycle. Live reconfirmation: XLE spot flat vs. entry, but the option itself had already crashed 46% intraday — the vol/catalyst premium is gone with no path back to a fresh supply-shock spike now that talks are underway; holding further only bleeds remaining extrinsic value against a dead thesis.
+- **Exit order:** sell-to-close, 30 contracts, market, filled @ $0.48 avg
+- **Realized P&L:** proceeds $1,440 vs. cost basis $2,280 = **-$840.00 (-36.84%)**
+- **Rationale:** Step 5 discipline exit per TRADING-STRATEGY.md — cut a broken thesis ahead of its stop rather than let it round-trip further, consistent with the Jul 27/Jul 30 lessons already captured in strategy.
+
+### Exit — XOP 175C, sell-to-close (Step 5: thesis break, not yet at -50% stop)
+- **OCC symbol:** XOP260821C00175000
+- **Trigger:** same thesis break as XLE 61C above (shared Iran-de-escalation/oil-crash catalyst). Live: XOP spot flat vs. entry, option crashed 41% intraday alone.
+- **Exit order:** sell-to-close, 8 contracts, market, filled @ $4.05 avg
+- **Realized P&L:** proceeds $3,240 vs. cost basis $4,280 = **-$1,040.00 (-24.30%)**
+- **Rationale:** same Step 5 discipline-exit reasoning as XLE 61C.
+
+**Skipped: XOP long put (RESEARCH-LOG Idea 2).** With XLE/XOP spot essentially unchanged from entry (the move was almost entirely an IV/vol-premium collapse, not a fresh directional spot move), there was no live-confirmed fresh directional edge to justify opening a new bearish bet immediately after closing the correlated longs on the same underlying/catalyst. Skipped per discipline — not chasing a move that already happened in the option premium without underlying spot confirmation.
+
+### Trade 13 — QQQ 710C, 2026-08-21 exp (defined-risk directional long call, new position)
+- **OCC symbol:** QQQ260821C00710000
+- **Entry:** 8 contracts @ $6.09 avg fill (market order), cost basis $4,872
+- **Strike/Expiration/DTE:** $710 strike (~3.0% OTM from live $689.61 spot — re-picked at execution vs. RESEARCH-LOG's stale-close-based $705 plan, since QQQ had already run higher premarket), 2026-08-21 expiration, 18 DTE (clears >=7 floor)
+- **Risk type:** Defined-risk (long call, buy-to-open) — max loss = premium paid = $4,872 = 5.57% of $87,509.48 pre-trade equity (inside the 8% cap of $7,000.76)
+- **Thesis:** Clean, uncorrelated redeployment trade per RESEARCH-LOG Idea 1 — broad Nasdaq/AI-rally continuation (futures strength, risk-on de-escalation tailwind from lower oil/yields) plus ISM Manufacturing PMI at 10am ET as a same-day catalyst. Chosen over adding to the existing SPY 755C to avoid stacking further exposure on the same underlying.
+- **Stop/close plan:** Close at -50% of premium paid (~$3.045/contract, ~$2,436 total) or +50-100% gain per Options Rules; enforced manually via midday/EOD workflows.
+- **Target:** +50-100% gain.
+- **R:R:** ~1:1 to 2:1.
+
+**Positions after trade:** 2 of 8 max (QQQ260821C00710000, SPY260821C00755000). Realized net today: -$4,100.00 across the three thesis/stop-triggered exits. Equity post-fill $87,677.28, cash $74,333.28 (84.8%) — within the 85-100% deployment target range. Day 16 of 30, 16 days left to the Aug 19 deadline — the energy-book unwind (broken thesis, cut for cause) plus the SMH hard-stop exit leave the book leaner (2 positions) and now concentrated in two distinct macro-index AI-rally calls (SPY, QQQ) rather than a single-sector energy bet. PERPLEXITY_API_KEY and ClickUp creds still missing this cycle — no blocker, using WebSearch fallback and local DAILY-SUMMARY.md fallback respectively.
