@@ -1904,3 +1904,179 @@ live asks per the 8% cap math above; (c) take Idea 1 (SPY call) first —
 cleanest, most distinct catalyst and cheapest IV; (d) Idea 2 (SMH call)
 second, sized conservatively per the stated technical caution; (e) no
 action on existing XLE/XOP beyond monitoring stop/target triggers.
+
+## 2026-08-03 11:15 UTC — Pre-market Research (Day 16, Monday)
+
+**Challenge pace:** Day 16 of 30 (start 2026-07-19, deadline 2026-08-19).
+16 days remaining. Equity $89,297.50 vs. $150,000 target -> phase P&L
+**-$10,702.50 (-10.70%)**, needing **+$60,702.50** in the remaining 16
+days. **Behind flat pace.** Per Core Rule 11, bias toward action; per
+Rule 3 the 8%-of-equity loss cap is unchanged regardless of pace
+pressure. Weekend (Aug 1-2) had no market activity; equity is essentially
+flat vs. Friday's EOD close ($89,297.74).
+
+**Account snapshot (live, pre-market):**
+- Equity: $89,297.50 | Cash: $73,266.50 (82.0%) | Buying power: $293,066
+- Options buying power: $73,266.50 | Position market value: $16,031
+  (**only 17.95% deployed — well below the 85-100% Core Rule 1 target**,
+  a strong signal to redeploy this cycle) | Daytrade count: N/A (well
+  above PDT threshold) | Open orders: none.
+- Open positions (4 of 8 max, all options, marks as of Friday's close):
+  - SMH260821C00600000 — 3 ct, entry $11.60, mark $6.75, **-41.81%
+    unrealized (-$1,455)** — closing in on the -50% stop (~$5.80); top
+    watch item for market-open reassessment. 18 DTE.
+  - SPY260821C00755000 — 12 ct, entry $5.41, mark $5.28, -2.40%
+    unrealized (-$156). 18 DTE.
+  - XLE260821C00061000 — 30 ct, entry $0.76, mark $0.85, +11.84%
+    unrealized (+$270). 18 DTE.
+  - XOP260821C00175000 — 8 ct, entry $5.35, mark $6.40, +19.63%
+    unrealized (+$840). 18 DTE.
+- **Data caveat (recurring):** all quote/chain pulls this cycle are
+  timestamped 2026-07-31 (Friday's close), since markets were closed over
+  the weekend and this cycle runs pre-market Monday. All strikes/premiums
+  below are stale-close snapshots and **must be reconfirmed live at
+  market open** before sizing or placing anything — this is especially
+  critical today given the overnight oil move described below.
+
+**Market context:**
+- **Oil — major overnight move, thesis-relevant to existing XLE/XOP
+  longs:** WTI plunged ~5-6% to the ~$80/bbl area (Brent ~$83-84,
+  -4.8%), reversing the prior week's Iran-conflict supply-shock rally.
+  Trigger: President Trump said he called off a "massive attack" on Iran
+  after allies (incl. Saudi Arabia) pushed for a diplomatic path; new
+  US-Iran talks were set to begin Monday, with a proposed deal centered
+  on reopening the Strait of Hormuz. This directly threatens the
+  Iran-conflict-driven supply-shock catalyst that XLE 61C and XOP 175C
+  were built on (see Trade Ideas / Risk Factors below) — this is a
+  thesis-check trigger, not yet a stop-loss trigger (both positions are
+  still green as of Friday's close).
+- **S&P 500 / Nasdaq / Dow futures:** Broadly higher premarket (S&P
+  futures ~+0.5-0.6%, Nasdaq futures +0.2-1.1% depending on source, Dow
+  futures +0.5-0.6%), continuing Friday's AI-earnings-driven rally.
+  Sentiment reads as risk-on/de-escalation relief (lower oil, lower
+  bond yields) rather than a fresh catalyst of its own. A prediction
+  market showed ~86-94% odds of an "Up" S&P open today.
+- **VIX:** ~16.0-16.03, essentially flat vs. Friday, continuing the low/
+  complacent regime (was 17.09 on Thursday). Cheap-ish option premium
+  environment continues.
+- **Today's releases:** ISM Manufacturing PMI (July), 10:00am ET —
+  today's single most market-moving scheduled data point. Nonfarm
+  payrolls is NOT today — it lands Friday 8/7 at 8:30am ET, alongside
+  the rest of this week's four labor readings and two ISM surveys.
+  10-yr Treasury yield ~4.69%, 2-yr ~4.25%; markets pricing a ~64.5%
+  chance of a Fed move at the September meeting (direction mixed across
+  sources — treat as a background rate-path risk, not a same-day
+  trigger).
+- **Earnings today (before open):** Palantir (PLTR), ON Semiconductor
+  (ON), Clorox, TKO Group, Williams Cos., Vertex Pharma, Diamondback
+  Energy (FANG), Alexandria RE, Marriott, Loews, Tyson, Progressive.
+  PLTR (AI/momentum) and ON (semis) are the two most relevant to this
+  book's existing exposure (SPY/QQQ-style AI trade, SMH semis) — per the
+  2026-07-28 SLB IV-crush lesson, entering either **immediately** after
+  today's print risks paying IV that deflates post-event regardless of
+  direction; treated as **watch-only, no chase today**, especially ON
+  given the book already holds a semis position (SMH call) sitting near
+  its stop.
+- **Sector momentum:** Energy remains a nominal YTD leader (~+22-31%
+  depending on source/timeframe) but that tailwind is exactly what's
+  reversing today on the Iran de-escalation headline. AI/tech-driven
+  momentum (a small handful of mega-cap names) continues to dominate
+  S&P/Nasdaq YTD returns per prior research.
+
+### Trade Ideas
+
+**1. QQQ long call — Nasdaq/AI-rally continuation + ISM PMI catalyst
+(new position, defined-risk, distinct index exposure from the existing
+SPY 755C).**
+- Catalyst: broad futures strength (Nasdaq futures leading), risk-on
+  de-escalation tailwind (lower oil/yields), ISM Manufacturing PMI at
+  10am ET as a same-day catalyst. Chosen over adding more SPY specifically
+  to avoid stacking further exposure on the same underlying as the
+  existing (currently red) SPY 755C.
+- Strike/Expiration/DTE: **$705 strike** (~2.8% OTM from stale-close mid
+  ~$685.6), **2026-08-21 expiration, 18 DTE** (clears >=7 floor).
+- Risk type: Defined-risk (long call, buy-to-open) — max loss = premium
+  paid.
+- Stale-close quote: bid $5.70/ask $5.97... ask $7.67 shown at the $705
+  strike specifically (delta 0.293, theta -0.33) — reconfirm live, this
+  will reprice given premarket strength.
+- 8% max-loss calc: cap = 8% x $89,297.50 = **$7,143.80**. At ask $7.67 x
+  100 = $767/contract -> up to 9 contracts fits the cap ($6,903, 7.7%);
+  working target **8 contracts** (~$6,136, 6.87% of equity) to leave
+  buffer for live-open repricing.
+- Stop/target: close at -50% of premium paid (~$3.835/contract); take
+  profit at +50-100% gain per Options Rules.
+- R:R: ~1:1 to 2:1.
+
+**2. XOP long put — fresh, confirmed catalyst on the overnight oil-crash
+reversal (conditional idea — explicitly conflicts with the existing long
+XOP 175C; NOT a stack-on-top trade).**
+- Catalyst: WTI/Brent down ~5-6% overnight on the Trump-Iran
+  de-escalation/Hormuz-deal headline — a genuine, confirmed overnight
+  event trigger per Core Rule 9, directly bearish for E&P-heavy XOP.
+- Strike/Expiration/DTE: **$175 strike** (~ATM vs. stale-close mid
+  ~$177), **2026-08-21 expiration, 18 DTE**.
+- Risk type: Defined-risk (long put, buy-to-open) — max loss = premium
+  paid.
+- Stale-close quote: bid $3.80/ask $4.17 (delta -0.5049).
+- 8% max-loss calc: cap = $7,143.80. At ask $4.17 x 100 = $417/contract
+  -> up to 17 contracts fits the cap; working target **10 contracts**
+  (~$4,170, 4.67% of equity), sized conservatively given this idea
+  directly opposes an existing position.
+- Stop/target: close at -50% of premium paid (~$2.085/contract); take
+  profit at +50-100% gain per Options Rules.
+- **Explicit conflict flag:** this book already holds XOP260821C00175000
+  (8 ct, currently +19.63%) and XLE260821C00061000 (30 ct, currently
+  +11.84%) — both long calls built on the now-reversing Iran-conflict
+  supply-shock thesis. Opening this put alongside those calls would mean
+  paying two opposing premiums rather than making a clean directional
+  decision. **Recommended handling at market-open execution:** reconfirm
+  live whether the oil-crash move is holding into the open; if the
+  energy-long thesis is confirmed broken, prioritize a Step 5 thesis-break
+  exit on the existing XLE/XOP calls over adding this put — only add the
+  put as a distinct new position if capital is redeployed cleanly (i.e.,
+  after or instead of, not alongside, holding the calls).
+
+**Skipped this cycle:** PLTR and ON earnings (both report before today's
+open) — high IV-crush risk chasing either immediately post-print per the
+2026-07-28 lesson; ON specifically also avoided given the book's existing
+semis exposure (SMH call) already sitting near its -50% stop. Watch only,
+no entry today absent a confirmed post-print hold.
+
+### Risk Factors
+- **Energy thesis reversal (highest-priority watch item):** the
+  Iran-de-escalation-driven oil crash directly threatens the catalyst
+  underlying the existing XLE 61C and XOP 175C longs (combined $7,670
+  market value, ~8.6% of equity) — needs live reconfirmation and a
+  Step 5 thesis check at market open, independent of whether Idea 2 above
+  is taken.
+- **SMH near its stop:** SMH 600C is at -41.81%, close to the -50%
+  (~$5.80) stop trigger — top watch item alongside the energy reversal.
+- **PLTR/ON earnings gap risk:** both report before today's open; broad
+  market gap risk if either surprises meaningfully, plus IV-crush risk
+  for anyone chasing the print (see Skipped above).
+- **VIX complacency:** ~16 continues to signal a cheap-premium, low-fear
+  regime — favorable for new long-premium entries but a reminder that a
+  sentiment reversal (e.g., oil/geopolitical headline flip-flopping
+  again, as it already has multiple times this challenge) could hit
+  multiple positions at once.
+- **Stale quotes:** all pricing above is Friday's 4pm ET close, not
+  updated over the weekend; must be reconfirmed live before any order.
+- PERPLEXITY_API_KEY and ClickUp creds still missing this cycle — no
+  blocker; used native WebSearch fallback (perplexity.sh confirmed exit
+  code 3) and will use local DAILY-SUMMARY.md fallback for Step 5.
+
+### Decision
+**TRADE (hand off to market-open workflow for live-quote sizing and
+thesis reassessment).** Deployment is well below target (17.95% vs.
+85-100%) and the book is behind challenge pace, so redeploying clears
+Core Rule 11's bias-toward-action bar. Priority handoff order: (a)
+reconfirm live NBBO/spot for QQQ, XLE, XOP, and SMH before anything else,
+since all data here is a stale Friday-close snapshot; (b) run the Step 5
+thesis check on XLE/XOP first, given the overnight oil-crash headline —
+decide whether to hold, trim, or exit before adding any new energy
+exposure; (c) take Idea 1 (QQQ call) as the clean, uncorrelated
+redeployment trade; (d) only take Idea 2 (XOP put) if the energy-long
+thesis check in (b) concludes the calls should be closed/reduced first —
+do not stack the put on top of the calls; (e) monitor SMH 600C closely
+against its -50% stop.
