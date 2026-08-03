@@ -410,3 +410,7 @@ Combined backfilled realized loss: **-$1,796.64**. AEON is notable: entry and st
 <!-- DAEMON_ENTRY: WETH long 2026-08-03 -->
 ### Aug 03 15:06 UTC — Intraday Daemon Entry
 **WETH** long 7686 sh @ ~$1.00 (actual fill) | stop $0.97 | target $1.06 (2.0:1) | gap -14.6%, ORB confirmed above $1.00 | Rule 1: 7686 x $0.03 = $230.40 (0.5% of $43,815 equity, cap 4%)
+
+<!-- DAEMON_EXIT: CNH 2026-08-03 15:09 -->
+### Aug 03 15:09 UTC — Intraday Daemon Exit (external fill)
+**CNH** closed @ ~$11.5900 | entry $11.9500 | realized P&L $-267.48 (-3.0%) | reason: stop-loss order filled (detected via position disappearance, not an explicit daemon close — P&L computed from Alpaca's fill ledger)
