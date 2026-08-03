@@ -450,3 +450,7 @@ Combined backfilled realized loss: **-$1,796.64**. AEON is notable: entry and st
 <!-- DAEMON_ENTRY: WETO long 2026-08-03 -->
 ### Aug 03 19:00 UTC — Intraday Daemon Entry
 **WETO** long 1060 sh @ ~$7.18 (actual fill) | stop $6.96 | target $7.61 (2.0:1) | gap -20.0%, ORB confirmed above $5.78 | Rule 1: 1060 x $0.22 = $228.32 (0.5% of $43,535 equity, cap 4%)
+
+<!-- DAEMON_EXIT: WETO 2026-08-03 19:10 -->
+### Aug 03 19:10 UTC — Intraday Daemon Exit (external fill)
+**WETO** closed @ ~$6.7900 | entry $7.1800 | realized P&L $-413.40 (-5.4%) | reason: stop-loss order filled (detected via position disappearance, not an explicit daemon close — P&L computed from Alpaca's fill ledger)
