@@ -414,3 +414,7 @@ Combined backfilled realized loss: **-$1,796.64**. AEON is notable: entry and st
 <!-- DAEMON_EXIT: CNH 2026-08-03 15:09 -->
 ### Aug 03 15:09 UTC — Intraday Daemon Exit (external fill)
 **CNH** closed @ ~$11.5900 | entry $11.9500 | realized P&L $-267.48 (-3.0%) | reason: stop-loss order filled (detected via position disappearance, not an explicit daemon close — P&L computed from Alpaca's fill ledger)
+
+<!-- DAEMON_EXIT: SNES 2026-08-03 15:17 -->
+### Aug 03 15:17 UTC — Intraday Daemon Exit (external fill)
+**SNES** closed @ ~$1.5100 | entry $1.5600 | realized P&L $-248.80 (-3.2%) | reason: stop-loss order filled (detected via position disappearance, not an explicit daemon close — P&L computed from Alpaca's fill ledger)
