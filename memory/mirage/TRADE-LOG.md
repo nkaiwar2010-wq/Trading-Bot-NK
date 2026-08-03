@@ -434,3 +434,7 @@ Combined backfilled realized loss: **-$1,796.64**. AEON is notable: entry and st
 <!-- DAEMON_EXIT: MBRX 2026-08-03 15:35 -->
 ### Aug 03 15:35 UTC — Intraday Daemon Exit (external fill)
 **MBRX** closed @ ~$0.3272 | entry $0.3450 | realized P&L $-452.58 (-5.2%) | reason: stop-loss order filled (detected via position disappearance, not an explicit daemon close — P&L computed from Alpaca's fill ledger)
+
+<!-- DAEMON_ENTRY: CIGL long 2026-08-03 -->
+### Aug 03 15:54 UTC — Intraday Daemon Entry
+**CIGL** long 14162 sh @ ~$0.54 (actual fill) | stop $0.52 | target $0.57 (2.0:1) | gap -17.1%, ORB confirmed above $0.56 | Rule 1: 14162 x $0.02 = $227.89 (0.5% of $43,332 equity, cap 4%)
