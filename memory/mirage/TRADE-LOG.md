@@ -342,3 +342,7 @@ Combined backfilled realized loss: **-$1,796.64**. AEON is notable: entry and st
 <!-- DAEMON_EXIT: MGRX 2026-08-03 13:56 -->
 ### Aug 03 13:56 UTC — Intraday Daemon Exit
 **MGRX** closed @ ~$0.46 | entry $0.45 | realized P&L $1.69 (0.0%) | reason: VWAP loss on volume spike (thesis break)
+
+<!-- DAEMON_ENTRY: CNCK long 2026-08-03 -->
+### Aug 03 13:59 UTC — Intraday Daemon Entry
+**CNCK** long 4008 sh @ ~$2.22 (actual fill) | stop $2.15 | target $2.35 (2.0:1) | gap 18.4%, ORB confirmed above $2.13 | Rule 1: 4008 x $0.07 = $266.93 (0.6% of $44,498 equity, cap 4%)
