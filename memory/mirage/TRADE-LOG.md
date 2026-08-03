@@ -346,3 +346,7 @@ Combined backfilled realized loss: **-$1,796.64**. AEON is notable: entry and st
 <!-- DAEMON_ENTRY: CNCK long 2026-08-03 -->
 ### Aug 03 13:59 UTC — Intraday Daemon Entry
 **CNCK** long 4008 sh @ ~$2.22 (actual fill) | stop $2.15 | target $2.35 (2.0:1) | gap 18.4%, ORB confirmed above $2.13 | Rule 1: 4008 x $0.07 = $266.93 (0.6% of $44,498 equity, cap 4%)
+
+<!-- DAEMON_ENTRY: CNH long 2026-08-03 -->
+### Aug 03 14:00 UTC — Intraday Daemon Entry
+**CNH** long 743 sh @ ~$11.95 (actual fill) | stop $11.59 | target $12.67 (2.0:1) | gap 16.9%, ORB confirmed above $11.96 | Rule 1: 743 x $0.36 = $266.37 (0.6% of $44,487 equity, cap 4%)
