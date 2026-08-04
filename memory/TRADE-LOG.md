@@ -462,3 +462,26 @@ Energy catalyst (XOP/XLE) reconfirmed live: XOP $173.13, XLE $58.50 — both con
 - **R:R:** ~1:1 to 2:1.
 
 **Positions after trades:** 2 of 8 max (SPY260821C00770000, XLE260821P00058000). Realized net today: +$7,000.00 (QQQ 710C exit). Equity post-fills $96,767.29, cash $83,497.29 (86.3%) — within the 85-100% deployment target range. Day 17 of 30, 15 days left to the Aug 19 deadline. No stock trades this cycle (all options). PERPLEXITY_API_KEY and ClickUp creds still missing this cycle — no blocker, using WebSearch fallback (not needed, RESEARCH-LOG pre-market research already covered the day) and local DAILY-SUMMARY.md fallback for notification.
+
+## Aug 4 — Midday Scan (Day 17, Tuesday)
+
+**Challenge status:** Day 17 of 30, 15 days left to the Aug 19 deadline. Equity at scan start (last_equity) $92,775.88. No stock positions open — Step 3/4 N/A. No open orders at scan start.
+
+**Positions at scan (2 of 8 max, both options, live quotes):**
+- SPY260821C00770000 — 15 ct, entry $4.59, live bid $9.74/ask $9.91, unrealized ~+112-116%. Deep past the +50-100% take-profit zone in Options Rules. **Action: sell-to-close.**
+- XLE260821P00058000 — 40 ct, entry $1.73, live bid $0.92, unrealized -46.8% (mark-based -45.665%). Close to but not past the -50% hard stop. **Hold, watch closely.**
+
+### Exit — SPY 770C, sell-to-close (Options Rule: +50-100% profit-take zone, well past trigger)
+- **OCC symbol:** SPY260821C00770000
+- **Trigger:** long call take-profit rule — live bid $9.74 (+112.2%) at scan, well inside/past the documented +50-100% target range from this morning's entry ($4.59).
+- **Exit order:** sell-to-close, 15 contracts, market, filled @ $9.90 avg
+- **Realized P&L:** proceeds $14,850 vs. cost basis $6,885 = **+$7,965.00 (+115.68%)**
+- **Rationale:** AI-rally/near-record-high thesis played out fully and fast (entered this morning, already +115% by midday); banking a large confirmed win per Options Rules rather than risking round-trip give-back. This trade pushed account equity above $100,000 for the first time this challenge.
+
+**Step 4b (XLE 58P) — held, not cut.** Live: value -46.8% from entry, inside but not past the -50% hard-stop trigger (~$0.865 bid; live bid $0.92). DTE 17, clear of the <=2 floor — no forced close.
+
+**Step 5 (thesis check, XLE 58P):** WebSearch confirms WTI crude continued falling today (~$76.66/bbl, -4.58%), so the core oil-crash catalyst behind this put remains directionally correct and intact — not broken. However XLE spot itself has drifted UP to $58.65-58.66 (vs. $57.23 at Monday's entry), diverging from the commodity move, most likely because the broad S&P/Nasdaq rally (near record highs) is lifting energy-sector equities even as crude itself sells off. This is a correlation-breakdown risk, not a thesis reversal — the primary catalyst (oil price) is still moving in the predicted direction and has room to pull XLE down if the broad-market tailwind fades. Judgment call: hold rather than cut, since the documented rule is the -50% value stop (not yet hit) and the underlying commodity thesis hasn't reversed, but flag as **top watch item for EOD/next cycle** — one more push in the wrong direction hits the hard stop.
+
+**Step 6:** WebSearch used (Perplexity unavailable) to confirm the oil/XLE divergence — no other unexplained sharp moves this cycle.
+
+**Positions after trade:** 1 of 8 max (XLE260821P00058000). Realized net today (midday): +$7,965.00. Equity post-fill $102,106.92, cash $98,346.92 (96.3%) — above the 85-100% deployment target range with only 1 position open; next cycle should prioritize redeployment per Core Rule 11's bias-toward-action. Phase P&L now +$2,106.92 vs. the $100,000 start (i.e. -$47,893.08 short of the $150,000/$50,000-gain challenge target), 15 days left — equity crossed $100k for the first time but still meaningfully behind the pace needed to hit the deadline. PERPLEXITY_API_KEY and ClickUp creds still missing this cycle — no blocker, using WebSearch fallback (used, oil/XLE divergence check) and local DAILY-SUMMARY.md fallback for notification.

@@ -2259,3 +2259,26 @@ correlated AI-rally thesis — sized per the live-reconfirmed 8% cap;
 redeployment leg alongside whichever of (c) is chosen, confirming the
 oil de-escalation move is still holding at the open; (e) no chase on
 PLTR or AMD/semis around today's/tonight's earnings.
+
+## 2026-08-04 — Midday Addendum (Day 17, Tuesday)
+
+**Trigger:** XLE260821P00058000 sitting at -46.8% unrealized, close to
+the -50% hard stop, while WTI crude itself continued falling today —
+an apparent divergence between the put's commodity thesis and its
+live value worth a quick check before deciding hold vs. cut.
+
+**WebSearch (Perplexity unavailable, exit code 3 as expected):** WTI
+crude fell further today to ~$76.66/bbl (-4.58%), continuing the
+Trump-Iran de-escalation selloff — the directional oil thesis behind
+the XLE put remains intact and, if anything, has strengthened (WTI
+broke below $80 to the high-$70s). However live XLE spot is $58.65-
+58.66, UP from $57.23 at Monday's entry — energy-sector equities are
+diverging from the commodity they're nominally tracking, most likely
+pulled higher by the broad S&P/Nasdaq rally (near record highs,
+VIX at cycle lows) overwhelming the sector-specific bearish catalyst.
+
+**Read:** this is a correlation-breakdown risk, not a thesis reversal.
+The put's documented stop/close rule (-50% of premium) hasn't
+triggered (live -46.8%). Decision: hold per TRADE-LOG Step 5 entry,
+flagged as the top watch item for the next cycle — one more adverse
+tick trips the hard stop regardless of what oil does.
