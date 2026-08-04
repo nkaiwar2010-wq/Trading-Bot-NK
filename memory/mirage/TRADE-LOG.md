@@ -513,3 +513,7 @@ Combined backfilled realized loss: **-$1,796.64**. AEON is notable: entry and st
 <!-- DAEMON_ENTRY: SUGP long 2026-08-04 -->
 ### Aug 04 16:16 UTC — Intraday Daemon Entry
 **SUGP** long 17611 sh @ ~$0.40 (actual fill) | stop $0.39 | target $0.42 (2.0:1) | gap -18.5%, ORB confirmed above $0.38 | Rule 1: 17611 x $0.01 = $211.33 (0.5% of $40,656 equity, cap 4%)
+
+<!-- DAEMON_EXIT: SUGP 2026-08-04 16:22 -->
+### Aug 04 16:22 UTC — Intraday Daemon Exit (external fill)
+**SUGP** closed @ ~$0.3800 | entry $0.4000 | realized P&L $-352.22 (-5.0%) | reason: stop-loss order filled (detected via position disappearance, not an explicit daemon close — P&L computed from Alpaca's fill ledger)
