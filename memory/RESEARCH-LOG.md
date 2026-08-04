@@ -2089,3 +2089,173 @@ QQQ 710C at +36.5%, held (below +50% trigger, no thesis break, 18 DTE).
 No sharp unexplained moves this cycle; no Perplexity/WebSearch research
 needed. Book now 1 of 8 max positions, cash 92.8% — redeployment is the
 priority for the next research cycle per Core Rule 11.
+
+## 2026-08-04 11:19 UTC — Pre-market Research (Day 17, Tuesday)
+
+**Challenge pace:** Day 17 of 30 (start 2026-07-19, deadline 2026-08-19).
+15 days remaining. Equity $92,623.88 vs. $150,000 target -> phase P&L
+**-$7,376.12 (-7.38%)**, needing **+$57,376.12** in the remaining 15
+days. **Behind flat pace** (flat pace would be ~$28,333 ahead by now).
+Per Core Rule 11, bias toward action; per Rule 3 the 8%-of-equity loss
+cap is unchanged regardless of pace pressure.
+
+**Account snapshot (live):**
+- Equity: $92,623.88 | Cash: $85,431.88 (92.24%) | Buying power:
+  $341,727.52 | Options buying power: $85,431.88 | Position market
+  value: $7,192 (**only 7.77% deployed — well below the 85-100% Core
+  Rule 1 target**, a strong redeployment signal) | Daytrade count: N/A
+  (well above PDT threshold) | Open orders: none.
+- Open positions (1 of 8 max): QQQ260821C00710000 — 8 ct, entry $6.09,
+  mark $8.99 (live bid $9.07/ask $9.12), **+47.6-49.6% unrealized
+  (+$2,320 to +$2,424)** — right at the edge of the +50-100% Options
+  Rules take-profit zone; top watch item for market-open reassessment.
+  18 DTE (2026-08-21 exp).
+- **Data caveat:** stock/ETF quotes pulled pre-market carry yesterday's
+  (2026-08-03) close timestamp; option chain snapshots are also as of
+  Friday/Monday's activity for thin strikes. All prices below must be
+  reconfirmed live at market open before sizing or placing anything.
+
+**Market context:**
+- **Oil:** WTI ~$79.62/bbl (-5.97% Monday) continuing to crash off the
+  confirmed Trump-Iran de-escalation (attack called off, talks
+  resuming on reopening the Strait of Hormuz); Brent ~$83-90 range
+  depending on source/session. De-escalation thesis is holding into a
+  second session, not a one-day headline spike — reinforces (not
+  reverses) Monday's Step 5 exit of the energy longs.
+- **S&P 500 / Nasdaq futures:** S&P futures +0.21% premarket, continuing
+  Monday's tech-led rally that put the index within striking distance
+  of a record high. Polymarket implies ~77% odds of an "Up" S&P open.
+  PLTR +16% premarket to ~$145.90 on an earnings beat + raised guidance
+  — a real catalyst but already-realized gap; chasing it now risks the
+  same post-catalyst IV crush documented in the Jul 28 SLB lesson.
+- **VIX:** ~15.76-15.84, still in a low/complacent, cheap-premium
+  regime (down further from Monday's ~16.0).
+- **Today's releases:** No major scheduled US macro data today (ISM
+  Manufacturing PMI already printed strong last week at 55.6; ISM
+  Services PMI and the Employment Situation report are later this
+  week — Friday 8/7 for payrolls). Today is earnings-driven, not
+  macro-data-driven.
+- **Earnings:** AMD and SpaceX report **after today's close** (not
+  before open) — AMD consensus ~$1.61 EPS / ~$11.3B revenue (+47%
+  YoY). ~335 companies report today overall. Per the SLB IV-crush
+  lesson, entering AMD/semis exposure directly ahead of or immediately
+  after tonight's print is a chase risk — watch-only today, no entry
+  timed around the print itself.
+- **Sector momentum YTD:** Energy still nominally a YTD leader (~+22%)
+  but that tailwind is exactly what's reversing on the second straight
+  day of oil weakness. Healthcare has emerged as a YTD flight-to-safety
+  outperformer. Broader rally remains narrow — ~10 mega-cap AI/tech
+  names still supply the bulk of S&P YTD return.
+
+### Trade Ideas
+
+**1. QQQ 720C, 2026-08-21 exp (defined-risk long call, new/distinct
+strike from the existing 710C position) — AI/tech rally continuation.**
+- Catalyst: Nasdaq futures leading premarket, PLTR beat lifting AI/tech
+  sentiment broadly, S&P near record highs, VIX at cycle lows (cheap
+  IV). Distinct strike (further OTM) from the existing 710C so this is
+  incremental redeployment, not doubling the same bet — take only if
+  the 710C gets closed at its profit target this cycle per Options
+  Rules, to avoid over-concentrating in one underlying.
+- Strike/Expiration/DTE: $720 strike (~2.8% OTM from stale-close spot
+  $700.64), 2026-08-21 expiration, **17 DTE** (clears >=7 floor).
+- Risk type: Defined-risk (long call, buy-to-open) — max loss = premium
+  paid.
+- Stale-close quote: bid $5.18/ask $5.43.
+- **8% max-loss calc:** cap = 8% x $92,623.88 = **$7,409.91**. At ask
+  $5.43 x 100 = $543/contract -> up to 13 contracts fits the cap
+  ($7,059, 7.62%); working target **12 contracts** (~$6,516, 7.03% of
+  equity) to leave buffer for live-open repricing.
+- Stop/target: close at -50% of premium (~$2.715/contract) or +50-100%
+  gain per Options Rules.
+- R:R: ~1:1 to 2:1.
+
+**2. SPY 770C, 2026-08-21 exp (defined-risk long call, new position) —
+broad-market continuation, cheaper/tighter-OTM alternative to QQQ.**
+- Catalyst: same AI-rally/near-record-high backdrop as Idea 1, but
+  broad-index (less single-sector-concentrated than QQQ) with a tighter
+  OTM strike given VIX-driven cheap premium.
+- Strike/Expiration/DTE: $770 strike (~1.7% OTM from stale-close spot
+  $757.41), 2026-08-21 expiration, **17 DTE**.
+- Risk type: Defined-risk (long call, buy-to-open) — max loss = premium
+  paid.
+- Stale-close quote: bid $3.13/ask $3.17.
+- **8% max-loss calc:** cap = $7,409.91. At ask $3.17 x 100 =
+  $317/contract -> up to 23 contracts fits the cap ($7,291, 7.87%);
+  working target **20 contracts** (~$6,340, 6.84% of equity).
+- Stop/target: close at -50% of premium (~$1.585/contract) or +50-100%
+  gain per Options Rules.
+- R:R: ~1:1 to 2:1.
+- **Note:** Ideas 1 and 2 are correlated (both broad AI/tech-rally
+  longs) — take at most one, sized larger, rather than stacking both
+  and doubling directional exposure to the same macro thesis.
+
+**3. XLE 58P, 2026-08-21 exp (defined-risk long put, new position) —
+continuation short on the confirmed, now-2-day-old oil de-escalation
+move.**
+- Catalyst: WTI down a further leg to ~$79.62 (-5.97% Monday) as the
+  Trump-Iran de-escalation/Hormuz-talks thesis holds into a second
+  session — this is the mirror-image, now-confirmed-not-just-headline
+  version of the thesis that caused Monday's Step 5 exit of the long
+  XLE/XOP calls. A fresh short position, not a re-entry of the closed
+  longs.
+- Strike/Expiration/DTE: $58 strike (~3-4% OTM/below stale-close spot
+  ~$59-60), 2026-08-21 expiration, **17 DTE**.
+- Risk type: Defined-risk (long put, buy-to-open) — max loss = premium
+  paid.
+- Stale-close quote: bid $0.91/ask $0.95 (wide spread — thin strike,
+  liquidity caveat).
+- **8% max-loss calc:** cap = $7,409.91. At ask $0.95 x 100 =
+  $95/contract -> up to 77 contracts mathematically fits the cap, but
+  sized down materially given the wide bid/ask (liquidity risk, not a
+  cap issue) -> working target **50 contracts** (~$4,750, 5.13% of
+  equity).
+- Stop/target: close at -50% of premium (~$0.475/contract) or +50-100%
+  gain per Options Rules.
+- R:R: ~1:1 to 2:1.
+
+**Skipped this cycle:** PLTR chase (already +16%, classic post-catalyst
+IV-crush setup per the Jul 28 SLB lesson — watch only); AMD/semis
+positioning around tonight's after-close earnings (same IV-crush logic,
+plus DTE/timing doesn't favor a same-day entry ahead of a report that
+lands after the close anyway).
+
+### Risk Factors
+- **QQQ 710C at the profit-take edge:** live mark already
+  +47.6-49.6%, essentially at the +50% Options Rules trigger — needs
+  live reconfirmation and likely a take-profit exit at market open
+  before any new redeployment capital is committed.
+- **Correlated redeployment risk:** Ideas 1 and 2 are both long-tech/
+  broad-market calls on the same AI-rally thesis — do not stack both at
+  full size (see note above).
+- **AMD/SpaceX earnings after close:** gap risk into tomorrow for any
+  semis/tech exposure carried overnight, independent of whether new
+  positions are opened today.
+- **XLE put liquidity:** wide bid/ask spread on the $58 strike is a
+  fill-quality risk, not a sizing-cap issue — expect a worse effective
+  fill than the stale-close mid.
+- **VIX complacency:** ~15.8, near cycle lows — cheap premium is
+  favorable for new long-premium entries but raises the cost of a
+  sudden vol-regime flip hitting multiple positions at once.
+- **Stale quotes:** all pricing above is Monday's 4pm ET close; must be
+  reconfirmed live before any order.
+- PERPLEXITY_API_KEY and ClickUp creds still missing this cycle — no
+  blocker; used native WebSearch fallback (perplexity.sh confirmed exit
+  code 3) and will use local DAILY-SUMMARY.md fallback for notification
+  if ClickUp posting fails.
+
+### Decision
+**TRADE (hand off to market-open workflow for live-quote sizing and
+thesis reassessment).** Deployment is well below target (7.77% vs.
+85-100%) with only 1 of 8 max positions open and the book meaningfully
+behind challenge pace, so redeploying clears Core Rule 11's
+bias-toward-action bar. Priority handoff order: (a) reconfirm live
+QQQ 710C mark first — if at/past +50%, take the profit per Options
+Rules before anything else; (b) reconfirm live NBBO/spot for QQQ, SPY,
+and XLE, since all data here is a stale Monday-close snapshot; (c) take
+ONE of Idea 1 (QQQ 720C) or Idea 2 (SPY 770C) — not both, given the
+correlated AI-rally thesis — sized per the live-reconfirmed 8% cap;
+(d) evaluate Idea 3 (XLE 58P) as a genuinely distinct, uncorrelated
+redeployment leg alongside whichever of (c) is chosen, confirming the
+oil de-escalation move is still holding at the open; (e) no chase on
+PLTR or AMD/semis around today's/tonight's earnings.
