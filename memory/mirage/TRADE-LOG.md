@@ -489,3 +489,7 @@ Combined backfilled realized loss: **-$1,796.64**. AEON is notable: entry and st
 <!-- DAEMON_ENTRY: ASTN long 2026-08-04 -->
 ### Aug 04 14:31 UTC — Intraday Daemon Entry
 **ASTN** long 1809 sh @ ~$4.66 (actual fill) | stop $4.52 | target $4.94 (2.0:1) | gap -15.5%, ORB confirmed above $4.71 | Rule 1: 1809 x $0.14 = $252.90 (0.6% of $42,172 equity, cap 4%)
+
+<!-- DAEMON_ENTRY: SMTK long 2026-08-04 -->
+### Aug 04 14:35 UTC — Intraday Daemon Entry
+**SMTK** long 47015 sh @ ~$0.17 (actual fill) | stop $0.16 | target $0.18 (2.0:1) | gap -19.3%, ORB confirmed above $0.16 | Rule 1: 47015 x $0.01 = $236.96 (0.6% of $42,314 equity, cap 4%)
