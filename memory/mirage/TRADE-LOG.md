@@ -477,3 +477,7 @@ Combined backfilled realized loss: **-$1,796.64**. AEON is notable: entry and st
 <!-- DAEMON_EXIT: DORM 2026-08-04 14:20 -->
 ### Aug 04 14:20 UTC — Intraday Daemon Exit (external fill)
 **DORM** closed @ ~$147.1569 | entry $153.0000 | realized P&L $-286.31 (-3.8%) | reason: stop-loss order filled (detected via position disappearance, not an explicit daemon close — P&L computed from Alpaca's fill ledger)
+
+<!-- DAEMON_ENTRY: HYFM long 2026-08-04 -->
+### Aug 04 14:24 UTC — Intraday Daemon Entry
+**HYFM** long 4134 sh @ ~$1.78 (actual fill) | stop $1.73 | target $1.89 (2.0:1) | gap -16.7%, ORB confirmed above $1.76 | Rule 1: 4134 x $0.05 = $220.76 (0.5% of $42,379 equity, cap 4%)
