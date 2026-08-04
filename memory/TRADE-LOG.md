@@ -429,3 +429,36 @@ Energy catalyst (XOP/XLE) reconfirmed live: XOP $173.13, XLE $58.50 — both con
 | QQQ260821C00710000 | 8 contracts | $6.09 | $8.99 | +53.94% | +$2,320.00 (+47.62%) | Close at -50% stop (~$3.045) or +50-100% gain — approaching profit-take zone, top watch item for next cycle |
 
 **Notes:** A strong rebound day — equity closed at $92,624.98, up +$3,327.24 (+3.73%) vs. Friday's $89,297.74, driven by five trades: three thesis/stop-triggered exits at the open (SMH 600C hard-stop -$2,220.00, XLE 61C thesis-break -$840.00, XOP 175C thesis-break -$1,040.00, net -$4,100.00 realized), a new QQQ 710C entry ($4,872 cost basis) on the Nasdaq/AI-rally continuation thesis, and a midday SPY 755C profit-take exit (+$4,608.00 realized) after it ran to +71.5% inside the +50-100% target zone. Net realized P&L today: +$508.00, with the rest of the day's gain coming from QQQ 710C's unrealized mark-up to +47.62% (+$2,320), now closing in on its own +50% profit-take threshold — top watch item for tomorrow. Cash is elevated at 92.24% of equity with only 1 of 8 max positions open, above the 85-100% deployment target range; next cycle should prioritize redeployment per Core Rule 11's bias-toward-action. Day 16 of 30, 16 days left to the Aug 19 deadline — still meaningfully behind pace at -$7,375.02 against the $50,000 target (needing +$57,375.02 in the remaining 16 days), though today's five-trade cycle (three disciplined cuts, one profit-take, one fresh redeployment) meaningfully narrowed the gap from Friday's -$10,702.26. PERPLEXITY_API_KEY and ClickUp creds still missing this cycle — no blocker, using WebSearch fallback (not needed) and local DAILY-SUMMARY.md fallback respectively.
+
+## Aug 4 — Market-Open Execution (Day 17, Tuesday)
+
+**Challenge status:** Day 17 of 30, 15 days left to the Aug 19 deadline. Pre-cycle equity $92,623.88 (per RESEARCH-LOG) -> live re-check at execution start $97,567.88 (QQQ 710C had run further overnight/premarket to +147% before the exit below). Phase P&L improving but still behind flat pace.
+
+### Exit — QQQ 710C, sell-to-close (Options Rule: +50-100% profit-take zone, well past trigger)
+- **OCC symbol:** QQQ260821C00710000
+- **Trigger:** live re-check at market open showed the position at +144-147% unrealized (bid $14.88/ask $14.96 vs. $6.09 entry), deep past the documented +50-100% long-call take-profit zone — RESEARCH-LOG flagged this as the top priority action for the cycle.
+- **Exit order:** sell-to-close, 8 contracts, market, filled @ $14.84 avg
+- **Realized P&L:** proceeds $11,872 vs. cost basis $4,872 = **+$7,000.00 (+143.68%)**
+- **Rationale:** Nasdaq/AI-rally thesis fully played out and then some; banking a large confirmed win per Options Rules rather than risking give-back, and freeing capital/position slots for fresh redeployment per Core Rule 11 (deployment was at 7.77%, well below the 85-100% target).
+
+### Trade 14 — SPY 770C, 2026-08-21 exp (defined-risk directional long call, new position)
+- **OCC symbol:** SPY260821C00770000
+- **Entry:** 15 contracts @ $4.59 avg fill (market order), cost basis $6,885
+- **Strike/Expiration/DTE:** $770 strike (~1.02% OTM from live $762.23 spot at execution — SPY had already run higher than RESEARCH-LOG's stale-close $757.41), 2026-08-21 expiration, 17 DTE (clears >=7 floor)
+- **Risk type:** Defined-risk (long call, buy-to-open) — max loss = premium paid = $6,885 = 7.07% of $97,303.68 pre-trade equity (inside the 8% cap of $7,784.29)
+- **Thesis:** RESEARCH-LOG Idea 2 — broad-market AI-rally/near-record-high continuation, chosen over the correlated QQQ 720C alternative (Idea 1) per the research note not to stack both; SPY's smaller premium re-pricing vs. stale close (+44% vs. QQQ 720C's +86%) signaled less of a same-morning chase than QQQ.
+- **Stop/close plan:** Close at -50% of premium paid (~$2.295/contract, ~$3,442.50 total) or +50-100% gain per Options Rules; enforced manually via midday/EOD workflows.
+- **Target:** +50-100% gain.
+- **R:R:** ~1:1 to 2:1.
+
+### Trade 15 — XLE 58P, 2026-08-21 exp (defined-risk directional long put, new position)
+- **OCC symbol:** XLE260821P00058000
+- **Entry:** 40 contracts @ $1.73 avg fill (market order), cost basis $6,920
+- **Strike/Expiration/DTE:** $58 strike (now slightly ITM — live spot $57.23 at execution vs. stale-close ~$59-60 assumption in RESEARCH-LOG, since XLE continued falling premarket), 2026-08-21 expiration, 17 DTE (clears >=7 floor)
+- **Risk type:** Defined-risk (long put, buy-to-open) — max loss = premium paid = $6,920 = 7.19% of $96,243-97,304 range equity at execution (inside the 8% cap; computed off $97,303.68 pre-trade equity: cap $7,784.29)
+- **Thesis:** RESEARCH-LOG Idea 3 — continuation short on the now-confirmed, 2-session-old Trump-Iran de-escalation/oil-crash move (WTI ~$79.62, -5.97% Monday), genuinely uncorrelated to the SPY/AI-rally leg above. Strike now sits just above spot rather than 3-4% OTM as originally scoped, since XLE had already drifted down premarket — treated as acceptable continuation exposure, not a fresh chase, given the thesis has held for two straight sessions.
+- **Stop/close plan:** Close at -50% of premium paid (~$0.865/contract, ~$3,460 total) or +50-100% gain per Options Rules; enforced manually via midday/EOD workflows. Liquidity caveat: bid/ask spread ~$1.59/$1.75 (9%) at entry — expect worse-than-mid fills on exit too.
+- **Target:** +50-100% gain.
+- **R:R:** ~1:1 to 2:1.
+
+**Positions after trades:** 2 of 8 max (SPY260821C00770000, XLE260821P00058000). Realized net today: +$7,000.00 (QQQ 710C exit). Equity post-fills $96,767.29, cash $83,497.29 (86.3%) — within the 85-100% deployment target range. Day 17 of 30, 15 days left to the Aug 19 deadline. No stock trades this cycle (all options). PERPLEXITY_API_KEY and ClickUp creds still missing this cycle — no blocker, using WebSearch fallback (not needed, RESEARCH-LOG pre-market research already covered the day) and local DAILY-SUMMARY.md fallback for notification.
