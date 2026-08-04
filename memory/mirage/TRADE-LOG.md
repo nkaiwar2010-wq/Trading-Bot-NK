@@ -497,3 +497,7 @@ Combined backfilled realized loss: **-$1,796.64**. AEON is notable: entry and st
 <!-- DAEMON_EXIT: ASTN 2026-08-04 14:47 -->
 ### Aug 04 14:47 UTC — Intraday Daemon Exit (external fill)
 **ASTN** closed @ ~$4.5196 | entry $4.6600 | realized P&L $-254.01 (-3.0%) | reason: stop-loss order filled (detected via position disappearance, not an explicit daemon close — P&L computed from Alpaca's fill ledger)
+
+<!-- DAEMON_ENTRY: CIFU long 2026-08-04 -->
+### Aug 04 15:04 UTC — Intraday Daemon Entry
+**CIFU** long 382 sh @ ~$21.64 (actual fill) | stop $20.99 | target $22.94 (2.0:1) | gap -16.2%, ORB confirmed above $21.55 | Rule 1: 382 x $0.65 = $247.99 (0.6% of $41,808 equity, cap 4%)
