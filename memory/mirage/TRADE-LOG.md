@@ -469,3 +469,7 @@ Combined backfilled realized loss: **-$1,796.64**. AEON is notable: entry and st
 <!-- DAEMON_ENTRY: DDD long 2026-08-04 -->
 ### Aug 04 13:48 UTC — Intraday Daemon Entry
 **DDD** long 2492 sh @ ~$3.40 (actual fill) | stop $3.30 | target $3.60 (2.0:1) | gap 19.6%, ORB confirmed above $3.33 | Rule 1: 2492 x $0.10 = $254.18 (0.6% of $42,491 equity, cap 4%)
+
+<!-- DAEMON_ENTRY: DORM long 2026-08-04 -->
+### Aug 04 13:59 UTC — Intraday Daemon Entry
+**DORM** long 49 sh @ ~$153.00 (actual fill) | stop $148.41 | target $162.18 (2.0:1) | gap 19.8%, ORB confirmed above $151.94 | Rule 1: 49 x $4.59 = $224.91 (0.5% of $42,777 equity, cap 4%)
