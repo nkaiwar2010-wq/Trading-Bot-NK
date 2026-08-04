@@ -501,3 +501,7 @@ Combined backfilled realized loss: **-$1,796.64**. AEON is notable: entry and st
 <!-- DAEMON_ENTRY: CIFU long 2026-08-04 -->
 ### Aug 04 15:04 UTC — Intraday Daemon Entry
 **CIFU** long 382 sh @ ~$21.64 (actual fill) | stop $20.99 | target $22.94 (2.0:1) | gap -16.2%, ORB confirmed above $21.55 | Rule 1: 382 x $0.65 = $247.99 (0.6% of $41,808 equity, cap 4%)
+
+<!-- DAEMON_ENTRY: WETO long 2026-08-04 -->
+### Aug 04 15:08 UTC — Intraday Daemon Entry
+**WETO** long 1253 sh @ ~$5.94 (actual fill) | stop $5.76 | target $6.30 (2.0:1) | gap -17.1%, ORB confirmed above $5.49 | Rule 1: 1253 x $0.18 = $223.28 (0.5% of $41,803 equity, cap 4%)
